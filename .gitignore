@@ -1,0 +1,27 @@
+# Quarto generated working files
+.quarto/
+_freeze/
+*_cache/
+*_files/
+
+# R / RStudio session files
+.Rhistory
+.RData
+.Rproj.user/
+
+# Python local environment files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Temporary exports
+*.tmp
+*.log
