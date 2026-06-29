@@ -11,10 +11,9 @@ format:
     number-sections: false
     anchor-sections: true
     smooth-scroll: true
-    page-layout: full
+    page-layout: article
     theme: cosmo
     css: styles.css
-    include-after-body: theme-controls.html
     self-contained: true
     code-fold: true
     code-tools: true
@@ -27,117 +26,82 @@ execute:
 
 ::: {.report-hero}
 ::: {.hero-kicker}
-AAI1001 Data Engineering and Visualization · Team Project Proposal
+AAI1001 Team Project Proposal
 :::
 
 # Singapore Public Transport Ridership Recovery Across Bus, MRT & LRT
 
-::: {.hero-summary}
-This proposal studies how Singapore's public transport ridership recovered after Covid-19 across bus, MRT and LRT services. The selected Straits Times graphic gives a strong overview of daily rides from 2019 to 2025, but the redesign will make recovery, mode shift and baseline comparison easier to interpret.
+::: {.hero-author-label}
+Author
 :::
 
-::: {.hero-meta}
-<span>LAB-P1 Team 12</span>
-<span>Thaw Zin · Siyona · Wilson · Troy · Zayar</span>
-<span>Source focus: The Straits Times Graphics / Land Transport Authority</span>
-:::
-
-::: {.metric-grid}
-::: {.metric-card .metric-card-primary}
-<span class="metric-label">2025 total</span>
-<span class="metric-value">7.540M</span>
-<span class="metric-note">average public transport rides per day</span>
-:::
-
-::: {.metric-card}
-<span class="metric-label">MRT recovery</span>
-<span class="metric-value">3.490M</span>
-<span class="metric-note">2025 daily rides, above 2019 level</span>
-:::
-
-::: {.metric-card}
-<span class="metric-label">Bus gap</span>
-<span class="metric-value">-258K</span>
-<span class="metric-note">2025 bus rides versus 2019 baseline</span>
-:::
-
-::: {.metric-card}
-<span class="metric-label">LRT scale</span>
-<span class="metric-value">209K</span>
-<span class="metric-note">2025 daily rides, small but visible in the network mix</span>
-:::
+::: {.hero-author}
+LAB-P1 Team 12
 :::
 :::
 
 # Team Information
 
-::: {.info-panel}
-| Item | Details |
+| Name | Student ID |
 |---|---|
-| Module | AAI1001 Data Engineering and Visualization |
-| Team | LAB-P1 Team 12 |
-| Project Title | Singapore Public Transport Ridership Recovery Across Bus, MRT & LRT |
-| Original Visualization | Public transport: Average number of rides per day (in '000) |
-| Original Source | The Straits Times Graphics / Land Transport Authority |
-| Team Members | Thaw Zin, Siyona, Wilson, Troy, Zayar |
-:::
+| Thaw Zin | XXXXXXX |
+| Siyona | XXXXXXX |
+| Wilson Teng Hao Feng | 2503002 |
+| Troy | XXXXXXX |
+| Zayar | XXXXXXX |
 
 # 1. Introduction and Project Overview
 
 ## 1.1 Our Project's Aim
 
-::: {.section-lead}
-Singapore's public transport ridership has been recovering since the sharp disruption caused by Covid-19, but the recovery has not been equal across transport modes.
-:::
+Singapore's public transport ridership has recovered strongly since the disruption caused by Covid-19, but the recovery is not evenly distributed across buses, MRT and LRT. The selected Straits Times visualization is useful because it shows average daily rides from 2019 to 2025 in a single chart, allowing the 2019 pre-pandemic baseline to be compared with the later recovery years.
 
-Singapore's public transport system is a daily-use infrastructure network, so changes in ridership reveal more than transport volume alone. They also reflect commuter behaviour, hybrid work patterns, rail network expansion, service coverage and first- and last-mile travel demand. In 2025, MRT usage rose above its 2019 level, while bus ridership remained below its pre-pandemic level and LRT ridership slipped slightly from 2024. This creates a useful data story about how commuting patterns have changed across buses, MRT and LRT after the pandemic.
+Our project aims to use this original visualization as the starting point for a clearer data story about public transport recovery in Singapore. The key issue is not only whether total ridership has returned to its pre-pandemic level, but also how the recovery differs by transport mode. In the chart, MRT ridership in 2025 is above its 2019 level, bus ridership remains below its 2019 level, and LRT remains much smaller in scale while slipping slightly from 2024 to 2025.
 
-Our project aims to investigate the relationship between **year**, **transport mode**, **average daily ridership** and **post-pandemic recovery** in Singapore's public transport system. Instead of only showing the total number of daily rides, we want to make it easier to compare how each mode contributes to overall ridership and how each mode has recovered relative to 2019.
+The improved visualization will therefore focus on four connected dimensions: **year**, **transport mode**, **average daily ridership**, and **recovery relative to 2019**. This allows the project to move beyond a simple total-ridership comparison and examine how Singapore's public transport mode mix has changed over time.
 
 ::: {.question-grid}
 ::: {.question-card}
 <span class="question-index">Q1</span>
-How did average daily public transport ridership change from 2019 to 2025?
+How did Singapore's average daily public transport ridership change from 2019 to 2025?
 :::
 
 ::: {.question-card}
 <span class="question-index">Q2</span>
-Which mode, bus, MRT or LRT, contributed most to the post-pandemic recovery?
+How did bus, MRT and LRT ridership recover differently relative to the 2019 baseline?
 :::
 
 ::: {.question-card}
 <span class="question-index">Q3</span>
-Has Singapore's public transport ridership fully returned to its pre-Covid-19 pattern, or has the mode mix changed?
+Has the overall public transport mode mix changed even though total ridership has nearly recovered?
 :::
-:::
-
-::: {.insight-callout}
-**Design aim.** The final improved visualization should make the uneven recovery immediately visible: MRT has grown past its pre-pandemic level, buses have not fully recovered, and LRT remains a small but locally important part of the network.
 :::
 
 ## 1.2 Source & Context
 
 ::: {.source-card}
 <span class="source-label">Original article</span>
-**"More rides on MRT in 2025 as LRT use fell; bus ride numbers still below pre-Covid-19 levels"**  
-Published by *The Straits Times* on 30 January 2026, using Land Transport Authority ridership figures.
+**["More rides on MRT in 2025 as LRT use fell; bus ride numbers still below pre-Covid-19 levels"](https://www.straitstimes.com/singapore/transport/more-people-used-mrt-in-2025-as-lrt-ridership-falls-bus-numbers-still-below-pre-covid-levels)**  
+Published by *The Straits Times* on 30 January 2026. The article was written by Vanessa Paige Chelvan and reports Land Transport Authority (LTA) ridership figures.
 :::
 
-The chart we selected focuses on public transport. It shows the average number of daily rides, in thousands, for bus, MRT and LRT from 2019 to 2025. According to the article and chart, MRT ridership climbed to **3.49 million daily trips** in 2025, bus ridership averaged **3.841 million daily trips**, and LRT ridership fell slightly to **209,000 daily trips**.
+The chosen chart is a single quantitative news-media visualization about Singapore's public transport ridership. It shows the average number of daily rides, in thousands, for public bus, MRT and LRT services from 2019 to 2025. The underlying figures correspond to LTA's official **Average Public Transport Ridership By Year (2015 to 2025)** table, while the Straits Times article provides the news context and interpretation.
 
-The topic is suitable for this project because it is quantitative, current and socially relevant. Public transport ridership reflects changes in commuting behaviour, remote work, rail network expansion, first- and last-mile travel, and post-pandemic mobility patterns. The original chart already communicates the broad trend, but it creates opportunities for improvement because mode-level changes are not equally easy to compare.
+The key 2025 figures are consistent across the article, the chart and LTA's published data: MRT ridership reached **3.490 million daily trips**, bus ridership averaged **3.841 million daily trips**, and LRT ridership was **209,000 daily trips**. Compared with the 2019 baseline, MRT ridership increased from **3.384 million** to **3.490 million**, bus ridership remained below its 2019 level of **4.099 million**, and LRT was almost unchanged from **208,000** in 2019 after dipping slightly from **210,000** in 2024.
+
+The topic is suitable for this project because it is quantitative, current and socially relevant. Public transport ridership reflects changes in commuting behaviour, remote work, rail network expansion, first- and last-mile travel, and post-pandemic mobility patterns. The original chart already communicates the broad recovery trend, but it creates opportunities for improvement because recovery relative to 2019 and mode-level changes are not equally easy to compare.
 
 ::: {.data-source-grid}
 ::: {.data-source-card}
 <span class="card-kicker">Primary data direction</span>
-**LTA public transport ridership**  
-Average daily rides by year and transport mode.
+**LTA yearly public transport ridership**  
+Average daily rides by year and transport mode, measured in thousands.
 :::
 
 ::: {.data-source-card}
 <span class="card-kicker">Optional enrichment</span>
 **Transport network context**  
-Station, line or network milestone data where useful for explaining shifts.
+Relevant rail-network or service-context information, if needed to explain mode shifts.
 :::
 
 ::: {.data-source-card}
@@ -147,13 +111,13 @@ Mode share, year-on-year change and recovery index against 2019.
 :::
 :::
 
-These sources allow the project to move beyond a simple stacked total and examine recovery by mode, mode share and year-on-year change.
+Together, these sources allow the project to move beyond a simple stacked total and examine recovery by mode, mode share and year-on-year change.
 
-## 1.2 Our Chosen Visualization
+## 1.3 Our Chosen Visualization
 
-The chosen original visualization is a horizontal stacked bar chart titled **"Public transport"**, with the subtitle **"Average number of rides per day (in '000)"**. It was produced by Straits Times Graphics using Land Transport Authority data.
+![Original Straits Times visualization, "Public transport: Average number of rides per day (in '000)". Source: Straits Times Graphics; data source: Land Transport Authority.](ChosenVisualization.png){#fig-chosen-visualization fig-align="center" width="82%"}
 
-### 1.2.1 Visualization Structure and Design
+### 1.3.1 Visualization Structure and Design
 
 ::: {.figure-shell}
 ::: {.figure-header}
@@ -163,150 +127,139 @@ The chosen original visualization is a horizontal stacked bar chart titled **"Pu
 
 | Encoding | Meaning |
 |---|---|
-| Row position | Year from 2019 to 2025 |
-| Total label | Combined average daily public transport rides, in thousands |
-| Bar length | Total daily ridership |
-| Bar segments | Bus, MRT and LRT mode contribution |
-| Colour | Transport mode category |
+| Vertical row position | Year from 2019 to 2025 |
+| Horizontal stacked bar length | Total average daily ridership for that year |
+| Segment length | Average daily ridership for each transport mode, measured in thousands |
+| Colour hue | Transport mode: Bus, MRT or LRT |
+| Direct text labels | Total ridership beside each year; bus and MRT values inside the bar segments |
+| Colour intensity | Latest year, 2025, is visually emphasized; earlier years are faded |
 
 ::: {.figure-note}
-The original chart is useful as a compact overview, but the reader still needs to calculate mode-level recovery and baseline differences manually.
+The original chart is useful as a compact overview, but some analytical comparisons, especially recovery relative to 2019 and the small LRT values, are not directly shown.
 :::
 :::
 
 The original visualization is structured as a set of horizontal stacked bars, one row per year:
 
 - Each row represents one year from 2019 to 2025.
-- The bold number beside each year shows total average daily ridership across bus, MRT and LRT, in thousands.
-- Each stacked bar is split into three coloured segments: bus, MRT and LRT.
-- The bus and MRT segments include direct value labels. The LRT segment is visible as a small grey segment at the end of each bar.
+- The bold number beside each year shows the total average daily ridership across bus, MRT and LRT, in thousands.
+- Each stacked bar is divided into three coloured segments: dark blue for bus, blue for MRT and grey for LRT.
+- The bus and MRT segments include direct value labels, while the LRT segment is only shown as a small grey segment at the end of each bar.
+- The 2025 row uses stronger colour saturation than earlier years, directing attention to the most recent ridership figures.
 
-The visualization combines several dimensions:
+The chart directly encodes **three dimensions** and **one aggregate measure**. It also supports a derived comparison against the 2019 baseline, but that recovery comparison is not explicitly encoded in the original design:
 
 ::: {.comparison-table}
-| Dimension | How It Appears in the Original Chart |
-|---|---|
-| Year | One horizontal row for each year from 2019 to 2025 |
-| Transport mode | Colour-coded stacked segments for Bus, MRT and LRT |
-| Average daily ridership | Segment lengths and selected direct labels |
-| Total ridership | Bold number beside each year |
-| Post-pandemic recovery | 2019 baseline compared with 2020-2025 values |
+| Dimension (Bolded) / Comparison | Type | How It Appears in the Original Chart |
+|---|---|---|
+| **Year** | Temporal / ordinal | One horizontal row for each year from 2019 to 2025 |
+| **Transport mode** | Categorical | Colour-coded stacked segments for Bus, MRT and LRT |
+| **Average daily ridership by mode** | Quantitative measure | Segment lengths, with direct labels for bus and MRT |
+| Total average daily ridership | Aggregate quantitative measure | Bold total number beside each year and overall stacked bar length |
+| Recovery relative to 2019 | Derived comparison, not directly encoded | Readers must compare later rows with the 2019 row manually |
 :::
 
-This makes the chart useful for showing a broad recovery pattern, but some comparisons are still difficult. Readers can see that total ridership fell sharply in 2020 and then recovered, but they need to calculate differences manually to understand exactly which mode is driving the recovery.
+This structure makes the chart effective for showing the broad recovery pattern from 2019 to 2025. However, because the chart is a stacked bar chart, bus is the only mode with a consistent left baseline. MRT and LRT begin after earlier segments, making precise year-to-year mode comparison harder. The absence of direct LRT labels also means readers must subtract bus and MRT values from the total if they want exact LRT figures.
 
-### 1.2.2 The Story It Tells
+### 1.3.2 The Story It Tells
 
 ::: {.story-panel}
 ::: {.story-stat}
 <span class="story-value">7.691M → 5.040M → 7.540M</span>
-<span class="story-label">Total daily public transport rides fell sharply in 2020, then recovered close to the 2019 baseline by 2025.</span>
+<span class="story-label">Total daily public transport rides fell sharply in 2020, then recovered to about 98.0% of the 2019 level by 2025.</span>
 :::
 :::
 
-The original visualization tells a story about Singapore's public transport recovery after Covid-19. Total average daily public transport ridership fell from **7.691 million rides in 2019** to **5.040 million rides in 2020**, before recovering steadily to **7.540 million rides in 2025**.
+The original visualization shows a clear pattern about Singapore's public transport recovery after Covid-19. The overall recovery looks strong, but the mode-level details show that ridership did not return in exactly the same pattern as before the pandemic.
 
-The mode-level story is more nuanced. MRT ridership increased from **3.384 million daily rides in 2019** to **3.490 million in 2025**, meaning it has recovered beyond the pre-pandemic level. Bus ridership increased slightly from 2024 to 2025, but its 2025 figure of **3.841 million** remains below the 2019 figure of **4.099 million**. LRT ridership is much smaller than the other two modes and slipped slightly from **210,000 daily rides in 2024** to **209,000 in 2025**.
+**Total ridership nearly recovered.** Total average daily public transport ridership fell from **7.691 million rides in 2019** to **5.040 million rides in 2020**, before rising to **7.540 million rides in 2025**. This means 2025 ridership was about **98.0% of the 2019 level**.
 
-::: {.analysis-grid}
-::: {.analysis-card}
-<span class="card-kicker">Total recovery</span>
-The system has nearly returned to its pre-pandemic daily volume, but the recovery is not evenly distributed across modes.
-:::
+**MRT recovered more strongly than buses.** MRT ridership increased from **3.384 million daily rides in 2019** to **3.490 million in 2025**, exceeding its pre-pandemic level by about **106,000 daily rides**. Bus ridership remained below its 2019 level, decreasing from **4.099 million** to **3.841 million**, a gap of about **258,000 daily rides**.
 
-::: {.analysis-card}
-<span class="card-kicker">MRT shift</span>
-MRT appears to be gaining relative importance because its 2025 ridership exceeds the 2019 level.
-:::
+**The balance between transport modes changed.** MRT's share of total ridership increased, while bus share decreased. Buses accounted for about **53.3%** of daily rides in 2019 but about **50.9%** in 2025, while MRT rose from about **44.0%** to **46.3%**. LRT stayed much smaller in scale, at **209,000 daily rides in 2025**, almost unchanged from **208,000 in 2019**.
 
-::: {.analysis-card}
-<span class="card-kicker">Bus gap</span>
-Buses remain the largest single mode, but 2025 bus rides are still lower than the 2019 baseline.
-:::
-:::
-
-Overall, the original chart has a meaningful story, but the current design makes the reader work too hard to extract the most important analytical comparisons. Our project will preserve the useful stacked yearly overview while improving readability, highlighting recovery relative to 2019, and making mode-level changes easier to compare.
+Overall, the original chart gives a useful yearly overview of public transport recovery, but the current design makes the reader work too hard to extract the most important analytical comparisons. Our project will preserve the useful yearly overview while improving readability, highlighting recovery relative to 2019, and making changes in ridership share by transport mode easier to compare.
 
 # 2. Critical Analysis of Original Visualization
 
 ::: {.section-lead}
-What this section does: We evaluate the original chart's design choices by identifying what it does well and what limits its analytical value. These points directly motivate the redesign decisions in Section 3.
+This section reviews the original Straits Times chart by looking at both its useful features and its design limitations. The strengths show which parts of the chart should be retained, while the weaknesses highlight the areas that need improvement in the redesigned visualization.
 :::
 
-### Strengths
+### 2.1 Strengths
 
-What works well
+What works well in the original chart
 
 ::: {.critique-grid}
 ::: {.critique-card .positive}
-#### Stacked yearly bars combine total and mode context
+#### <span class="critique-id positive-id">S1.</span> Total ridership and mode split are shown together
 
-The chart's main strength is that it combines total ridership and mode composition in a single view. The bold total beside each year tells readers the overall number of average daily rides, while the stacked bar shows how that total is split across bus, MRT and LRT. This gives useful context because the same total can have different mode mixes.
+The chart's strongest feature is that it shows both the total number of average daily rides and the split between bus, MRT and LRT in one compact view. This is useful because the project story depends on both the overall recovery and the changing contribution of each mode. It also helps readers see that similar total ridership levels can still have different ridership distributions across transport modes.
 :::
 
 ::: {.critique-card .positive}
-#### Consistent colour encoding across transport modes
+#### <span class="critique-id positive-id">S2.</span> The year-by-year layout makes the recovery trend easy to follow
 
-The same transport modes are represented with consistent colours throughout the chart. Bus is shown in dark navy, MRT in blue and LRT in grey. This makes it easy for readers to track each mode across the different years.
+The rows are arranged by year from 2025 at the top to 2019 at the bottom, allowing readers to scan the post-pandemic fall and recovery across time. The large drop in 2020 and the gradual return toward the 2019 level are visible without needing a separate time-series chart.
 :::
 
 ::: {.critique-card .positive}
-#### Multi-variable analysis in a single chart
+#### <span class="critique-id positive-id">S3.</span> Consistent colour mapping supports mode recognition
 
-The chart successfully combines year, transport mode, mode-level ridership and total ridership in one figure. This is useful because the article's story depends on comparing multiple modes across time, rather than looking at only one transport type.
+Bus, MRT and LRT use the same colours across all years. Even though the older rows are faded, the repeated colour mapping helps readers recognise the same transport modes throughout the chart.
 :::
 
 ::: {.critique-card .positive}
-#### Clear legend and descriptive subtitle
+#### <span class="critique-id positive-id">S4.</span> Key labels and source information are included
 
-The chart title, subtitle, legend and source note are clear. The subtitle states the measurement unit, "Average number of rides per day (in '000)", and the source note credits the Land Transport Authority. These elements help readers understand what is being measured before interpreting the values.
+The title, subtitle, legend and source note give readers the basic context needed to interpret the chart. The subtitle states the unit, "Average number of rides per day (in '000)", and the source note credits the Land Transport Authority.
 :::
 :::
 
-### Weaknesses
+### 2.2 Weaknesses
 
-What limits analysis
+What limits deeper interpretation
 
 ::: {.critique-grid}
 ::: {.critique-card .risk}
-#### Mode-level comparison requires extra visual effort
+#### <span class="critique-id risk-id">W1.</span> The 2019 baseline is not visually marked
 
-The chart places year labels, total labels and stacked bars on the same row, but the visual emphasis is uneven. The total numbers are bold and easy to see, while some segment labels sit inside the bars and compete with the bar colours. Readers can read the chart, but it takes extra effort to compare mode-level changes across years.
+The article's story depends on whether ridership has returned to pre-Covid-19 levels, but the 2019 row is not marked as a baseline. Readers must manually compare 2020-2025 values against 2019 to judge recovery.
 :::
 
 ::: {.critique-card .risk}
-#### Pre-pandemic baseline is not visually emphasised
+#### <span class="critique-id risk-id">W2.</span> Stacked bars make MRT and LRT comparisons less direct
 
-The chart shows one stacked bar per year, but it does not provide a clear visual reference for the 2019 pre-pandemic baseline. Since the article's headline emphasizes whether ridership has returned to pre-Covid-19 levels, readers must mentally compare every later year against 2019.
+In a stacked bar chart, only the first segment starts from a common baseline. Bus is easier to compare across years because it begins at the same left edge, while MRT and LRT begin after the preceding segments. This makes year-to-year comparison for MRT and LRT less precise.
 :::
 
 ::: {.critique-card .risk}
-#### Stacked bars make MRT and LRT comparison less direct
+#### <span class="critique-id risk-id">W3.</span> LRT is visually compressed and not directly labelled
 
-In a stacked bar, only the first segment has a common baseline. Bus is easy to compare because it starts from the same left edge each year, but MRT starts after the bus segment, making year-to-year MRT comparison less direct. LRT is even harder to compare because it is a very small end segment.
+LRT ridership is much smaller than bus and MRT ridership, so its grey segment appears as a thin end strip. The chart also does not label LRT values directly, making the 2024 to 2025 change from 210,000 to 209,000 rides almost impossible to detect visually.
 :::
 
 ::: {.critique-card .risk}
-#### Small LRT segment is visually compressed
+#### <span class="critique-id risk-id">W4.</span> Recovery gaps are not calculated for the reader
 
-The LRT segment is much smaller than the bus and MRT segments, so it becomes visually compressed. Even though the article notes that LRT ridership fell slightly in 2025, the decline from 210,000 to 209,000 daily rides is almost impossible to detect from the bar length alone.
+The chart shows raw ridership values but does not show how far each mode is from its 2019 level or how values changed from year to year. Important comparisons, such as MRT being about 106,000 rides above 2019 while bus remains about 258,000 rides below 2019, have to be calculated separately by the reader.
 :::
 
 ::: {.critique-card .risk}
-#### No direct value annotations
+#### <span class="critique-id risk-id">W5.</span> Changes in ridership share are hidden inside totals
 
-The bus and MRT segments have direct value labels, but the small LRT segment is not directly labelled in the visible chart. Readers need to subtract bus and MRT values from the total to estimate LRT ridership. The chart also does not directly label year-on-year changes or recovery relative to 2019.
+The chart gives total ridership and mode values, but it does not directly show each mode's percentage share of total ridership. As a result, the shift from bus toward MRT is present in the data but not immediately visible.
 :::
 
 ::: {.critique-card .risk}
-#### Colour palette has accessibility concerns
+#### <span class="critique-id risk-id">W6.</span> Faded older rows reduce precise comparison
 
-The chart uses a restrained colour palette, but some older-year segments are faded while the 2025 row is strongly highlighted. This helps draw attention to the latest year, but it also makes precise comparison across years harder. The LRT grey segment is especially subtle because it is small and low contrast.
+The stronger colour in the 2025 row successfully draws attention to the latest year, but the faded older rows make exact cross-year comparison harder. This also creates a readability and accessibility concern, especially for the small grey LRT segment, which is both small and low contrast.
 :::
 :::
 
 ::: {.recommendation-callout}
-**Redesign direction.** The improved visualization should keep the compact yearly overview, but add explicit baseline markers, mode-level comparison support, labelled LRT values and change metrics that explain what has recovered, what has not, and how the mode mix changed.
+**Redesign direction.** The improved visualization should retain strengths S1 to S4 while addressing weaknesses W1 to W6 through a clearer 2019 baseline comparison, easier mode-level reading, direct LRT labelling, recovery-gap metrics and visible changes in ridership share by transport mode. This will help readers see what has recovered, what remains below the pre-pandemic level, and how the balance between transport modes has changed.
 :::
 
 # 3. Proposed Improvements
