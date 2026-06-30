@@ -2200,458 +2200,38 @@ vertical-align: -.125em;
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<style type="text/css">
-:root {
---text: #2f3337;
---muted: #5f6872;
---subtle: #7a838c;
---line: #d8dde3;
---line-soft: #eceff3;
---paper: #fffdfb;
---surface: #ffffff;
---tint: #f7f8fa;
---tint-strong: #eff3f7;
---accent: #284b78;
---title-accent: #184868;
---accent-soft: #dce8f5;
---positive: #357a58;
---warning: #9a5d18;
---font-sans: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
---font-heading: Cambria, "Times New Roman", Times, serif;
---font-mono: Consolas, "Liberation Mono", Menlo, monospace;
-}
-html {
-scroll-behavior: smooth;
-}
-body {
-background: var(--paper);
-color: var(--text);
-font-family: var(--font-sans);
-font-size: 16px;
-line-height: 1.62;
-}
-#quarto-content,
-.quarto-container,
-main.content {
-background: transparent;
-}
-main.content {
-max-width: 960px;
-margin: 0 auto;
-padding: 2rem 1.25rem 4rem;
-}
-.quarto-title-block {
-display: none;
-margin-bottom: 1.5rem;
-padding-bottom: 1.25rem;
-border-bottom: 1px solid var(--line);
-}
-.quarto-title-block .title {
-color: var(--text);
-font-size: 2.05rem;
-font-weight: 650;
-line-height: 1.18;
-}
-.quarto-title-block .subtitle,
-.quarto-title-block .quarto-title-meta {
-color: var(--muted);
-}
-h1,
-h2,
-h3,
-h4 {
-color: var(--text);
-font-family: var(--font-heading);
-font-weight: 650;
-letter-spacing: 0;
-line-height: 1.22;
-}
-h1 {
-margin-top: 2.75rem;
-margin-bottom: 1rem;
-padding-bottom: 0.42rem;
-border-bottom: 1px solid var(--line);
-color: var(--title-accent);
-font-size: 1.95rem;
-}
-h2 {
-margin-top: 2rem;
-margin-bottom: 0.75rem;
-color: #343a40;
-font-size: 1.35rem;
-}
-h3 {
-margin-top: 1.55rem;
-margin-bottom: 0.55rem;
-color: #3f454b;
-font-size: 1.08rem;
-}
-h4 {
-margin-top: 1rem;
-margin-bottom: 0.3rem;
-color: var(--accent);
-font-size: 1rem;
-}
-p {
-max-width: 78ch;
-margin-top: 0.55rem;
-margin-bottom: 0.85rem;
-color: var(--text);
-}
-a {
-color: var(--accent);
-}
-code {
-padding: 0.08rem 0.25rem;
-border-radius: 3px;
-background: var(--tint-strong);
-color: #1f3d5c;
-font-family: var(--font-mono);
-font-size: 0.92em;
-}
-main.content ul,
-main.content ol {
-max-width: 78ch;
-padding-left: 1.35rem;
-}
-main.content li {
-margin: 0.35rem 0;
-}
-blockquote {
-margin: 1rem 0;
-padding: 0.8rem 1rem;
-border-left: 4px solid var(--line);
-background: var(--tint);
-color: var(--muted);
-}
-table {
-width: 100%;
-margin: 1rem 0 1.35rem;
-border-collapse: collapse;
-background: var(--surface);
-font-size: 0.95rem;
-}
-th,
-td {
-padding: 0.58rem 0.68rem;
-border: 1px solid var(--line);
-vertical-align: top;
-}
-th {
-background: var(--tint-strong);
-color: var(--text);
-font-weight: 650;
-}
-tbody tr:nth-child(even) {
-background: #fbfcfd;
-}
-#TOC,
-#quarto-sidebar-toc-left {
-font-size: 0.88rem;
-}
-#TOC a,
-#quarto-sidebar-toc-left a {
-color: var(--muted);
-}
-#TOC a.active,
-#quarto-sidebar-toc-left a.active {
-color: var(--accent);
-font-weight: 650;
-}
-
-.report-hero {
-margin: 0 0 2rem;
-padding-bottom: 1.35rem;
-border-bottom: 1px solid var(--line);
-}
-.report-hero h1 {
-margin-top: 0.4rem;
-padding-bottom: 0;
-border-bottom: 0;
-color: var(--title-accent);
-font-size: 2.15rem;
-}
-.hero-kicker,
-.card-kicker,
-.source-label,
-.metric-label {
-color: var(--subtle);
-font-size: 0.78rem;
-font-weight: 700;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-}
-.hero-summary {
-max-width: 78ch;
-color: var(--muted);
-font-size: 1.02rem;
-}
-.hero-author-label {
-margin-top: 1.1rem;
-color: var(--subtle);
-font-size: 0.78rem;
-font-weight: 700;
-letter-spacing: 0.12em;
-text-transform: uppercase;
-}
-.hero-author {
-margin-top: 0.1rem;
-color: var(--text);
-font-size: 1rem;
-font-weight: 600;
-}
-.hero-meta {
-display: block;
-margin: 1rem 0;
-color: var(--muted);
-font-size: 0.94rem;
-}
-.hero-meta span {
-display: block;
-}
-.metric-grid,
-.question-grid,
-.data-source-grid,
-.analysis-grid,
-.critique-grid {
-display: block;
-margin: 1rem 0 1.35rem;
-}
-.metric-card,
-.question-card,
-.data-source-card,
-.analysis-card,
-.critique-card,
-.source-card,
-.info-panel,
-.figure-shell,
-.story-panel,
-.placeholder-panel,
-.insight-callout,
-.recommendation-callout {
-margin: 0.75rem 0;
-padding: 0.85rem 0 0.85rem 1rem;
-border: 0;
-border-left: 4px solid var(--line);
-border-radius: 0;
-background: var(--surface);
-box-shadow: none;
-}
-.metric-card {
-padding-left: 0;
-border-left: 0;
-background: transparent;
-}
-.metric-card + .metric-card {
-margin-top: 0.35rem;
-}
-.metric-value {
-display: inline;
-margin-right: 0.35rem;
-color: var(--text);
-font-size: 1rem;
-font-weight: 700;
-}
-.metric-note {
-color: var(--muted);
-}
-.section-lead {
-max-width: 78ch;
-margin: 0.75rem 0 1rem;
-padding: 0.8rem 0 0.8rem 1rem;
-border-left: 4px solid var(--accent);
-color: var(--text);
-font-size: 1rem;
-font-weight: 500;
-}
-.question-card,
-.data-source-card,
-.analysis-card {
-border-left-color: var(--accent-soft);
-}
-.question-index {
-display: inline;
-margin-right: 0.35rem;
-color: var(--accent);
-font-weight: 700;
-}
-.insight-callout {
-border-left-color: var(--positive);
-background: #f8fbf9;
-}
-.recommendation-callout {
-border-left-color: var(--warning);
-background: #fffaf2;
-}
-.source-card {
-border-left-color: var(--accent);
-background: var(--tint);
-}
-.figure-shell {
-padding-left: 0;
-border-left: 0;
-}
-.figure-header {
-margin-bottom: 0.5rem;
-padding-bottom: 0.35rem;
-border-bottom: 1px solid var(--line-soft);
-}
-.figure-title {
-display: block;
-color: var(--text);
-font-weight: 650;
-}
-.figure-subtitle,
-.figure-note {
-display: block;
-color: var(--muted);
-font-size: 0.93rem;
-}
-.figure-note {
-margin-top: 0.4rem;
-padding-top: 0.45rem;
-border-top: 1px solid var(--line-soft);
-}
-.story-value {
-display: block;
-color: var(--accent);
-font-size: 1.18rem;
-font-weight: 700;
-}
-.story-label {
-display: block;
-color: var(--muted);
-}
-.positive {
-border-left-color: var(--positive);
-}
-.risk {
-border-left-color: var(--warning);
-}
-.critique-id {
-font-weight: 700;
-}
-.critique-id.positive-id {
-color: var(--positive);
-}
-.critique-id.risk-id {
+<style type="text/css">:root {--text: #2f3337;--muted: #5f6872;--subtle: #7a838c;--line: #d8dde3;--line-soft: #eceff3;--paper: #fffdfb;--surface: #ffffff;--tint: #f7f8fa;--tint-strong: #eff3f7;--accent: #284b78;--title-accent: #184868;--accent-soft: #dce8f5;--positive: #357a58;--warning: #9a5d18;--font-sans: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;--font-heading: Cambria, "Times New Roman", Times, serif;--font-mono: Consolas, "Liberation Mono", Menlo, monospace;}html {scroll-behavior: smooth;}body {background: var(--paper);color: var(--text);font-family: var(--font-sans);font-size: 16px;line-height: 1.62;}#quarto-content,.quarto-container,main.content {background: transparent;}main.content {max-width: 960px;margin: 0 auto;padding: 2rem 1.25rem 4rem;}.quarto-title-block {display: none;margin-bottom: 1.5rem;padding-bottom: 1.25rem;border-bottom: 1px solid var(--line);}.quarto-title-block .title {color: var(--text);font-size: 2.05rem;font-weight: 650;line-height: 1.18;}.quarto-title-block .subtitle,.quarto-title-block .quarto-title-meta {color: var(--muted);}h1,h2,h3,h4 {color: var(--text);font-family: var(--font-heading);font-weight: 650;letter-spacing: 0;line-height: 1.22;}h1 {margin-top: 2.75rem;margin-bottom: 1rem;padding-bottom: 0.42rem;border-bottom: 1px solid var(--line);color: var(--title-accent);font-size: 1.95rem;}h2 {margin-top: 2rem;margin-bottom: 0.75rem;color: #343a40;font-size: 1.35rem;}h3 {margin-top: 1.55rem;margin-bottom: 0.55rem;color: #3f454b;font-size: 1.08rem;}h4 {margin-top: 1rem;margin-bottom: 0.3rem;color: var(--accent);font-size: 1rem;}p {max-width: 78ch;margin-top: 0.55rem;margin-bottom: 0.85rem;color: var(--text);}a {color: var(--accent);}code {padding: 0.08rem 0.25rem;border-radius: 3px;background: var(--tint-strong);color: #1f3d5c;font-family: var(--font-mono);font-size: 0.92em;}main.content ul,main.content ol {max-width: 78ch;padding-left: 1.35rem;}main.content li {margin: 0.35rem 0;}blockquote {margin: 1rem 0;padding: 0.8rem 1rem;border-left: 4px solid var(--line);background: var(--tint);color: var(--muted);}table {width: 100%;margin: 1rem 0 1.35rem;border-collapse: collapse;background: var(--surface);font-size: 0.95rem;}th,td {padding: 0.58rem 0.68rem;border: 1px solid var(--line);vertical-align: top;}th {background: var(--tint-strong);color: var(--text);font-weight: 650;}tbody tr:nth-child(even) {background: #fbfcfd;}#TOC,#quarto-sidebar-toc-left {font-size: 0.88rem;}#TOC a,#quarto-sidebar-toc-left a {color: var(--muted);}#TOC a.active,#quarto-sidebar-toc-left a.active {color: var(--accent);font-weight: 650;}.report-hero {margin: 0 0 2rem;padding-bottom: 1.35rem;border-bottom: 1px solid var(--line);}.report-hero h1 {margin-top: 0.4rem;padding-bottom: 0;border-bottom: 0;color: var(--title-accent);font-size: 2.15rem;}.hero-kicker,.card-kicker,.source-label,.metric-label {color: var(--subtle);font-size: 0.78rem;font-weight: 700;letter-spacing: 0.04em;text-transform: uppercase;}.hero-summary {max-width: 78ch;color: var(--muted);font-size: 1.02rem;}.hero-author-label {margin-top: 1.1rem;color: var(--subtle);font-size: 0.78rem;font-weight: 700;letter-spacing: 0.12em;text-transform: uppercase;}.hero-author {margin-top: 0.1rem;color: var(--text);font-size: 1rem;font-weight: 600;}.hero-meta {display: block;margin: 1rem 0;color: var(--muted);font-size: 0.94rem;}.hero-meta span {display: block;}.metric-grid,.question-grid,.data-source-grid,.analysis-grid,.critique-grid {display: block;margin: 1rem 0 1.35rem;}.metric-card,.question-card,.data-source-card,.analysis-card,.critique-card,.source-card,.info-panel,.figure-shell,.story-panel,.placeholder-panel,.insight-callout,.recommendation-callout {margin: 0.75rem 0;padding: 0.85rem 0 0.85rem 1rem;border: 0;border-left: 4px solid var(--line);border-radius: 0;background: var(--surface);box-shadow: none;}.metric-card {padding-left: 0;border-left: 0;background: transparent;}.metric-card + .metric-card {margin-top: 0.35rem;}.metric-value {display: inline;margin-right: 0.35rem;color: var(--text);font-size: 1rem;font-weight: 700;}.metric-note {color: var(--muted);}.section-lead {max-width: 78ch;margin: 0.75rem 0 1rem;padding: 0.8rem 0 0.8rem 1rem;border-left: 4px solid var(--accent);color: var(--text);font-size: 1rem;font-weight: 500;}.question-card,.data-source-card,.analysis-card {border-left-color: var(--accent-soft);}.question-index {display: inline;margin-right: 0.35rem;color: var(--accent);font-weight: 700;}.insight-callout {border-left-color: var(--positive);background: #f8fbf9;}.recommendation-callout {border-left-color: var(--warning);background: #fffaf2;}.source-card {border-left-color: var(--accent);background: var(--tint);}.figure-shell {padding-left: 0;border-left: 0;}.figure-header {margin-bottom: 0.5rem;padding-bottom: 0.35rem;border-bottom: 1px solid var(--line-soft);}.figure-title {display: block;color: var(--text);font-weight: 650;}.figure-subtitle,.figure-note {display: block;color: var(--muted);font-size: 0.93rem;}.figure-note {margin-top: 0.4rem;padding-top: 0.45rem;border-top: 1px solid var(--line-soft);}.story-value {display: block;color: var(--accent);font-size: 1.18rem;font-weight: 700;}.story-label {display: block;color: var(--muted);}.positive {border-left-color: var(--positive);}.risk {border-left-color: var(--warning);}.critique-id {font-weight: 700;}.critique-id.positive-id {color: var(--positive);}.critique-id.risk-id {
 color: var(--warning);
+}
+.severity-high,
+.severity-medium,
+.severity-low {
+font-weight: 700;
+}
+.severity-high {
+color: #b42318;
+}
+.severity-medium {
+color: #b76e00;
+}
+.severity-low {
+color: var(--positive);
 }
 .placeholder-panel {
 border-left-style: solid;
-border-left-color: var(--line);
-color: var(--muted);
-background: var(--tint);
-}
-.comparison-table table,
-.info-panel table,
-.figure-shell table {
-margin-top: 0.5rem;
-}
-.info-panel table th,
-#team-information table th {
-background: var(--title-accent);
-color: #ffffff;
-}
-#visualization-structure-and-design table th {
-background: var(--title-accent);
-color: #ffffff;
-}
-#proposed-improvements table th {
-background: var(--title-accent);
-color: #ffffff;
-}
-#improvement-plan table {
-table-layout: fixed;
-}
-#improvement-plan table th:nth-child(1),
+border-left-color: var(--line);color: var(--muted);background: var(--tint);}.comparison-table table,.info-panel table,.figure-shell table {margin-top: 0.5rem;}.info-panel table th,#team-information table th {background: var(--title-accent);color: #ffffff;}#visualization-structure-and-design table th {background: var(--title-accent);color: #ffffff;}#proposed-improvements table th {background: var(--title-accent);color: #ffffff;}#data-sources-data-quality table th {background: var(--title-accent);color: #ffffff;}#improvement-plan table {table-layout: fixed;}#improvement-plan table th:nth-child(1),
 #improvement-plan table td:nth-child(1) {
-width: 5cqb;
+width: 16%;
 }
 #improvement-plan table th:nth-child(2),
 #improvement-plan table td:nth-child(2) {
-width: 60%;
+width: 50%;
 }
 #improvement-plan table th:nth-child(3),
 #improvement-plan table td:nth-child(3) {
-width: 35%;
+width: 34%;
 }
-#how-the-single-chart-will-work table {
-table-layout: fixed;
-}
-#how-the-single-chart-will-work table th:nth-child(1),
-#how-the-single-chart-will-work table td:nth-child(1) {
-width: 20%;
-}
-#how-the-single-chart-will-work table th:nth-child(2),
-#how-the-single-chart-will-work table td:nth-child(2) {
-width: 80%;
-}
-#our-chosen-visualization figure {
-margin: 1rem 0 1.6rem;
-text-align: center;
-}
-#our-chosen-visualization figure img {
-height: auto;
-max-width: min(760px, 100%);
-}
-#our-chosen-visualization figcaption {
-max-width: 760px;
-margin: 0.6rem auto 0;
-color: var(--muted);
-font-size: 0.92rem;
-line-height: 1.45;
-text-align: left;
-}
-#visualization-structure-and-design > h3,
-#the-story-it-tells > h3 {
-margin-top: 1.8rem;
-margin-bottom: 0.35rem;
-padding-bottom: 0;
-border-bottom: 0;
-color: #343a40;
-font-size: 1.24rem;
-font-weight: 650;
-line-height: 1.22;
-}
-#visualization-structure-and-design > .figure-shell:first-of-type {
-margin-top: 0.25rem;
-}
-@media (max-width: 720px) {
-main.content {
-padding: 1.25rem 1rem 3rem;
-}
-.quarto-title-block .title,
-.report-hero h1 {
-font-size: 1.65rem;
-}
-h1 {
-font-size: 1.5rem;
-}
-h2 {
-font-size: 1.18rem;
-}
-table {
-display: block;
-overflow-x: auto;
-white-space: normal;
-}
-th,
-td {
-padding: 0.5rem;
-}
-}
-@media print {
-body,
-main.content {
-background: #ffffff;
-}
-a {
-color: var(--text);
-text-decoration: none;
-}
-}
-</style>
+#how-the-single-chart-will-work table {table-layout: fixed;}#how-the-single-chart-will-work table th:nth-child(1),#how-the-single-chart-will-work table td:nth-child(1) {width: 20%;}#how-the-single-chart-will-work table th:nth-child(2),#how-the-single-chart-will-work table td:nth-child(2) {width: 80%;}#our-chosen-visualization figure {margin: 1rem 0 1.6rem;text-align: center;}#our-chosen-visualization figure img {height: auto;max-width: min(760px, 100%);}#our-chosen-visualization figcaption {max-width: 760px;margin: 0.6rem auto 0;color: var(--muted);font-size: 0.92rem;line-height: 1.45;text-align: left;}#visualization-structure-and-design > h3,#the-story-it-tells > h3 {margin-top: 1.8rem;margin-bottom: 0.35rem;padding-bottom: 0;border-bottom: 0;color: #343a40;font-size: 1.24rem;font-weight: 650;line-height: 1.22;}#visualization-structure-and-design > .figure-shell:first-of-type {margin-top: 0.25rem;}@media (max-width: 720px) {main.content {padding: 1.25rem 1rem 3rem;}.quarto-title-block .title,.report-hero h1 {font-size: 1.65rem;}h1 {font-size: 1.5rem;}h2 {font-size: 1.18rem;}table {display: block;overflow-x: auto;white-space: normal;}th,td {padding: 0.5rem;}}@media print {body,main.content {background: #ffffff;}a {color: var(--text);text-decoration: none;}}</style>
 </head>
 
 <body class="quarto-light">
@@ -2696,6 +2276,7 @@ text-decoration: none;
   <li><a href="#supporting-context-data-raw-layout" id="toc-supporting-context-data-raw-layout" class="nav-link" data-scroll-target="#supporting-context-data-raw-layout">4.3.2 Supporting Context Data Raw Layout</a></li>
   <li><a href="#identified-data-quality-challenges" id="toc-identified-data-quality-challenges" class="nav-link" data-scroll-target="#identified-data-quality-challenges">4.3.3 Identified Data Quality Challenges</a></li>
   </ul></li>
+  <li><a href="#data-quality-summary" id="toc-data-quality-summary" class="nav-link" data-scroll-target="#data-quality-summary">4.4 Data Quality Summary</a></li>
   </ul></li>
   <li><a href="#data-engineering-workflow" id="toc-data-engineering-workflow" class="nav-link" data-scroll-target="#data-engineering-workflow">5. Data Engineering Workflow</a>
   <ul>
@@ -3175,8 +2756,8 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <h1>4. Data Sources &amp; Data Quality</h1>
 <section id="selected-datasets" class="level2">
 <h2 class="anchored" data-anchor-id="selected-datasets">4.1 Selected Datasets</h2>
-<div class="placeholder-panel">
-<p>To be completed after confirming the exact LTA dataset source and any supporting context data.</p>
+<div class="section-lead">
+<p>The improved visualization will use official Land Transport Authority ridership data as the numerical source. The Straits Times article and original chart are retained as the news-media source that defines the project story, but the final plotted values will come from LTA rather than being visually estimated from the image.</p>
 </div>
 <p>Primary Dataset</p>
 <table class="caption-top table">
@@ -3189,23 +2770,39 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <tbody>
 <tr class="odd">
 <td>Dataset name</td>
-<td></td>
+<td>Average Public Transport Ridership By Year (2015 to 2025)</td>
 </tr>
 <tr class="even">
+<td>Publisher</td>
+<td>Land Transport Authority (LTA), Singapore</td>
+</tr>
+<tr class="odd">
 <td>Source</td>
-<td></td>
+<td><a href="https://www.lta.gov.sg/content/ltagov/en/who_we_are/statistics_and_publications/statistics.html">LTA Statistics &amp; Publications</a>, Public Transport Ridership section. Direct file: <a href="https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/Public%20Transport%20Ridership%20-%20Average%20Daily%20Public%20Transport%20Ridership%20by%20Year.pdf">Average Daily Public Transport Ridership by Year PDF</a></td>
+</tr>
+<tr class="even">
+<td>Format</td>
+<td>PDF table</td>
+</tr>
+<tr class="odd">
+<td>Unit</td>
+<td>Average number of rides per day, in thousands</td>
+</tr>
+<tr class="even">
+<td>Coverage used</td>
+<td>2019 to 2025, matching the original Straits Times chart</td>
 </tr>
 <tr class="odd">
 <td>Variables needed</td>
-<td></td>
+<td>Year, Public Bus ridership, MRT ridership, LRT ridership</td>
 </tr>
 <tr class="even">
 <td>Role in project</td>
-<td></td>
+<td>Main dataset for the final chart. It will be used to calculate recovery index, 2019 gap, year-on-year change, total ridership and ridership share by transport mode.</td>
 </tr>
 </tbody>
 </table>
-<p>Secondary Dataset</p>
+<p>Supporting Dataset</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -3216,67 +2813,313 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <tbody>
 <tr class="odd">
 <td>Dataset name</td>
-<td></td>
+<td>Average Public Transport Ridership By Month (2019 to 2025)</td>
 </tr>
 <tr class="even">
+<td>Publisher</td>
+<td>Land Transport Authority (LTA), Singapore</td>
+</tr>
+<tr class="odd">
 <td>Source</td>
-<td></td>
+<td><a href="https://www.lta.gov.sg/content/ltagov/en/who_we_are/statistics_and_publications/statistics.html">LTA Statistics &amp; Publications</a>, Public Transport Ridership section. Direct file: <a href="https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/Public%20Transport%20Ridership%20-%20Average%20Daily%20Public%20Transport%20Ridership%20by%20Month.pdf">Average Daily Public Transport Ridership by Month PDF</a></td>
+</tr>
+<tr class="even">
+<td>Format</td>
+<td>PDF table</td>
+</tr>
+<tr class="odd">
+<td>Unit</td>
+<td>Average number of rides per day, in thousands</td>
+</tr>
+<tr class="even">
+<td>Coverage used</td>
+<td>2019 to 2025</td>
 </tr>
 <tr class="odd">
 <td>Variables needed</td>
-<td></td>
+<td>Month, year, Public Bus ridership, MRT ridership, LRT ridership</td>
 </tr>
 <tr class="even">
 <td>Role in project</td>
-<td></td>
+<td>Supporting source for validation and context. It can be used to check whether the annual recovery pattern is consistent with monthly ridership trends, but the final proposed chart will use the official yearly dataset as the authoritative source.</td>
+</tr>
+</tbody>
+</table>
+<p>Original News-Media Source</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Article</td>
+<td><a href="https://www.straitstimes.com/singapore/transport/more-people-used-mrt-in-2025-as-lrt-ridership-falls-bus-numbers-still-below-pre-covid-levels">“More rides on MRT in 2025 as LRT use fell; bus ride numbers still below pre-Covid-19 levels”</a></td>
+</tr>
+<tr class="even">
+<td>Publisher</td>
+<td>The Straits Times</td>
+</tr>
+<tr class="odd">
+<td>Author and date</td>
+<td>Vanessa Paige Chelvan, 30 January 2026</td>
+</tr>
+<tr class="even">
+<td>Role in project</td>
+<td>Defines the original news-media visualization, topic framing and critique target. It is not treated as the main numerical dataset because the underlying official ridership values are available from LTA.</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="justification-for-dataset-selection" class="level2">
 <h2 class="anchored" data-anchor-id="justification-for-dataset-selection">4.2 Justification for Dataset Selection</h2>
-<div class="placeholder-panel">
-<p>To be completed.</p>
-</div>
+<p>The yearly LTA ridership dataset is the most appropriate primary source because it directly matches the scope of the original visualization: yearly average daily ridership for public bus, MRT and LRT services. Using the official LTA table avoids estimating values from the Straits Times image and gives the project a reproducible numerical foundation.</p>
+<p>The dataset also supports the proposed redesign in Section 3. From the raw yearly values, we can create the measures needed for the interactive recovery-index chart. These measures will be fully derived in the later data engineering workflow, but they are listed here to show why the yearly dataset is suitable for the redesign.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 64%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Measure Needed</th>
+<th>Purpose in the Improved Visualization</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Total ridership</td>
+<td>Preserves the original chart’s total-ridership context</td>
+</tr>
+<tr class="even">
+<td>Recovery index</td>
+<td>Makes the 2019 baseline explicit and comparable across modes</td>
+</tr>
+<tr class="odd">
+<td>Gap from 2019</td>
+<td>Shows how far each mode is above or below the pre-Covid level</td>
+</tr>
+<tr class="even">
+<td>Year-on-year change</td>
+<td>Supports tooltip explanation of recovery momentum</td>
+</tr>
+<tr class="odd">
+<td>Ridership share by transport mode</td>
+<td>Shows whether the balance between Bus, MRT and LRT changed</td>
+</tr>
+</tbody>
+</table>
+<p>The monthly LTA dataset is useful as a supporting source, but it should not replace the annual table for the main chart. Monthly values can help check the annual recovery pattern and provide context if needed. However, since the proposed final visualization is annual, the official yearly table will remain the authoritative source for the plotted values.</p>
+<p>Together, the selected sources satisfy the project requirements: the original visualization comes from an online news-media source, while the curated data for the improved visualization comes from an official public data source that supports cleaning, transformation and analysis.</p>
 </section>
 <section id="raw-data-structure-and-known-challenges" class="level2">
 <h2 class="anchored" data-anchor-id="raw-data-structure-and-known-challenges">4.3 Raw Data Structure and Known Challenges</h2>
-<div class="placeholder-panel">
-<p>To be completed.</p>
-</div>
+<p>The raw data is compact but not immediately analysis-ready because the LTA files are PDF tables rather than tidy CSV files. We will therefore document extraction, unit handling, mode labels and validation checks carefully before creating the visualization-ready dataset.</p>
 <section id="public-transport-ridership-raw-layout" class="level3">
 <h3 class="anchored" data-anchor-id="public-transport-ridership-raw-layout">4.3.1 Public Transport Ridership Raw Layout</h3>
-<div class="placeholder-panel">
-<p>To be completed.</p>
-</div>
+<p>The primary yearly source is a PDF table titled <strong>Average Public Transport Ridership By Year</strong>. It contains one row per year and separate columns for public bus, MRT and LRT ridership. The useful raw structure is:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Raw Column</th>
+<th>Meaning</th>
+<th>Planned Clean Column</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Year</td>
+<td>Calendar year</td>
+<td><code>year</code></td>
+</tr>
+<tr class="even">
+<td>Public Bus</td>
+<td>Average daily public bus rides, in thousands</td>
+<td><code>bus_rides_k</code></td>
+</tr>
+<tr class="odd">
+<td>MRT</td>
+<td>Average daily MRT rides, in thousands</td>
+<td><code>mrt_rides_k</code></td>
+</tr>
+<tr class="even">
+<td>LRT</td>
+<td>Average daily LRT rides, in thousands</td>
+<td><code>lrt_rides_k</code></td>
+</tr>
+</tbody>
+</table>
+<p>For the proposed visualization, the 2019-2025 subset will be used:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Year</th>
+<th style="text-align: right;">Public Bus (’000)</th>
+<th style="text-align: right;">MRT (’000)</th>
+<th style="text-align: right;">LRT (’000)</th>
+<th style="text-align: right;">Total (’000)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2019</td>
+<td style="text-align: right;">4,099</td>
+<td style="text-align: right;">3,384</td>
+<td style="text-align: right;">208</td>
+<td style="text-align: right;">7,691</td>
+</tr>
+<tr class="even">
+<td>2020</td>
+<td style="text-align: right;">2,878</td>
+<td style="text-align: right;">2,023</td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">5,040</td>
+</tr>
+<tr class="odd">
+<td>2021</td>
+<td style="text-align: right;">3,008</td>
+<td style="text-align: right;">2,100</td>
+<td style="text-align: right;">151</td>
+<td style="text-align: right;">5,259</td>
+</tr>
+<tr class="even">
+<td>2022</td>
+<td style="text-align: right;">3,461</td>
+<td style="text-align: right;">2,745</td>
+<td style="text-align: right;">184</td>
+<td style="text-align: right;">6,390</td>
+</tr>
+<tr class="odd">
+<td>2023</td>
+<td style="text-align: right;">3,747</td>
+<td style="text-align: right;">3,243</td>
+<td style="text-align: right;">202</td>
+<td style="text-align: right;">7,192</td>
+</tr>
+<tr class="even">
+<td>2024</td>
+<td style="text-align: right;">3,837</td>
+<td style="text-align: right;">3,412</td>
+<td style="text-align: right;">210</td>
+<td style="text-align: right;">7,459</td>
+</tr>
+<tr class="odd">
+<td>2025</td>
+<td style="text-align: right;">3,841</td>
+<td style="text-align: right;">3,490</td>
+<td style="text-align: right;">209</td>
+<td style="text-align: right;">7,540</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="supporting-context-data-raw-layout" class="level3">
 <h3 class="anchored" data-anchor-id="supporting-context-data-raw-layout">4.3.2 Supporting Context Data Raw Layout</h3>
-<div class="placeholder-panel">
-<p>To be completed.</p>
-</div>
+<p>The monthly LTA source has a similar structure but is organised by month rather than by year. It will be treated as supporting context only unless we decide to add monthly validation in the final analysis.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Raw Column</th>
+<th>Meaning</th>
+<th>Planned Clean Column</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Month / Year</td>
+<td>Monthly observation date</td>
+<td><code>month</code>, <code>year</code>, <code>date</code></td>
+</tr>
+<tr class="even">
+<td>Public Bus</td>
+<td>Average daily public bus rides for the month, in thousands</td>
+<td><code>bus_rides_k</code></td>
+</tr>
+<tr class="odd">
+<td>MRT</td>
+<td>Average daily MRT rides for the month, in thousands</td>
+<td><code>mrt_rides_k</code></td>
+</tr>
+<tr class="even">
+<td>LRT</td>
+<td>Average daily LRT rides for the month, in thousands</td>
+<td><code>lrt_rides_k</code></td>
+</tr>
+</tbody>
+</table>
+<p>The Straits Times article and local <code>ChosenVisualization.png</code> image will be used only as documentation of the original visualization. We will not digitise values from the image for the final dataset because the official LTA source provides the underlying data directly.</p>
 </section>
 <section id="identified-data-quality-challenges" class="level3">
 <h3 class="anchored" data-anchor-id="identified-data-quality-challenges">4.3.3 Identified Data Quality Challenges</h3>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Issue</th>
+<th>Severity</th>
 <th>Planned Resolution</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td></td>
+<td>The primary source is a PDF table, not a machine-readable CSV file. Manual extraction could introduce transcription errors.</td>
+<td><span class="severity-high">High</span></td>
+<td>Extract the table carefully, then validate all 2019-2025 values against the original chart totals and the LTA PDF. Keep a raw copy and a cleaned table in the project folder for reproducibility.</td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
+<td>Units are published in thousands of average daily rides. It is easy to mix up thousands, millions and raw ride counts.</td>
+<td><span class="severity-high">High</span></td>
+<td>Store ridership values in a clearly named <code>*_rides_k</code> format, and create formatted labels such as “3.490M” only at the visualization stage.</td>
+</tr>
+<tr class="odd">
+<td>The LTA source labels bus ridership as “Public Bus”, while the Straits Times chart labels it as “Bus”.</td>
+<td><span class="severity-low">Low</span></td>
+<td>Standardise the mode label to <code>Bus</code> in the final chart, while documenting that it comes from LTA’s <code>Public Bus</code> column.</td>
+</tr>
+<tr class="even">
+<td>Annual values are average daily ridership, not total annual passenger trips.</td>
+<td><span class="severity-high">High</span></td>
+<td>Do not interpret the figures as yearly totals. Titles, subtitles, tooltips and captions will state “average daily rides” clearly.</td>
+</tr>
+<tr class="odd">
+<td>Monthly values should not be averaged naively to recreate annual values because months have different numbers of days.</td>
+<td><span class="severity-medium">Medium</span></td>
+<td>Use the official annual dataset as the authoritative source for the final chart. If monthly data is used for validation, treat it as contextual rather than as a replacement for annual figures.</td>
+</tr>
+<tr class="even">
+<td>LRT values are small relative to bus and MRT, so rounding can make small differences look more precise than they are.</td>
+<td><span class="severity-medium">Medium</span></td>
+<td>Label LRT values clearly, but interpret small changes such as 210,000 to 209,000 rides cautiously. Use the recovery-index view to make the trend readable without overstating the magnitude.</td>
+</tr>
+<tr class="odd">
+<td>The latest available yearly dataset may be updated by LTA in future releases.</td>
+<td><span class="severity-low">Low</span></td>
+<td>Record the retrieval date and source links in the references. If the LTA file changes, rerun the cleaning pipeline and compare outputs before updating the final visualization.</td>
 </tr>
 </tbody>
 </table>
 </section>
+</section>
+<section id="data-quality-summary" class="level2">
+<h2 class="anchored" data-anchor-id="data-quality-summary">4.4 Data Quality Summary</h2>
+<p>Overall, the selected LTA datasets are suitable because they are official, directly related to the original Straits Times chart and use consistent transport-mode categories. The main data quality issues are not about missing data, but about correct interpretation and careful preparation. The most important issues are the unit of measurement, the use of 2019 as the baseline, the small scale of LRT ridership and the need to calculate recovery comparisons clearly.</p>
+<p>These issues will be handled in the later data engineering workflow so that the final visualization can show recovery relative to 2019, differences between Bus, MRT and LRT, and changes in ridership share by transport mode.</p>
 </section>
 </section>
 <section id="data-engineering-workflow" class="level1">
@@ -4505,236 +4348,298 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.1 Selected Datasets</span></span>
 <span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>To be completed after confirming the exact LTA dataset source and any supporting context data.</span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>::: {.section-lead}</span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>The improved visualization will use official Land Transport Authority ridership data as the numerical source. The Straits Times article and original chart are retained as the news-media source that defines the project story, but the final plotted values will come from LTA rather than being visually estimated from the image.</span>
 <span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>Primary Dataset</span>
 <span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Field <span class="pp">|</span> Details <span class="pp">|</span></span>
 <span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
-<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dataset name <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Source <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variables needed <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Role in project <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>Secondary Dataset</span>
-<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Field <span class="pp">|</span> Details <span class="pp">|</span></span>
-<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
-<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dataset name <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Source <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variables needed <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Role in project <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.2 Justification for Dataset Selection</span></span>
-<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.3 Raw Data Structure and Known Challenges</span></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dataset name <span class="pp">|</span> Average Public Transport Ridership By Year (2015 to 2025) <span class="pp">|</span></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Publisher <span class="pp">|</span> Land Transport Authority (LTA), Singapore <span class="pp">|</span></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Source <span class="pp">|</span> <span class="co">[</span><span class="ot">LTA Statistics &amp; Publications</span><span class="co">](https://www.lta.gov.sg/content/ltagov/en/who_we_are/statistics_and_publications/statistics.html)</span>, Public Transport Ridership section. Direct file: <span class="co">[</span><span class="ot">Average Daily Public Transport Ridership by Year PDF</span><span class="co">](https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/Public%20Transport%20Ridership%20-%20Average%20Daily%20Public%20Transport%20Ridership%20by%20Year.pdf)</span> <span class="pp">|</span></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Format <span class="pp">|</span> PDF table <span class="pp">|</span></span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Unit <span class="pp">|</span> Average number of rides per day, in thousands <span class="pp">|</span></span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Coverage used <span class="pp">|</span> 2019 to 2025, matching the original Straits Times chart <span class="pp">|</span></span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variables needed <span class="pp">|</span> Year, Public Bus ridership, MRT ridership, LRT ridership <span class="pp">|</span></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Role in project <span class="pp">|</span> Main dataset for the final chart. It will be used to calculate recovery index, 2019 gap, year-on-year change, total ridership and ridership share by transport mode. <span class="pp">|</span></span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>Supporting Dataset</span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Field <span class="pp">|</span> Details <span class="pp">|</span></span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dataset name <span class="pp">|</span> Average Public Transport Ridership By Month (2019 to 2025) <span class="pp">|</span></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Publisher <span class="pp">|</span> Land Transport Authority (LTA), Singapore <span class="pp">|</span></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Source <span class="pp">|</span> <span class="co">[</span><span class="ot">LTA Statistics &amp; Publications</span><span class="co">](https://www.lta.gov.sg/content/ltagov/en/who_we_are/statistics_and_publications/statistics.html)</span>, Public Transport Ridership section. Direct file: <span class="co">[</span><span class="ot">Average Daily Public Transport Ridership by Month PDF</span><span class="co">](https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/Public%20Transport%20Ridership%20-%20Average%20Daily%20Public%20Transport%20Ridership%20by%20Month.pdf)</span> <span class="pp">|</span></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Format <span class="pp">|</span> PDF table <span class="pp">|</span></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Unit <span class="pp">|</span> Average number of rides per day, in thousands <span class="pp">|</span></span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Coverage used <span class="pp">|</span> 2019 to 2025 <span class="pp">|</span></span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variables needed <span class="pp">|</span> Month, year, Public Bus ridership, MRT ridership, LRT ridership <span class="pp">|</span></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Role in project <span class="pp">|</span> Supporting source for validation and context. It can be used to check whether the annual recovery pattern is consistent with monthly ridership trends, but the final proposed chart will use the official yearly dataset as the authoritative source. <span class="pp">|</span></span>
 <span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3.1 Public Transport Ridership Raw Layout</span></span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3.2 Supporting Context Data Raw Layout</span></span>
-<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3.3 Identified Data Quality Challenges</span></span>
-<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Issue <span class="pp">|</span> Planned Resolution <span class="pp">|</span></span>
-<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
-<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>Original News-Media Source</span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Field <span class="pp">|</span> Details <span class="pp">|</span></span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Article <span class="pp">|</span> <span class="co">[</span><span class="ot">&quot;More rides on MRT in 2025 as LRT use fell; bus ride numbers still below pre-Covid-19 levels&quot;</span><span class="co">](https://www.straitstimes.com/singapore/transport/more-people-used-mrt-in-2025-as-lrt-ridership-falls-bus-numbers-still-below-pre-covid-levels)</span> <span class="pp">|</span></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Publisher <span class="pp">|</span> The Straits Times <span class="pp">|</span></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Author and date <span class="pp">|</span> Vanessa Paige Chelvan, 30 January 2026 <span class="pp">|</span></span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Role in project <span class="pp">|</span> Defines the original news-media visualization, topic framing and critique target. It is not treated as the main numerical dataset because the underlying official ridership values are available from LTA. <span class="pp">|</span></span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.2 Justification for Dataset Selection</span></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a>The yearly LTA ridership dataset is the most appropriate primary source because it directly matches the scope of the original visualization: yearly average daily ridership for public bus, MRT and LRT services. Using the official LTA table avoids estimating values from the Straits Times image and gives the project a reproducible numerical foundation.</span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>The dataset also supports the proposed redesign in Section 3. From the raw yearly values, we can create the measures needed for the interactive recovery-index chart. These measures will be fully derived in the later data engineering workflow, but they are listed here to show why the yearly dataset is suitable for the redesign.</span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Measure Needed                    <span class="pp">|</span> Purpose in the Improved Visualization                         <span class="pp">|</span></span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="pp">| ---------------------------------</span> <span class="pp">| -------------------------------------------------------------</span> <span class="pp">|</span></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Total ridership                   <span class="pp">|</span> Preserves the original chart&#39;s total-ridership context        <span class="pp">|</span></span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Recovery index                    <span class="pp">|</span> Makes the 2019 baseline explicit and comparable across modes  <span class="pp">|</span></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Gap from 2019                     <span class="pp">|</span> Shows how far each mode is above or below the pre-Covid level <span class="pp">|</span></span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Year-on-year change               <span class="pp">|</span> Supports tooltip explanation of recovery momentum             <span class="pp">|</span></span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Ridership share by transport mode <span class="pp">|</span> Shows whether the balance between Bus, MRT and LRT changed    <span class="pp">|</span></span>
 <span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a><span class="fu"># 5. Data Engineering Workflow</span></span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a>The monthly LTA dataset is useful as a supporting source, but it should not replace the annual table for the main chart. Monthly values can help check the annual recovery pattern and provide context if needed. However, since the proposed final visualization is annual, the official yearly table will remain the authoritative source for the plotted values.</span>
 <span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.1 Planned Data Engineering Pipeline</span></span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a>Together, the selected sources satisfy the project requirements: the original visualization comes from an online news-media source, while the curated data for the improved visualization comes from an official public data source that supports cleaning, transformation and analysis.</span>
 <span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.3 Raw Data Structure and Known Challenges</span></span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>The raw data is compact but not immediately analysis-ready because the LTA files are PDF tables rather than tidy CSV files. We will therefore document extraction, unit handling, mode labels and validation checks carefully before creating the visualization-ready dataset.</span>
 <span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>Pipeline Principle</span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3.1 Public Transport Ridership Raw Layout</span></span>
 <span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>Each stage should produce a named intermediate object so the workflow is reproducible, inspectable and easy to rerun.</span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Stage <span class="pp">|</span> Input <span class="pp">|</span> Main Operations <span class="pp">|</span> Output <span class="pp">|</span></span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1. Ingest Raw Ridership Data <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2. Standardise Units, Years and Mode Labels <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3. Reshape to Long (Tidy) Format <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4. Derive Mode Shares, Recovery Index and Change Metrics <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5. Join, Validate and Export Visualization-Ready Objects <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.2 Planned Cleaning and Transformation Decisions</span></span>
-<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> # <span class="pp">|</span> Issue <span class="pp">|</span> Decision <span class="pp">|</span> Rationale <span class="pp">|</span></span>
-<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
-<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D1 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D2 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D3 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D4 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D5 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3 Target Output Schema</span></span>
-<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>The primary yearly source is a PDF table titled **Average Public Transport Ridership By Year**. It contains one row per year and separate columns for public bus, MRT and LRT ridership. The useful raw structure is:</span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Raw Column <span class="pp">|</span> Meaning <span class="pp">|</span> Planned Clean Column <span class="pp">|</span></span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Year <span class="pp">|</span> Calendar year <span class="pp">|</span> <span class="in">`year`</span> <span class="pp">|</span></span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Public Bus <span class="pp">|</span> Average daily public bus rides, in thousands <span class="pp">|</span> <span class="in">`bus_rides_k`</span> <span class="pp">|</span></span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MRT <span class="pp">|</span> Average daily MRT rides, in thousands <span class="pp">|</span> <span class="in">`mrt_rides_k`</span> <span class="pp">|</span></span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> LRT <span class="pp">|</span> Average daily LRT rides, in thousands <span class="pp">|</span> <span class="in">`lrt_rides_k`</span> <span class="pp">|</span></span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>For the proposed visualization, the 2019-2025 subset will be used:</span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Year <span class="pp">|</span> Public Bus (&#39;000) <span class="pp">|</span> MRT (&#39;000) <span class="pp">|</span> LRT (&#39;000) <span class="pp">|</span> Total (&#39;000) <span class="pp">|</span></span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---:|---:|---:|---:|</span></span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2019 <span class="pp">|</span> 4,099 <span class="pp">|</span> 3,384 <span class="pp">|</span> 208 <span class="pp">|</span> 7,691 <span class="pp">|</span></span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2020 <span class="pp">|</span> 2,878 <span class="pp">|</span> 2,023 <span class="pp">|</span> 139 <span class="pp">|</span> 5,040 <span class="pp">|</span></span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2021 <span class="pp">|</span> 3,008 <span class="pp">|</span> 2,100 <span class="pp">|</span> 151 <span class="pp">|</span> 5,259 <span class="pp">|</span></span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2022 <span class="pp">|</span> 3,461 <span class="pp">|</span> 2,745 <span class="pp">|</span> 184 <span class="pp">|</span> 6,390 <span class="pp">|</span></span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2023 <span class="pp">|</span> 3,747 <span class="pp">|</span> 3,243 <span class="pp">|</span> 202 <span class="pp">|</span> 7,192 <span class="pp">|</span></span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2024 <span class="pp">|</span> 3,837 <span class="pp">|</span> 3,412 <span class="pp">|</span> 210 <span class="pp">|</span> 7,459 <span class="pp">|</span></span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2025 <span class="pp">|</span> 3,841 <span class="pp">|</span> 3,490 <span class="pp">|</span> 209 <span class="pp">|</span> 7,540 <span class="pp">|</span></span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3.2 Supporting Context Data Raw Layout</span></span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a>The monthly LTA source has a similar structure but is organised by month rather than by year. It will be treated as supporting context only unless we decide to add monthly validation in the final analysis.</span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Raw Column <span class="pp">|</span> Meaning <span class="pp">|</span> Planned Clean Column <span class="pp">|</span></span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Month / Year <span class="pp">|</span> Monthly observation date <span class="pp">|</span> <span class="in">`month`</span>, <span class="in">`year`</span>, <span class="in">`date`</span> <span class="pp">|</span></span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Public Bus <span class="pp">|</span> Average daily public bus rides for the month, in thousands <span class="pp">|</span> <span class="in">`bus_rides_k`</span> <span class="pp">|</span></span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MRT <span class="pp">|</span> Average daily MRT rides for the month, in thousands <span class="pp">|</span> <span class="in">`mrt_rides_k`</span> <span class="pp">|</span></span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> LRT <span class="pp">|</span> Average daily LRT rides for the month, in thousands <span class="pp">|</span> <span class="in">`lrt_rides_k`</span> <span class="pp">|</span></span>
 <span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>ridership_data · Primary Visualization Table</span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>The Straits Times article and local <span class="in">`ChosenVisualization.png`</span> image will be used only as documentation of the original visualization. We will not digitise values from the image for the final dataset because the official LTA source provides the underlying data directly.</span>
 <span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
-<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>mode_labels · Annotation Table</span>
-<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
-<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3.3 Identified Data Quality Challenges</span></span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Issue <span class="pp">|</span> Severity <span class="pp">|</span> Planned Resolution <span class="pp">|</span></span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> The primary source is a PDF table, not a machine-readable CSV file. Manual extraction could introduce transcription errors. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-high&quot;</span><span class="dt">&gt;</span>High<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Extract the table carefully, then validate all 2019-2025 values against the original chart totals and the LTA PDF. Keep a raw copy and a cleaned table in the project folder for reproducibility. <span class="pp">|</span></span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Units are published in thousands of average daily rides. It is easy to mix up thousands, millions and raw ride counts. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-high&quot;</span><span class="dt">&gt;</span>High<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Store ridership values in a clearly named <span class="in">`*_rides_k`</span> format, and create formatted labels such as &quot;3.490M&quot; only at the visualization stage. <span class="pp">|</span></span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> The LTA source labels bus ridership as &quot;Public Bus&quot;, while the Straits Times chart labels it as &quot;Bus&quot;. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-low&quot;</span><span class="dt">&gt;</span>Low<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Standardise the mode label to <span class="in">`Bus`</span> in the final chart, while documenting that it comes from LTA&#39;s <span class="in">`Public Bus`</span> column. <span class="pp">|</span></span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Annual values are average daily ridership, not total annual passenger trips. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-high&quot;</span><span class="dt">&gt;</span>High<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Do not interpret the figures as yearly totals. Titles, subtitles, tooltips and captions will state &quot;average daily rides&quot; clearly. <span class="pp">|</span></span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Monthly values should not be averaged naively to recreate annual values because months have different numbers of days. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-medium&quot;</span><span class="dt">&gt;</span>Medium<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Use the official annual dataset as the authoritative source for the final chart. If monthly data is used for validation, treat it as contextual rather than as a replacement for annual figures. <span class="pp">|</span></span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> LRT values are small relative to bus and MRT, so rounding can make small differences look more precise than they are. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-medium&quot;</span><span class="dt">&gt;</span>Medium<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Label LRT values clearly, but interpret small changes such as 210,000 to 209,000 rides cautiously. Use the recovery-index view to make the trend readable without overstating the magnitude. <span class="pp">|</span></span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> The latest available yearly dataset may be updated by LTA in future releases. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-low&quot;</span><span class="dt">&gt;</span>Low<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Record the retrieval date and source links in the references. If the LTA file changes, rerun the cleaning pipeline and compare outputs before updating the final visualization. <span class="pp">|</span></span>
 <span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4 Illustrative Code Structure</span></span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.4 Data Quality Summary</span></span>
 <span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>Overall, the selected LTA datasets are suitable because they are official, directly related to the original Straits Times chart and use consistent transport-mode categories. The main data quality issues are not about missing data, but about correct interpretation and careful preparation. The most important issues are the unit of measurement, the use of 2019 as the baseline, the small scale of LRT ridership and the need to calculate recovery comparisons clearly.</span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>These issues will be handled in the later data engineering workflow so that the final visualization can show recovery relative to 2019, differences between Bus, MRT and LRT, and changes in ridership share by transport mode.</span>
 <span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.5 Reproducibility Considerations</span></span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a><span class="fu"># 5. Data Engineering Workflow</span></span>
 <span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6. Data Analysis Plan</span></span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.1 Planned Data Engineering Pipeline</span></span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.1 What This Analysis Is For</span></span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a>Pipeline Principle</span>
 <span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a>Each stage should produce a named intermediate object so the workflow is reproducible, inspectable and easy to rerun.</span>
 <span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.2 Measures We Will Compute</span></span>
-<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Measure <span class="pp">|</span> Formula / Method <span class="pp">|</span> Interpretation <span class="pp">|</span></span>
-<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.3 Planned Analyses</span></span>
-<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a><span class="fu">### A1 — Recovery Gap from 2019 by Mode</span></span>
-<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a><span class="fu">### A2 — Mode Share Shift Across Bus, MRT and LRT</span></span>
-<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a><span class="fu">### A3 — Year-on-Year Ridership Recovery Momentum</span></span>
-<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Stage <span class="pp">|</span> Input <span class="pp">|</span> Main Operations <span class="pp">|</span> Output <span class="pp">|</span></span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1. Ingest Raw Ridership Data <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2. Standardise Units, Years and Mode Labels <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3. Reshape to Long (Tidy) Format <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4. Derive Mode Shares, Recovery Index and Change Metrics <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5. Join, Validate and Export Visualization-Ready Objects <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.2 Planned Cleaning and Transformation Decisions</span></span>
+<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> # <span class="pp">|</span> Issue <span class="pp">|</span> Decision <span class="pp">|</span> Rationale <span class="pp">|</span></span>
+<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D1 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D2 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D3 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D4 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D5 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3 Target Output Schema</span></span>
+<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a>ridership_data · Primary Visualization Table</span>
+<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
+<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
 <span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.4 Summary: What We Produce (2025)</span></span>
+<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a>mode_labels · Annotation Table</span>
 <span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ID <span class="pp">|</span> Question Answered (2025) <span class="pp">|</span> Output <span class="pp">|</span> Supports Which Insight <span class="pp">|</span> Data Needed <span class="pp">|</span></span>
+<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
 <span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A1 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A2 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A3 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a><span class="fu"># 7. Planned Work Distribution</span></span>
-<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a>To be completed with final task ownership.</span>
-<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Team Member <span class="pp">|</span> Primary Tasks <span class="pp">|</span> Est. Hours <span class="pp">|</span></span>
-<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Thaw Zin <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Siyona <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Wilson <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Troy <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Zayar <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> All Members <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4 Illustrative Code Structure</span></span>
+<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.5 Reproducibility Considerations</span></span>
+<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6. Data Analysis Plan</span></span>
+<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.1 What This Analysis Is For</span></span>
 <span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a><span class="fu"># 8. References</span></span>
-<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.1 Article Source</span></span>
+<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a>The Straits Times article URL and citation details will be finalized here.</span>
-<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.2 Data Sources</span></span>
+<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.2 Measures We Will Compute</span></span>
+<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a>LTA and supporting data source citations will be finalized here.</span>
-<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.3 Design Reference</span></span>
-<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a>Design and accessibility references will be finalized here if used.</span>
-<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a><span class="fu"># 9. Appendix: Data Dictionary</span></span>
-<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a>To be completed after the target output schema is confirmed.</span>
-<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.1 ridership_data — Primary Visualization Table</span></span>
-<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
-<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> year <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> mode <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> daily_rides_k <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> recovery_index <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Measure <span class="pp">|</span> Formula / Method <span class="pp">|</span> Interpretation <span class="pp">|</span></span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.3 Planned Analyses</span></span>
+<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a><span class="fu">### A1 — Recovery Gap from 2019 by Mode</span></span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a><span class="fu">### A2 — Mode Share Shift Across Bus, MRT and LRT</span></span>
+<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a><span class="fu">### A3 — Year-on-Year Ridership Recovery Momentum</span></span>
 <span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.2 mode_labels — Annotation Table</span></span>
-<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
-<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> year <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> mode <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> label_value <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> label_position <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
+<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.4 Summary: What We Produce (2025)</span></span>
+<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ID <span class="pp">|</span> Question Answered (2025) <span class="pp">|</span> Output <span class="pp">|</span> Supports Which Insight <span class="pp">|</span> Data Needed <span class="pp">|</span></span>
+<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A1 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A2 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A3 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a><span class="fu"># 7. Planned Work Distribution</span></span>
+<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a>To be completed with final task ownership.</span>
+<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Team Member <span class="pp">|</span> Primary Tasks <span class="pp">|</span> Est. Hours <span class="pp">|</span></span>
+<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Thaw Zin <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Siyona <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Wilson <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Troy <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Zayar <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> All Members <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a><span class="fu"># 8. References</span></span>
+<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-579"><a href="#cb1-579" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.1 Article Source</span></span>
+<span id="cb1-580"><a href="#cb1-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-581"><a href="#cb1-581" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-582"><a href="#cb1-582" aria-hidden="true" tabindex="-1"></a>The Straits Times article URL and citation details will be finalized here.</span>
+<span id="cb1-583"><a href="#cb1-583" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-584"><a href="#cb1-584" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-585"><a href="#cb1-585" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.2 Data Sources</span></span>
+<span id="cb1-586"><a href="#cb1-586" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-587"><a href="#cb1-587" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-588"><a href="#cb1-588" aria-hidden="true" tabindex="-1"></a>LTA and supporting data source citations will be finalized here.</span>
+<span id="cb1-589"><a href="#cb1-589" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-590"><a href="#cb1-590" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-591"><a href="#cb1-591" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.3 Design Reference</span></span>
+<span id="cb1-592"><a href="#cb1-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-593"><a href="#cb1-593" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-594"><a href="#cb1-594" aria-hidden="true" tabindex="-1"></a>Design and accessibility references will be finalized here if used.</span>
+<span id="cb1-595"><a href="#cb1-595" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-596"><a href="#cb1-596" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-597"><a href="#cb1-597" aria-hidden="true" tabindex="-1"></a><span class="fu"># 9. Appendix: Data Dictionary</span></span>
+<span id="cb1-598"><a href="#cb1-598" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-599"><a href="#cb1-599" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-600"><a href="#cb1-600" aria-hidden="true" tabindex="-1"></a>To be completed after the target output schema is confirmed.</span>
+<span id="cb1-601"><a href="#cb1-601" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-602"><a href="#cb1-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-603"><a href="#cb1-603" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.1 ridership_data — Primary Visualization Table</span></span>
+<span id="cb1-604"><a href="#cb1-604" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-605"><a href="#cb1-605" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
+<span id="cb1-606"><a href="#cb1-606" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb1-607"><a href="#cb1-607" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> year <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-608"><a href="#cb1-608" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> mode <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-609"><a href="#cb1-609" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> daily_rides_k <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-610"><a href="#cb1-610" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> recovery_index <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-611"><a href="#cb1-611" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-612"><a href="#cb1-612" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.2 mode_labels — Annotation Table</span></span>
+<span id="cb1-613"><a href="#cb1-613" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-614"><a href="#cb1-614" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
+<span id="cb1-615"><a href="#cb1-615" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb1-616"><a href="#cb1-616" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> year <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-617"><a href="#cb1-617" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> mode <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-618"><a href="#cb1-618" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> label_value <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-619"><a href="#cb1-619" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> label_position <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

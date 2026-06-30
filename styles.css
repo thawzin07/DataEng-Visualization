@@ -395,6 +395,24 @@ tbody tr:nth-child(even) {
   color: var(--warning);
 }
 
+.severity-high,
+.severity-medium,
+.severity-low {
+  font-weight: 700;
+}
+
+.severity-high {
+  color: #b42318;
+}
+
+.severity-medium {
+  color: #b76e00;
+}
+
+.severity-low {
+  color: var(--positive);
+}
+
 .placeholder-panel {
   border-left-style: solid;
   border-left-color: var(--line);
@@ -424,23 +442,28 @@ tbody tr:nth-child(even) {
   color: #ffffff;
 }
 
+#data-sources-data-quality table th {
+  background: var(--title-accent);
+  color: #ffffff;
+}
+
 #improvement-plan table {
   table-layout: fixed;
 }
 
 #improvement-plan table th:nth-child(1),
 #improvement-plan table td:nth-child(1) {
-  width: 5cqb;
+  width: 16%;
 }
 
 #improvement-plan table th:nth-child(2),
 #improvement-plan table td:nth-child(2) {
-  width: 60%;
+  width: 50%;
 }
 
 #improvement-plan table th:nth-child(3),
 #improvement-plan table td:nth-child(3) {
-  width: 35%;
+  width: 34%;
 }
 
 #how-the-single-chart-will-work table {

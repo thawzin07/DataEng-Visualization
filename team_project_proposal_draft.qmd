@@ -325,58 +325,120 @@ Compared with the original stacked bar chart, the improved visualization will re
 
 ## 4.1 Selected Datasets
 
-::: {.placeholder-panel}
-To be completed after confirming the exact LTA dataset source and any supporting context data.
+::: {.section-lead}
+The improved visualization will use official Land Transport Authority ridership data as the numerical source. The Straits Times article and original chart are retained as the news-media source that defines the project story, but the final plotted values will come from LTA rather than being visually estimated from the image.
 :::
 
 Primary Dataset
 
 | Field | Details |
 |---|---|
-| Dataset name |  |
-| Source |  |
-| Variables needed |  |
-| Role in project |  |
+| Dataset name | Average Public Transport Ridership By Year (2015 to 2025) |
+| Publisher | Land Transport Authority (LTA), Singapore |
+| Source | [LTA Statistics & Publications](https://www.lta.gov.sg/content/ltagov/en/who_we_are/statistics_and_publications/statistics.html), Public Transport Ridership section. Direct file: [Average Daily Public Transport Ridership by Year PDF](https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/Public%20Transport%20Ridership%20-%20Average%20Daily%20Public%20Transport%20Ridership%20by%20Year.pdf) |
+| Format | PDF table |
+| Unit | Average number of rides per day, in thousands |
+| Coverage used | 2019 to 2025, matching the original Straits Times chart |
+| Variables needed | Year, Public Bus ridership, MRT ridership, LRT ridership |
+| Role in project | Main dataset for the final chart. It will be used to calculate recovery index, 2019 gap, year-on-year change, total ridership and ridership share by transport mode. |
 
-Secondary Dataset
+Supporting Dataset
 
 | Field | Details |
 |---|---|
-| Dataset name |  |
-| Source |  |
-| Variables needed |  |
-| Role in project |  |
+| Dataset name | Average Public Transport Ridership By Month (2019 to 2025) |
+| Publisher | Land Transport Authority (LTA), Singapore |
+| Source | [LTA Statistics & Publications](https://www.lta.gov.sg/content/ltagov/en/who_we_are/statistics_and_publications/statistics.html), Public Transport Ridership section. Direct file: [Average Daily Public Transport Ridership by Month PDF](https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/Public%20Transport%20Ridership%20-%20Average%20Daily%20Public%20Transport%20Ridership%20by%20Month.pdf) |
+| Format | PDF table |
+| Unit | Average number of rides per day, in thousands |
+| Coverage used | 2019 to 2025 |
+| Variables needed | Month, year, Public Bus ridership, MRT ridership, LRT ridership |
+| Role in project | Supporting source for validation and context. It can be used to check whether the annual recovery pattern is consistent with monthly ridership trends, but the final proposed chart will use the official yearly dataset as the authoritative source. |
+
+Original News-Media Source
+
+| Field | Details |
+|---|---|
+| Article | ["More rides on MRT in 2025 as LRT use fell; bus ride numbers still below pre-Covid-19 levels"](https://www.straitstimes.com/singapore/transport/more-people-used-mrt-in-2025-as-lrt-ridership-falls-bus-numbers-still-below-pre-covid-levels) |
+| Publisher | The Straits Times |
+| Author and date | Vanessa Paige Chelvan, 30 January 2026 |
+| Role in project | Defines the original news-media visualization, topic framing and critique target. It is not treated as the main numerical dataset because the underlying official ridership values are available from LTA. |
 
 ## 4.2 Justification for Dataset Selection
 
-::: {.placeholder-panel}
-To be completed.
-:::
+The yearly LTA ridership dataset is the most appropriate primary source because it directly matches the scope of the original visualization: yearly average daily ridership for public bus, MRT and LRT services. Using the official LTA table avoids estimating values from the Straits Times image and gives the project a reproducible numerical foundation.
+
+The dataset also supports the proposed redesign in Section 3. From the raw yearly values, we can create the measures needed for the interactive recovery-index chart. These measures will be fully derived in the later data engineering workflow, but they are listed here to show why the yearly dataset is suitable for the redesign.
+
+| Measure Needed                    | Purpose in the Improved Visualization                         |
+| --------------------------------- | ------------------------------------------------------------- |
+| Total ridership                   | Preserves the original chart's total-ridership context        |
+| Recovery index                    | Makes the 2019 baseline explicit and comparable across modes  |
+| Gap from 2019                     | Shows how far each mode is above or below the pre-Covid level |
+| Year-on-year change               | Supports tooltip explanation of recovery momentum             |
+| Ridership share by transport mode | Shows whether the balance between Bus, MRT and LRT changed    |
+
+The monthly LTA dataset is useful as a supporting source, but it should not replace the annual table for the main chart. Monthly values can help check the annual recovery pattern and provide context if needed. However, since the proposed final visualization is annual, the official yearly table will remain the authoritative source for the plotted values.
+
+Together, the selected sources satisfy the project requirements: the original visualization comes from an online news-media source, while the curated data for the improved visualization comes from an official public data source that supports cleaning, transformation and analysis.
 
 ## 4.3 Raw Data Structure and Known Challenges
 
-::: {.placeholder-panel}
-To be completed.
-:::
+The raw data is compact but not immediately analysis-ready because the LTA files are PDF tables rather than tidy CSV files. We will therefore document extraction, unit handling, mode labels and validation checks carefully before creating the visualization-ready dataset.
 
 ### 4.3.1 Public Transport Ridership Raw Layout
 
-::: {.placeholder-panel}
-To be completed.
-:::
+The primary yearly source is a PDF table titled **Average Public Transport Ridership By Year**. It contains one row per year and separate columns for public bus, MRT and LRT ridership. The useful raw structure is:
+
+| Raw Column | Meaning | Planned Clean Column |
+|---|---|---|
+| Year | Calendar year | `year` |
+| Public Bus | Average daily public bus rides, in thousands | `bus_rides_k` |
+| MRT | Average daily MRT rides, in thousands | `mrt_rides_k` |
+| LRT | Average daily LRT rides, in thousands | `lrt_rides_k` |
+
+For the proposed visualization, the 2019-2025 subset will be used:
+
+| Year | Public Bus ('000) | MRT ('000) | LRT ('000) | Total ('000) |
+|---|---:|---:|---:|---:|
+| 2019 | 4,099 | 3,384 | 208 | 7,691 |
+| 2020 | 2,878 | 2,023 | 139 | 5,040 |
+| 2021 | 3,008 | 2,100 | 151 | 5,259 |
+| 2022 | 3,461 | 2,745 | 184 | 6,390 |
+| 2023 | 3,747 | 3,243 | 202 | 7,192 |
+| 2024 | 3,837 | 3,412 | 210 | 7,459 |
+| 2025 | 3,841 | 3,490 | 209 | 7,540 |
 
 ### 4.3.2 Supporting Context Data Raw Layout
 
-::: {.placeholder-panel}
-To be completed.
-:::
+The monthly LTA source has a similar structure but is organised by month rather than by year. It will be treated as supporting context only unless we decide to add monthly validation in the final analysis.
+
+| Raw Column | Meaning | Planned Clean Column |
+|---|---|---|
+| Month / Year | Monthly observation date | `month`, `year`, `date` |
+| Public Bus | Average daily public bus rides for the month, in thousands | `bus_rides_k` |
+| MRT | Average daily MRT rides for the month, in thousands | `mrt_rides_k` |
+| LRT | Average daily LRT rides for the month, in thousands | `lrt_rides_k` |
+
+The Straits Times article and local `ChosenVisualization.png` image will be used only as documentation of the original visualization. We will not digitise values from the image for the final dataset because the official LTA source provides the underlying data directly.
 
 ### 4.3.3 Identified Data Quality Challenges
 
-| Issue | Planned Resolution |
-|---|---|
-|  |  |
-|  |  |
+| Issue | Severity | Planned Resolution |
+|---|---|---|
+| The primary source is a PDF table, not a machine-readable CSV file. Manual extraction could introduce transcription errors. | <span class="severity-high">High</span> | Extract the table carefully, then validate all 2019-2025 values against the original chart totals and the LTA PDF. Keep a raw copy and a cleaned table in the project folder for reproducibility. |
+| Units are published in thousands of average daily rides. It is easy to mix up thousands, millions and raw ride counts. | <span class="severity-high">High</span> | Store ridership values in a clearly named `*_rides_k` format, and create formatted labels such as "3.490M" only at the visualization stage. |
+| The LTA source labels bus ridership as "Public Bus", while the Straits Times chart labels it as "Bus". | <span class="severity-low">Low</span> | Standardise the mode label to `Bus` in the final chart, while documenting that it comes from LTA's `Public Bus` column. |
+| Annual values are average daily ridership, not total annual passenger trips. | <span class="severity-high">High</span> | Do not interpret the figures as yearly totals. Titles, subtitles, tooltips and captions will state "average daily rides" clearly. |
+| Monthly values should not be averaged naively to recreate annual values because months have different numbers of days. | <span class="severity-medium">Medium</span> | Use the official annual dataset as the authoritative source for the final chart. If monthly data is used for validation, treat it as contextual rather than as a replacement for annual figures. |
+| LRT values are small relative to bus and MRT, so rounding can make small differences look more precise than they are. | <span class="severity-medium">Medium</span> | Label LRT values clearly, but interpret small changes such as 210,000 to 209,000 rides cautiously. Use the recovery-index view to make the trend readable without overstating the magnitude. |
+| The latest available yearly dataset may be updated by LTA in future releases. | <span class="severity-low">Low</span> | Record the retrieval date and source links in the references. If the LTA file changes, rerun the cleaning pipeline and compare outputs before updating the final visualization. |
+
+## 4.4 Data Quality Summary
+
+Overall, the selected LTA datasets are suitable because they are official, directly related to the original Straits Times chart and use consistent transport-mode categories. The main data quality issues are not about missing data, but about correct interpretation and careful preparation. The most important issues are the unit of measurement, the use of 2019 as the baseline, the small scale of LRT ridership and the need to calculate recovery comparisons clearly.
+
+These issues will be handled in the later data engineering workflow so that the final visualization can show recovery relative to 2019, differences between Bus, MRT and LRT, and changes in ridership share by transport mode.
 
 # 5. Data Engineering Workflow
 
