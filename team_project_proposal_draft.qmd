@@ -240,7 +240,7 @@ LRT ridership is much smaller than bus and MRT ridership, so its grey segment ap
 :::
 
 ::: {.critique-card .risk}
-#### <span class="critique-id risk-id">W4.</span> Recovery gaps are not calculated for the reader
+#### <span class="critique-id risk-id">W4.</span> Recovery gaps and year-to-year changes are not calculated for the reader
 
 The chart shows raw ridership values but does not show how far each mode is from its 2019 level or how values changed from year to year. Important comparisons, such as MRT being about 106,000 rides above 2019 while bus remains about 258,000 rides below 2019, have to be calculated separately by the reader.
 :::
@@ -252,7 +252,7 @@ The chart gives total ridership and mode values, but it does not directly show e
 :::
 
 ::: {.critique-card .risk}
-#### <span class="critique-id risk-id">W6.</span> Faded older rows reduce precise comparison
+#### <span class="critique-id risk-id">W6.</span> Faded older rows and low contrast reduce precise comparison
 
 The stronger colour in the 2025 row successfully draws attention to the latest year, but the faded older rows make exact cross-year comparison harder. This also creates a readability and accessibility concern, especially for the small grey LRT segment, which is both small and low contrast.
 :::
@@ -264,18 +264,62 @@ The stronger colour in the 2025 row successfully draws attention to the latest y
 
 # 3. Proposed Improvements
 
-::: {.placeholder-panel}
-This section is intentionally left as the next working section. It should convert the weaknesses in Section 2 into specific, justified redesign decisions.
+::: {.section-lead}
+Based on the weaknesses identified in Section 2, our redesign will keep the final output as **one plot/chart**, not a dashboard or a collection of separate charts. The improved visualization will use one interactive chart to make the 2019 baseline, mode-level recovery gaps, LRT values and changes in ridership share by transport mode easier to compare.
 :::
 
-| # | Weakness Addressed | Improvement | Method / Technique |
-|---|---|---|---|
-| I1 |  |  |  |
-| I2 |  |  |  |
-| I3 |  |  |  |
-| I4 |  |  |  |
-| I5 |  |  |  |
-| I6 |  |  |  |
+## 3.1 Redesign Concept
+
+The proposed redesign is a single interactive recovery-index chart. The default view will show public transport ridership recovery indexed to **2019 = 100**, with one line for each transport mode: Bus, MRT and LRT. An optional indexed total ridership line may also be included or toggled on and off if it does not overcrowd the chart.
+
+This design directly supports the project story because 2019 is the pre-Covid baseline. A value above 100 means ridership has exceeded its 2019 level, while a value below 100 means ridership is still below its 2019 level. This makes the recovery pattern easier to read than the original stacked bar chart, where readers must manually compare each later year against 2019.
+
+Interactivity will support the main chart without turning it into a dashboard. Hover tooltips can show exact average daily rides, ridership share by transport mode, year-on-year change and recovery gap from 2019. If technically feasible, a simple metric control may allow the same chart to switch between **recovery index**, **absolute ridership** and **ridership share by transport mode**, while still remaining one chart object.
+
+## 3.2 Improvement Plan
+
+| Weakness Addressed | Proposed Improvement | Method / Technique |
+|---|---|---|
+| <span class="critique-id risk-id">**W1, W4**</span> | Make the 2019 baseline explicit. The original chart includes 2019, but it does not clearly mark it as the reference year for judging recovery. The redesigned chart will make 2019 the starting baseline for all modes. | Use a recovery index where **2019 = 100**; add a horizontal reference line at 100; use endpoint labels to show whether 2025 is above or below the baseline. |
+| <span class="critique-id risk-id">**W2**</span> | Replace stacked segment comparison with common-baseline mode comparison. In the original stacked bar chart, bus is easier to compare than MRT and LRT because only bus starts from the same left edge. The improved chart will give each mode the same recovery-index baseline. | Use a line-and-point chart with year on the x-axis and recovery index on the y-axis; show bus, MRT and LRT as separate coloured lines. |
+| <span class="critique-id risk-id">**W3**</span> | Make LRT readable despite its small absolute size. In the original chart, LRT appears as a thin grey segment because its ridership is much smaller than bus and MRT. The redesigned chart will allow LRT to be read as its own trend instead of being visually compressed. | Show LRT as its own line on the indexed scale; add hover tooltip values and selected endpoint labels for exact LRT ridership. |
+| <span class="critique-id risk-id">**W4**</span> | Add computed recovery metrics instead of requiring manual calculation. The original chart shows raw ridership values, but it does not calculate how far each mode is from its 2019 level. | Derive recovery index, absolute gap from 2019 and percentage change from 2019; show these values in tooltips and selected annotations. |
+| <span class="critique-id risk-id">**W5**</span> | Show changes in ridership share by transport mode. The original chart contains the data needed to see that MRT's share increased while bus share decreased, but this pattern is hidden inside the stacked totals. | Calculate each mode's percentage share of total ridership; show share values in tooltips; optionally allow a same-chart metric toggle to display ridership share. |
+| <span class="critique-id risk-id">**W6**</span> | Improve readability and accessibility while preserving mode identity. The original chart uses strong colour for 2025 and faded colours for older years, which draws attention to the latest year but makes comparison harder. | Use consistent colour mapping for transport modes, stronger contrast, clearer labels and a colourblind-conscious palette. |
+
+## 3.3 How the Single Chart Will Work
+
+The improved chart will use the following encodings:
+
+| Chart Element | Meaning |
+|---|---|
+| X-axis | Year, from 2019 to 2025 |
+| Y-axis | Recovery index, where 2019 = 100 |
+| Line colour | Transport mode: bus, MRT or LRT |
+| Points | Yearly observations |
+| Horizontal reference line | 2019 baseline at 100 |
+| Endpoint labels | 2025 recovery status for each mode |
+| Hover tooltip | Exact ridership, recovery index, gap from 2019, year-on-year change and ridership share |
+
+The default recovery-index view will make the main comparison immediate. MRT should appear above the 100 baseline by 2025, showing that it exceeded its 2019 ridership level. Bus should remain below 100, showing that it has not fully returned to its 2019 level. LRT will be easier to inspect because it will no longer be compressed into a small end segment of a stacked bar.
+
+## 3.4 Original Strengths Preserved
+
+::: {.critique-card .positive}
+**<span class="critique-id positive-id">S1.</span> Total ridership and mode-level context are retained.** The redesigned chart will still allow readers to understand both overall ridership recovery and differences between bus, MRT and LRT. Total ridership can be included as an optional line or displayed in the tooltip.
+
+**<span class="critique-id positive-id">S2.</span> Year-by-year recovery remains easy to follow.** The improved chart keeps the same 2019 to 2025 time frame, so readers can still follow the drop in 2020 and the gradual recovery in later years.
+
+**<span class="critique-id positive-id">S3.</span> Consistent colour mapping is preserved.** Each transport mode will continue to use a consistent colour across the chart. This helps readers track bus, MRT and LRT throughout the full period.
+
+**<span class="critique-id positive-id">S4.</span> Labels and source information remain clear.** The improved visualization will keep a clear title, subtitle, legend, unit explanation and source note. It will also add more useful labels and hover details, such as the 2019 baseline, 2025 endpoint values and recovery gaps.
+:::
+
+## 3.5 Expected Outcome
+
+The redesigned chart will answer the project question more directly: has Singapore's public transport ridership recovered relative to 2019, and did the recovery differ across bus, MRT and LRT?
+
+Compared with the original stacked bar chart, the improved visualization will reduce manual calculation, make mode-level comparison clearer, and make the small LRT trend easier to read. It will also show that total public transport ridership almost recovered by 2025, but the recovery pattern changed because MRT rose above its 2019 level while bus ridership remained below it.
 
 # 4. Data Sources & Data Quality
 

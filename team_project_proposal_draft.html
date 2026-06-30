@@ -2557,6 +2557,36 @@ color: #ffffff;
 background: var(--title-accent);
 color: #ffffff;
 }
+#proposed-improvements table th {
+background: var(--title-accent);
+color: #ffffff;
+}
+#improvement-plan table {
+table-layout: fixed;
+}
+#improvement-plan table th:nth-child(1),
+#improvement-plan table td:nth-child(1) {
+width: 5cqb;
+}
+#improvement-plan table th:nth-child(2),
+#improvement-plan table td:nth-child(2) {
+width: 60%;
+}
+#improvement-plan table th:nth-child(3),
+#improvement-plan table td:nth-child(3) {
+width: 35%;
+}
+#how-the-single-chart-will-work table {
+table-layout: fixed;
+}
+#how-the-single-chart-will-work table th:nth-child(1),
+#how-the-single-chart-will-work table td:nth-child(1) {
+width: 20%;
+}
+#how-the-single-chart-will-work table th:nth-child(2),
+#how-the-single-chart-will-work table td:nth-child(2) {
+width: 80%;
+}
 #our-chosen-visualization figure {
 margin: 1rem 0 1.6rem;
 text-align: center;
@@ -2648,7 +2678,14 @@ text-decoration: none;
   <li><a href="#strengths" id="toc-strengths" class="nav-link" data-scroll-target="#strengths">2.1 Strengths</a></li>
   <li><a href="#weaknesses" id="toc-weaknesses" class="nav-link" data-scroll-target="#weaknesses">2.2 Weaknesses</a></li>
   </ul></li>
-  <li><a href="#proposed-improvements" id="toc-proposed-improvements" class="nav-link" data-scroll-target="#proposed-improvements">3. Proposed Improvements</a></li>
+  <li><a href="#proposed-improvements" id="toc-proposed-improvements" class="nav-link" data-scroll-target="#proposed-improvements">3. Proposed Improvements</a>
+  <ul>
+  <li><a href="#redesign-concept" id="toc-redesign-concept" class="nav-link" data-scroll-target="#redesign-concept">3.1 Redesign Concept</a></li>
+  <li><a href="#improvement-plan" id="toc-improvement-plan" class="nav-link" data-scroll-target="#improvement-plan">3.2 Improvement Plan</a></li>
+  <li><a href="#how-the-single-chart-will-work" id="toc-how-the-single-chart-will-work" class="nav-link" data-scroll-target="#how-the-single-chart-will-work">3.3 How the Single Chart Will Work</a></li>
+  <li><a href="#original-strengths-preserved" id="toc-original-strengths-preserved" class="nav-link" data-scroll-target="#original-strengths-preserved">3.4 Original Strengths Preserved</a></li>
+  <li><a href="#expected-outcome" id="toc-expected-outcome" class="nav-link" data-scroll-target="#expected-outcome">3.5 Expected Outcome</a></li>
+  </ul></li>
   <li><a href="#data-sources-data-quality" id="toc-data-sources-data-quality" class="nav-link" data-scroll-target="#data-sources-data-quality">4. Data Sources &amp; Data Quality</a>
   <ul>
   <li><a href="#selected-datasets" id="toc-selected-datasets" class="nav-link" data-scroll-target="#selected-datasets">4.1 Selected Datasets</a></li>
@@ -2994,16 +3031,16 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <h4 class="anchored" data-anchor-id="w3.-lrt-is-visually-compressed-and-not-directly-labelled"><span class="critique-id risk-id">W3.</span> LRT is visually compressed and not directly labelled</h4>
 <p>LRT ridership is much smaller than bus and MRT ridership, so its grey segment appears as a thin end strip. The chart also does not label LRT values directly, making the 2024 to 2025 change from 210,000 to 209,000 rides almost impossible to detect visually.</p>
 </section>
-<section id="w4.-recovery-gaps-are-not-calculated-for-the-reader" class="level4 critique-card risk">
-<h4 class="anchored" data-anchor-id="w4.-recovery-gaps-are-not-calculated-for-the-reader"><span class="critique-id risk-id">W4.</span> Recovery gaps are not calculated for the reader</h4>
+<section id="w4.-recovery-gaps-and-year-to-year-changes-are-not-calculated-for-the-reader" class="level4 critique-card risk">
+<h4 class="anchored" data-anchor-id="w4.-recovery-gaps-and-year-to-year-changes-are-not-calculated-for-the-reader"><span class="critique-id risk-id">W4.</span> Recovery gaps and year-to-year changes are not calculated for the reader</h4>
 <p>The chart shows raw ridership values but does not show how far each mode is from its 2019 level or how values changed from year to year. Important comparisons, such as MRT being about 106,000 rides above 2019 while bus remains about 258,000 rides below 2019, have to be calculated separately by the reader.</p>
 </section>
 <section id="w5.-changes-in-ridership-share-are-hidden-inside-totals" class="level4 critique-card risk">
 <h4 class="anchored" data-anchor-id="w5.-changes-in-ridership-share-are-hidden-inside-totals"><span class="critique-id risk-id">W5.</span> Changes in ridership share are hidden inside totals</h4>
 <p>The chart gives total ridership and mode values, but it does not directly show each mode’s percentage share of total ridership. As a result, the shift from bus toward MRT is present in the data but not immediately visible.</p>
 </section>
-<section id="w6.-faded-older-rows-reduce-precise-comparison" class="level4 critique-card risk">
-<h4 class="anchored" data-anchor-id="w6.-faded-older-rows-reduce-precise-comparison"><span class="critique-id risk-id">W6.</span> Faded older rows reduce precise comparison</h4>
+<section id="w6.-faded-older-rows-and-low-contrast-reduce-precise-comparison" class="level4 critique-card risk">
+<h4 class="anchored" data-anchor-id="w6.-faded-older-rows-and-low-contrast-reduce-precise-comparison"><span class="critique-id risk-id">W6.</span> Faded older rows and low contrast reduce precise comparison</h4>
 <p>The stronger colour in the 2025 row successfully draws attention to the latest year, but the faded older rows make exact cross-year comparison harder. This also creates a readability and accessibility concern, especially for the small grey LRT segment, which is both small and low contrast.</p>
 </section>
 </div>
@@ -3014,57 +3051,125 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 </section>
 <section id="proposed-improvements" class="level1">
 <h1>3. Proposed Improvements</h1>
-<div class="placeholder-panel">
-<p>This section is intentionally left as the next working section. It should convert the weaknesses in Section 2 into specific, justified redesign decisions.</p>
+<div class="section-lead">
+<p>Based on the weaknesses identified in Section 2, our redesign will keep the final output as <strong>one plot/chart</strong>, not a dashboard or a collection of separate charts. The improved visualization will use one interactive chart to make the 2019 baseline, mode-level recovery gaps, LRT values and changes in ridership share by transport mode easier to compare.</p>
 </div>
+<section id="redesign-concept" class="level2">
+<h2 class="anchored" data-anchor-id="redesign-concept">3.1 Redesign Concept</h2>
+<p>The proposed redesign is a single interactive recovery-index chart. The default view will show public transport ridership recovery indexed to <strong>2019 = 100</strong>, with one line for each transport mode: Bus, MRT and LRT. An optional indexed total ridership line may also be included or toggled on and off if it does not overcrowd the chart.</p>
+<p>This design directly supports the project story because 2019 is the pre-Covid baseline. A value above 100 means ridership has exceeded its 2019 level, while a value below 100 means ridership is still below its 2019 level. This makes the recovery pattern easier to read than the original stacked bar chart, where readers must manually compare each later year against 2019.</p>
+<p>Interactivity will support the main chart without turning it into a dashboard. Hover tooltips can show exact average daily rides, ridership share by transport mode, year-on-year change and recovery gap from 2019. If technically feasible, a simple metric control may allow the same chart to switch between <strong>recovery index</strong>, <strong>absolute ridership</strong> and <strong>ridership share by transport mode</strong>, while still remaining one chart object.</p>
+</section>
+<section id="improvement-plan" class="level2">
+<h2 class="anchored" data-anchor-id="improvement-plan">3.2 Improvement Plan</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>#</th>
 <th>Weakness Addressed</th>
-<th>Improvement</th>
+<th>Proposed Improvement</th>
 <th>Method / Technique</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>I1</td>
-<td></td>
-<td></td>
-<td></td>
+<td><span class="critique-id risk-id"><strong>W1, W4</strong></span></td>
+<td>Make the 2019 baseline explicit. The original chart includes 2019, but it does not clearly mark it as the reference year for judging recovery. The redesigned chart will make 2019 the starting baseline for all modes.</td>
+<td>Use a recovery index where <strong>2019 = 100</strong>; add a horizontal reference line at 100; use endpoint labels to show whether 2025 is above or below the baseline.</td>
 </tr>
 <tr class="even">
-<td>I2</td>
-<td></td>
-<td></td>
-<td></td>
+<td><span class="critique-id risk-id"><strong>W2</strong></span></td>
+<td>Replace stacked segment comparison with common-baseline mode comparison. In the original stacked bar chart, bus is easier to compare than MRT and LRT because only bus starts from the same left edge. The improved chart will give each mode the same recovery-index baseline.</td>
+<td>Use a line-and-point chart with year on the x-axis and recovery index on the y-axis; show bus, MRT and LRT as separate coloured lines.</td>
 </tr>
 <tr class="odd">
-<td>I3</td>
-<td></td>
-<td></td>
-<td></td>
+<td><span class="critique-id risk-id"><strong>W3</strong></span></td>
+<td>Make LRT readable despite its small absolute size. In the original chart, LRT appears as a thin grey segment because its ridership is much smaller than bus and MRT. The redesigned chart will allow LRT to be read as its own trend instead of being visually compressed.</td>
+<td>Show LRT as its own line on the indexed scale; add hover tooltip values and selected endpoint labels for exact LRT ridership.</td>
 </tr>
 <tr class="even">
-<td>I4</td>
-<td></td>
-<td></td>
-<td></td>
+<td><span class="critique-id risk-id"><strong>W4</strong></span></td>
+<td>Add computed recovery metrics instead of requiring manual calculation. The original chart shows raw ridership values, but it does not calculate how far each mode is from its 2019 level.</td>
+<td>Derive recovery index, absolute gap from 2019 and percentage change from 2019; show these values in tooltips and selected annotations.</td>
 </tr>
 <tr class="odd">
-<td>I5</td>
-<td></td>
-<td></td>
-<td></td>
+<td><span class="critique-id risk-id"><strong>W5</strong></span></td>
+<td>Show changes in ridership share by transport mode. The original chart contains the data needed to see that MRT’s share increased while bus share decreased, but this pattern is hidden inside the stacked totals.</td>
+<td>Calculate each mode’s percentage share of total ridership; show share values in tooltips; optionally allow a same-chart metric toggle to display ridership share.</td>
 </tr>
 <tr class="even">
-<td>I6</td>
-<td></td>
-<td></td>
-<td></td>
+<td><span class="critique-id risk-id"><strong>W6</strong></span></td>
+<td>Improve readability and accessibility while preserving mode identity. The original chart uses strong colour for 2025 and faded colours for older years, which draws attention to the latest year but makes comparison harder.</td>
+<td>Use consistent colour mapping for transport modes, stronger contrast, clearer labels and a colourblind-conscious palette.</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="how-the-single-chart-will-work" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-single-chart-will-work">3.3 How the Single Chart Will Work</h2>
+<p>The improved chart will use the following encodings:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Chart Element</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>X-axis</td>
+<td>Year, from 2019 to 2025</td>
+</tr>
+<tr class="even">
+<td>Y-axis</td>
+<td>Recovery index, where 2019 = 100</td>
+</tr>
+<tr class="odd">
+<td>Line colour</td>
+<td>Transport mode: bus, MRT or LRT</td>
+</tr>
+<tr class="even">
+<td>Points</td>
+<td>Yearly observations</td>
+</tr>
+<tr class="odd">
+<td>Horizontal reference line</td>
+<td>2019 baseline at 100</td>
+</tr>
+<tr class="even">
+<td>Endpoint labels</td>
+<td>2025 recovery status for each mode</td>
+</tr>
+<tr class="odd">
+<td>Hover tooltip</td>
+<td>Exact ridership, recovery index, gap from 2019, year-on-year change and ridership share</td>
+</tr>
+</tbody>
+</table>
+<p>The default recovery-index view will make the main comparison immediate. MRT should appear above the 100 baseline by 2025, showing that it exceeded its 2019 ridership level. Bus should remain below 100, showing that it has not fully returned to its 2019 level. LRT will be easier to inspect because it will no longer be compressed into a small end segment of a stacked bar.</p>
+</section>
+<section id="original-strengths-preserved" class="level2">
+<h2 class="anchored" data-anchor-id="original-strengths-preserved">3.4 Original Strengths Preserved</h2>
+<div class="critique-card positive">
+<p><strong><span class="critique-id positive-id">S1.</span> Total ridership and mode-level context are retained.</strong> The redesigned chart will still allow readers to understand both overall ridership recovery and differences between bus, MRT and LRT. Total ridership can be included as an optional line or displayed in the tooltip.</p>
+<p><strong><span class="critique-id positive-id">S2.</span> Year-by-year recovery remains easy to follow.</strong> The improved chart keeps the same 2019 to 2025 time frame, so readers can still follow the drop in 2020 and the gradual recovery in later years.</p>
+<p><strong><span class="critique-id positive-id">S3.</span> Consistent colour mapping is preserved.</strong> Each transport mode will continue to use a consistent colour across the chart. This helps readers track bus, MRT and LRT throughout the full period.</p>
+<p><strong><span class="critique-id positive-id">S4.</span> Labels and source information remain clear.</strong> The improved visualization will keep a clear title, subtitle, legend, unit explanation and source note. It will also add more useful labels and hover details, such as the 2019 baseline, 2025 endpoint values and recovery gaps.</p>
+</div>
+</section>
+<section id="expected-outcome" class="level2">
+<h2 class="anchored" data-anchor-id="expected-outcome">3.5 Expected Outcome</h2>
+<p>The redesigned chart will answer the project question more directly: has Singapore’s public transport ridership recovered relative to 2019, and did the recovery differ across bus, MRT and LRT?</p>
+<p>Compared with the original stacked bar chart, the improved visualization will reduce manual calculation, make mode-level comparison clearer, and make the small LRT trend easier to read. It will also show that total public transport ridership almost recovered by 2025, but the recovery pattern changed because MRT rose above its 2019 level while bus ridership remained below it.</p>
+</section>
 </section>
 <section id="data-sources-data-quality" class="level1">
 <h1>4. Data Sources &amp; Data Quality</h1>
@@ -4315,7 +4420,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a>::: {.critique-card .risk}</span>
-<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="fu">#### &lt;span class=&quot;critique-id risk-id&quot;&gt;W4.&lt;/span&gt; Recovery gaps are not calculated for the reader</span></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="fu">#### &lt;span class=&quot;critique-id risk-id&quot;&gt;W4.&lt;/span&gt; Recovery gaps and year-to-year changes are not calculated for the reader</span></span>
 <span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>The chart shows raw ridership values but does not show how far each mode is from its 2019 level or how values changed from year to year. Important comparisons, such as MRT being about 106,000 rides above 2019 while bus remains about 258,000 rides below 2019, have to be calculated separately by the reader.</span>
 <span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a>:::</span>
@@ -4327,7 +4432,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>::: {.critique-card .risk}</span>
-<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="fu">#### &lt;span class=&quot;critique-id risk-id&quot;&gt;W6.&lt;/span&gt; Faded older rows reduce precise comparison</span></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="fu">#### &lt;span class=&quot;critique-id risk-id&quot;&gt;W6.&lt;/span&gt; Faded older rows and low contrast reduce precise comparison</span></span>
 <span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>The stronger colour in the 2025 row successfully draws attention to the latest year, but the faded older rows make exact cross-year comparison harder. This also creates a readability and accessibility concern, especially for the small grey LRT segment, which is both small and low contrast.</span>
 <span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>:::</span>
@@ -4339,253 +4444,297 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="fu"># 3. Proposed Improvements</span></span>
 <span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a>This section is intentionally left as the next working section. It should convert the weaknesses in Section 2 into specific, justified redesign decisions.</span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>::: {.section-lead}</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a>Based on the weaknesses identified in Section 2, our redesign will keep the final output as **one plot/chart**, not a dashboard or a collection of separate charts. The improved visualization will use one interactive chart to make the 2019 baseline, mode-level recovery gaps, LRT values and changes in ridership share by transport mode easier to compare.</span>
 <span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> # <span class="pp">|</span> Weakness Addressed <span class="pp">|</span> Improvement <span class="pp">|</span> Method / Technique <span class="pp">|</span></span>
-<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
-<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> I1 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> I2 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> I3 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> I4 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> I5 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> I6 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a><span class="fu"># 4. Data Sources &amp; Data Quality</span></span>
-<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.1 Selected Datasets</span></span>
-<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>To be completed after confirming the exact LTA dataset source and any supporting context data.</span>
-<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>Primary Dataset</span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.1 Redesign Concept</span></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>The proposed redesign is a single interactive recovery-index chart. The default view will show public transport ridership recovery indexed to **2019 = 100**, with one line for each transport mode: Bus, MRT and LRT. An optional indexed total ridership line may also be included or toggled on and off if it does not overcrowd the chart.</span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a>This design directly supports the project story because 2019 is the pre-Covid baseline. A value above 100 means ridership has exceeded its 2019 level, while a value below 100 means ridership is still below its 2019 level. This makes the recovery pattern easier to read than the original stacked bar chart, where readers must manually compare each later year against 2019.</span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a>Interactivity will support the main chart without turning it into a dashboard. Hover tooltips can show exact average daily rides, ridership share by transport mode, year-on-year change and recovery gap from 2019. If technically feasible, a simple metric control may allow the same chart to switch between **recovery index**, **absolute ridership** and **ridership share by transport mode**, while still remaining one chart object.</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.2 Improvement Plan</span></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Weakness Addressed <span class="pp">|</span> Proposed Improvement <span class="pp">|</span> Method / Technique <span class="pp">|</span></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;critique-id risk-id&quot;</span><span class="dt">&gt;</span>**W1, W4**&lt;/span&gt; | Make the 2019 baseline explicit. The original chart includes 2019, but it does not clearly mark it as the reference year for judging recovery. The redesigned chart will make 2019 the starting baseline for all modes. | Use a recovery index where **2019 = 100**; add a horizontal reference line at 100; use endpoint labels to show whether 2025 is above or below the baseline. <span class="pp">|</span></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;critique-id risk-id&quot;</span><span class="dt">&gt;</span>**W2**<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Replace stacked segment comparison with common-baseline mode comparison. In the original stacked bar chart, bus is easier to compare than MRT and LRT because only bus starts from the same left edge. The improved chart will give each mode the same recovery-index baseline. <span class="pp">|</span> Use a line-and-point chart with year on the x-axis and recovery index on the y-axis; show bus, MRT and LRT as separate coloured lines. <span class="pp">|</span></span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;critique-id risk-id&quot;</span><span class="dt">&gt;</span>**W3**<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Make LRT readable despite its small absolute size. In the original chart, LRT appears as a thin grey segment because its ridership is much smaller than bus and MRT. The redesigned chart will allow LRT to be read as its own trend instead of being visually compressed. <span class="pp">|</span> Show LRT as its own line on the indexed scale; add hover tooltip values and selected endpoint labels for exact LRT ridership. <span class="pp">|</span></span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;critique-id risk-id&quot;</span><span class="dt">&gt;</span>**W4**<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Add computed recovery metrics instead of requiring manual calculation. The original chart shows raw ridership values, but it does not calculate how far each mode is from its 2019 level. <span class="pp">|</span> Derive recovery index, absolute gap from 2019 and percentage change from 2019; show these values in tooltips and selected annotations. <span class="pp">|</span></span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;critique-id risk-id&quot;</span><span class="dt">&gt;</span>**W5**<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Show changes in ridership share by transport mode. The original chart contains the data needed to see that MRT&#39;s share increased while bus share decreased, but this pattern is hidden inside the stacked totals. <span class="pp">|</span> Calculate each mode&#39;s percentage share of total ridership; show share values in tooltips; optionally allow a same-chart metric toggle to display ridership share. <span class="pp">|</span></span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;critique-id risk-id&quot;</span><span class="dt">&gt;</span>**W6**<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Improve readability and accessibility while preserving mode identity. The original chart uses strong colour for 2025 and faded colours for older years, which draws attention to the latest year but makes comparison harder. <span class="pp">|</span> Use consistent colour mapping for transport modes, stronger contrast, clearer labels and a colourblind-conscious palette. <span class="pp">|</span></span>
 <span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Field <span class="pp">|</span> Details <span class="pp">|</span></span>
-<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
-<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dataset name <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Source <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variables needed <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Role in project <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a>Secondary Dataset</span>
-<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Field <span class="pp">|</span> Details <span class="pp">|</span></span>
-<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
-<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dataset name <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Source <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variables needed <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Role in project <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.3 How the Single Chart Will Work</span></span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a>The improved chart will use the following encodings:</span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Chart Element <span class="pp">|</span> Meaning <span class="pp">|</span></span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> X-axis <span class="pp">|</span> Year, from 2019 to 2025 <span class="pp">|</span></span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Y-axis <span class="pp">|</span> Recovery index, where 2019 = 100 <span class="pp">|</span></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Line colour <span class="pp">|</span> Transport mode: bus, MRT or LRT <span class="pp">|</span></span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Points <span class="pp">|</span> Yearly observations <span class="pp">|</span></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Horizontal reference line <span class="pp">|</span> 2019 baseline at 100 <span class="pp">|</span></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Endpoint labels <span class="pp">|</span> 2025 recovery status for each mode <span class="pp">|</span></span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Hover tooltip <span class="pp">|</span> Exact ridership, recovery index, gap from 2019, year-on-year change and ridership share <span class="pp">|</span></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a>The default recovery-index view will make the main comparison immediate. MRT should appear above the 100 baseline by 2025, showing that it exceeded its 2019 ridership level. Bus should remain below 100, showing that it has not fully returned to its 2019 level. LRT will be easier to inspect because it will no longer be compressed into a small end segment of a stacked bar.</span>
 <span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.2 Justification for Dataset Selection</span></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.4 Original Strengths Preserved</span></span>
 <span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.3 Raw Data Structure and Known Challenges</span></span>
-<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>::: {.critique-card .positive}</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>**&lt;span class=&quot;critique-id positive-id&quot;&gt;S1.&lt;/span&gt; Total ridership and mode-level context are retained.** The redesigned chart will still allow readers to understand both overall ridership recovery and differences between bus, MRT and LRT. Total ridership can be included as an optional line or displayed in the tooltip.</span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>**&lt;span class=&quot;critique-id positive-id&quot;&gt;S2.&lt;/span&gt; Year-by-year recovery remains easy to follow.** The improved chart keeps the same 2019 to 2025 time frame, so readers can still follow the drop in 2020 and the gradual recovery in later years.</span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a>**&lt;span class=&quot;critique-id positive-id&quot;&gt;S3.&lt;/span&gt; Consistent colour mapping is preserved.** Each transport mode will continue to use a consistent colour across the chart. This helps readers track bus, MRT and LRT throughout the full period.</span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a>**&lt;span class=&quot;critique-id positive-id&quot;&gt;S4.&lt;/span&gt; Labels and source information remain clear.** The improved visualization will keep a clear title, subtitle, legend, unit explanation and source note. It will also add more useful labels and hover details, such as the 2019 baseline, 2025 endpoint values and recovery gaps.</span>
 <span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3.1 Public Transport Ridership Raw Layout</span></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.5 Expected Outcome</span></span>
 <span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>The redesigned chart will answer the project question more directly: has Singapore&#39;s public transport ridership recovered relative to 2019, and did the recovery differ across bus, MRT and LRT?</span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>Compared with the original stacked bar chart, the improved visualization will reduce manual calculation, make mode-level comparison clearer, and make the small LRT trend easier to read. It will also show that total public transport ridership almost recovered by 2025, but the recovery pattern changed because MRT rose above its 2019 level while bus ridership remained below it.</span>
 <span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3.2 Supporting Context Data Raw Layout</span></span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a><span class="fu"># 4. Data Sources &amp; Data Quality</span></span>
 <span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3.3 Identified Data Quality Challenges</span></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.1 Selected Datasets</span></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>To be completed after confirming the exact LTA dataset source and any supporting context data.</span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Issue <span class="pp">|</span> Planned Resolution <span class="pp">|</span></span>
-<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
-<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="fu"># 5. Data Engineering Workflow</span></span>
-<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.1 Planned Data Engineering Pipeline</span></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>Primary Dataset</span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Field <span class="pp">|</span> Details <span class="pp">|</span></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dataset name <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Source <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variables needed <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Role in project <span class="pp">|</span>  <span class="pp">|</span></span>
 <span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>Pipeline Principle</span>
-<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>Each stage should produce a named intermediate object so the workflow is reproducible, inspectable and easy to rerun.</span>
-<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Stage <span class="pp">|</span> Input <span class="pp">|</span> Main Operations <span class="pp">|</span> Output <span class="pp">|</span></span>
-<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
-<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1. Ingest Raw Ridership Data <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2. Standardise Units, Years and Mode Labels <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3. Reshape to Long (Tidy) Format <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4. Derive Mode Shares, Recovery Index and Change Metrics <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5. Join, Validate and Export Visualization-Ready Objects <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.2 Planned Cleaning and Transformation Decisions</span></span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> # <span class="pp">|</span> Issue <span class="pp">|</span> Decision <span class="pp">|</span> Rationale <span class="pp">|</span></span>
-<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
-<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D1 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D2 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D3 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D4 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D5 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3 Target Output Schema</span></span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a>ridership_data · Primary Visualization Table</span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>Secondary Dataset</span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Field <span class="pp">|</span> Details <span class="pp">|</span></span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dataset name <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Source <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variables needed <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Role in project <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.2 Justification for Dataset Selection</span></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.3 Raw Data Structure and Known Challenges</span></span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3.1 Public Transport Ridership Raw Layout</span></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3.2 Supporting Context Data Raw Layout</span></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3.3 Identified Data Quality Challenges</span></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Issue <span class="pp">|</span> Planned Resolution <span class="pp">|</span></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
 <span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
-<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>mode_labels · Annotation Table</span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
-<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4 Illustrative Code Structure</span></span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a><span class="fu"># 5. Data Engineering Workflow</span></span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.1 Planned Data Engineering Pipeline</span></span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>Pipeline Principle</span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>Each stage should produce a named intermediate object so the workflow is reproducible, inspectable and easy to rerun.</span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.5 Reproducibility Considerations</span></span>
-<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Stage <span class="pp">|</span> Input <span class="pp">|</span> Main Operations <span class="pp">|</span> Output <span class="pp">|</span></span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1. Ingest Raw Ridership Data <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2. Standardise Units, Years and Mode Labels <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3. Reshape to Long (Tidy) Format <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4. Derive Mode Shares, Recovery Index and Change Metrics <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5. Join, Validate and Export Visualization-Ready Objects <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.2 Planned Cleaning and Transformation Decisions</span></span>
 <span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6. Data Analysis Plan</span></span>
-<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.1 What This Analysis Is For</span></span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.2 Measures We Will Compute</span></span>
-<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> # <span class="pp">|</span> Issue <span class="pp">|</span> Decision <span class="pp">|</span> Rationale <span class="pp">|</span></span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D1 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D2 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D3 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D4 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D5 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3 Target Output Schema</span></span>
 <span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Measure <span class="pp">|</span> Formula / Method <span class="pp">|</span> Interpretation <span class="pp">|</span></span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.3 Planned Analyses</span></span>
-<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>ridership_data · Primary Visualization Table</span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
 <span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a><span class="fu">### A1 — Recovery Gap from 2019 by Mode</span></span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>mode_labels · Annotation Table</span>
 <span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a><span class="fu">### A2 — Mode Share Shift Across Bus, MRT and LRT</span></span>
-<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a><span class="fu">### A3 — Year-on-Year Ridership Recovery Momentum</span></span>
-<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
-<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.4 Summary: What We Produce (2025)</span></span>
-<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ID <span class="pp">|</span> Question Answered (2025) <span class="pp">|</span> Output <span class="pp">|</span> Supports Which Insight <span class="pp">|</span> Data Needed <span class="pp">|</span></span>
-<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A1 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A2 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A3 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a><span class="fu"># 7. Planned Work Distribution</span></span>
-<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a>To be completed with final task ownership.</span>
-<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Team Member <span class="pp">|</span> Primary Tasks <span class="pp">|</span> Est. Hours <span class="pp">|</span></span>
-<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Thaw Zin <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Siyona <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Wilson <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Troy <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Zayar <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> All Members <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a><span class="fu"># 8. References</span></span>
-<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.1 Article Source</span></span>
-<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a>The Straits Times article URL and citation details will be finalized here.</span>
-<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.2 Data Sources</span></span>
-<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a>LTA and supporting data source citations will be finalized here.</span>
-<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.3 Design Reference</span></span>
-<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a>Design and accessibility references will be finalized here if used.</span>
-<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a><span class="fu"># 9. Appendix: Data Dictionary</span></span>
-<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a>To be completed after the target output schema is confirmed.</span>
-<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.1 ridership_data — Primary Visualization Table</span></span>
-<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
-<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> year <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> mode <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> daily_rides_k <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> recovery_index <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4 Illustrative Code Structure</span></span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.5 Reproducibility Considerations</span></span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6. Data Analysis Plan</span></span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.1 What This Analysis Is For</span></span>
+<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.2 Measures We Will Compute</span></span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Measure <span class="pp">|</span> Formula / Method <span class="pp">|</span> Interpretation <span class="pp">|</span></span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.3 Planned Analyses</span></span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a><span class="fu">### A1 — Recovery Gap from 2019 by Mode</span></span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a><span class="fu">### A2 — Mode Share Shift Across Bus, MRT and LRT</span></span>
+<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a><span class="fu">### A3 — Year-on-Year Ridership Recovery Momentum</span></span>
+<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a>To be completed.</span>
+<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.4 Summary: What We Produce (2025)</span></span>
+<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ID <span class="pp">|</span> Question Answered (2025) <span class="pp">|</span> Output <span class="pp">|</span> Supports Which Insight <span class="pp">|</span> Data Needed <span class="pp">|</span></span>
+<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A1 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A2 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A3 <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a><span class="fu"># 7. Planned Work Distribution</span></span>
+<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a>To be completed with final task ownership.</span>
+<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.2 mode_labels — Annotation Table</span></span>
-<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
-<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> year <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> mode <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> label_value <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> label_position <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
+<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Team Member <span class="pp">|</span> Primary Tasks <span class="pp">|</span> Est. Hours <span class="pp">|</span></span>
+<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Thaw Zin <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Siyona <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Wilson <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Troy <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Zayar <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> All Members <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a><span class="fu"># 8. References</span></span>
+<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.1 Article Source</span></span>
+<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a>The Straits Times article URL and citation details will be finalized here.</span>
+<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.2 Data Sources</span></span>
+<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a>LTA and supporting data source citations will be finalized here.</span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.3 Design Reference</span></span>
+<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a>Design and accessibility references will be finalized here if used.</span>
+<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a><span class="fu"># 9. Appendix: Data Dictionary</span></span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a>To be completed after the target output schema is confirmed.</span>
+<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.1 ridership_data — Primary Visualization Table</span></span>
+<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
+<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> year <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> mode <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> daily_rides_k <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> recovery_index <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.2 mode_labels — Annotation Table</span></span>
+<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
+<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> year <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> mode <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> label_value <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> label_position <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

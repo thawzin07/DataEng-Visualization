@@ -419,6 +419,44 @@ tbody tr:nth-child(even) {
   color: #ffffff;
 }
 
+#proposed-improvements table th {
+  background: var(--title-accent);
+  color: #ffffff;
+}
+
+#improvement-plan table {
+  table-layout: fixed;
+}
+
+#improvement-plan table th:nth-child(1),
+#improvement-plan table td:nth-child(1) {
+  width: 5cqb;
+}
+
+#improvement-plan table th:nth-child(2),
+#improvement-plan table td:nth-child(2) {
+  width: 60%;
+}
+
+#improvement-plan table th:nth-child(3),
+#improvement-plan table td:nth-child(3) {
+  width: 35%;
+}
+
+#how-the-single-chart-will-work table {
+  table-layout: fixed;
+}
+
+#how-the-single-chart-will-work table th:nth-child(1),
+#how-the-single-chart-will-work table td:nth-child(1) {
+  width: 20%;
+}
+
+#how-the-single-chart-will-work table th:nth-child(2),
+#how-the-single-chart-will-work table td:nth-child(2) {
+  width: 80%;
+}
+
 #our-chosen-visualization figure {
   margin: 1rem 0 1.6rem;
   text-align: center;
