@@ -44,7 +44,7 @@ LAB-P1 Team 12
 
 | Name | Student ID |
 |---|---|
-| Thaw Zin | XXXXXXX |
+| Thaw Zin Htun | 2502712 |
 | Siyona | XXXXXXX |
 | Wilson Teng Hao Feng | 2503002 |
 | Troy | XXXXXXX |
