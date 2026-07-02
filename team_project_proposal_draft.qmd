@@ -48,7 +48,7 @@ LAB-P1 Team 12
 | Siyona | XXXXXXX |
 | Wilson Teng Hao Feng | 2503002 |
 | Troy | XXXXXXX |
-| Zayar | XXXXXXX |
+| Zayar | 2502688 |
 
 # 1. Introduction and Project Overview
 
