@@ -47,7 +47,7 @@ LAB-P1 Team 12
 | Thaw Zin Htun | 2502712 |
 | Siyona Shailesh Naik | 2502714 |
 | Wilson Teng Hao Feng | 2503002 |
-| Troy | XXXXXXX |
+| Troy Ang | 2503451 |
 | Zayar | 2502688 |
 
 # 1. Introduction and Project Overview
