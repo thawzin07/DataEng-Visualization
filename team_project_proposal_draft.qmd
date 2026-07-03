@@ -45,7 +45,7 @@ LAB-P1 Team 12
 | Name | Student ID |
 |---|---|
 | Thaw Zin Htun | 2502712 |
-| Siyona | XXXXXXX |
+| Siyona Shailesh Naik | 2502714 |
 | Wilson Teng Hao Feng | 2503002 |
 | Troy | XXXXXXX |
 | Zayar | 2502688 |
