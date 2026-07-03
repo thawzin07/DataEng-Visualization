@@ -447,6 +447,11 @@ tbody tr:nth-child(even) {
   color: #ffffff;
 }
 
+#data-engineering-workflow table th {
+  background: var(--title-accent);
+  color: #ffffff;
+}
+
 #improvement-plan table {
   table-layout: fixed;
 }
