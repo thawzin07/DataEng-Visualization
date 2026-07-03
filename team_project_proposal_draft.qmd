@@ -720,8 +720,8 @@ The planned analyses map directly to the proposed interactive recovery-index cha
 |---|---|---|
 | Thaw Zin Htun | To be confirmed by team |  |
 | Siyona Shailesh Naik | To be confirmed by team |  |
-| Wilson Teng Hao Feng | Refined proposal Sections 1 to 6; shaped the 2019 recovery story; revised chart critique, weakness IDs and redesign plan; checked LTA PDF/CSV sources; aligned Section 4 and 5 with the actual DataMall CSV structure; planned the data workflow, output schema, validation checks and analysis measures; supported Quarto formatting and render checks. | ~20 hrs |
-| Troy | To be confirmed by team |  |
+| Wilson Teng Hao Feng | Refined proposal Sections 1 to 6; shaped the 2019 recovery story; revised chart critique, weakness IDs and redesign plan; checked LTA PDF/CSV sources; aligned Section 4 and 5 with the actual DataMall CSV structure; planned the data workflow, output schema, validation checks and analysis measures; supported Quarto formatting and render checks. | ~40 hrs |
+| Troy Ang | To be confirmed by team |  |
 | Zayar | To be confirmed by team |  |
 | All Members | Final content review and consistency checking | ~4 hrs each |
 
