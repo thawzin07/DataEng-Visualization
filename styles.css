@@ -452,6 +452,12 @@ tbody tr:nth-child(even) {
   color: #ffffff;
 }
 
+#planned-work-distribution table th,
+#appendix-data-dictionary table th {
+  background: var(--title-accent);
+  color: #ffffff;
+}
+
 #improvement-plan table {
   table-layout: fixed;
 }

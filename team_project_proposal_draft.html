@@ -2227,6 +2227,11 @@ color: #ffffff;
 background: var(--title-accent);
 color: #ffffff;
 }
+#planned-work-distribution table th,
+#appendix-data-dictionary table th {
+background: var(--title-accent);
+color: #ffffff;
+}
 #improvement-plan table {
 table-layout: fixed;
 }
@@ -2307,7 +2312,7 @@ width: 34%;
   <li><a href="#a2-mode-share-shift-across-bus-mrt-and-lrt" id="toc-a2-mode-share-shift-across-bus-mrt-and-lrt" class="nav-link" data-scroll-target="#a2-mode-share-shift-across-bus-mrt-and-lrt">A2 — Mode Share Shift Across Bus, MRT and LRT</a></li>
   <li><a href="#a3-year-on-year-ridership-recovery-momentum" id="toc-a3-year-on-year-ridership-recovery-momentum" class="nav-link" data-scroll-target="#a3-year-on-year-ridership-recovery-momentum">A3 — Year-on-Year Ridership Recovery Momentum</a></li>
   </ul></li>
-  <li><a href="#summary-what-we-produce-2025" id="toc-summary-what-we-produce-2025" class="nav-link" data-scroll-target="#summary-what-we-produce-2025">6.4 Summary: What We Produce (2025)</a></li>
+  <li><a href="#summary-what-we-produce-2019-to-2025" id="toc-summary-what-we-produce-2019-to-2025" class="nav-link" data-scroll-target="#summary-what-we-produce-2019-to-2025">6.4 Summary: What We Produce (2019 to 2025)</a></li>
   </ul></li>
   <li><a href="#planned-work-distribution" id="toc-planned-work-distribution" class="nav-link" data-scroll-target="#planned-work-distribution">7. Planned Work Distribution</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">8. References</a>
@@ -2318,8 +2323,10 @@ width: 34%;
   </ul></li>
   <li><a href="#appendix-data-dictionary" id="toc-appendix-data-dictionary" class="nav-link" data-scroll-target="#appendix-data-dictionary">9. Appendix: Data Dictionary</a>
   <ul>
-  <li><a href="#a.1-ridership_data-primary-visualization-table" id="toc-a.1-ridership_data-primary-visualization-table" class="nav-link" data-scroll-target="#a.1-ridership_data-primary-visualization-table">A.1 ridership_data — Primary Visualization Table</a></li>
-  <li><a href="#a.2-mode_labels-annotation-table" id="toc-a.2-mode_labels-annotation-table" class="nav-link" data-scroll-target="#a.2-mode_labels-annotation-table">A.2 mode_labels — Annotation Table</a></li>
+  <li><a href="#a.1-ridership_metrics-primary-metrics-table" id="toc-a.1-ridership_metrics-primary-metrics-table" class="nav-link" data-scroll-target="#a.1-ridership_metrics-primary-metrics-table">A.1 <code>ridership_metrics</code> — Primary Metrics Table</a></li>
+  <li><a href="#a.2-ridership_data-interactive-chart-table" id="toc-a.2-ridership_data-interactive-chart-table" class="nav-link" data-scroll-target="#a.2-ridership_data-interactive-chart-table">A.2 <code>ridership_data</code> — Interactive Chart Table</a></li>
+  <li><a href="#a.3-mode_labels-annotation-table" id="toc-a.3-mode_labels-annotation-table" class="nav-link" data-scroll-target="#a.3-mode_labels-annotation-table">A.3 <code>mode_labels</code> — Annotation Table</a></li>
+  <li><a href="#a.4-key-validation-checks" id="toc-a.4-key-validation-checks" class="nav-link" data-scroll-target="#a.4-key-validation-checks">A.4 Key Validation Checks</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -2413,7 +2420,7 @@ width: 34%;
 <h2 class="anchored" data-anchor-id="our-projects-aim">1.1 Our Project’s Aim</h2>
 <p>Singapore’s public transport ridership has recovered strongly since the disruption caused by Covid-19, but the recovery is not evenly distributed across buses, MRT and LRT. The selected Straits Times visualization is useful because it shows average daily rides from 2019 to 2025 in a single chart, allowing the 2019 pre-pandemic baseline to be compared with the later recovery years.</p>
 <p>Our project aims to use this original visualization as the starting point for a clearer data story about public transport recovery in Singapore. The key issue is not only whether total ridership has returned to its pre-pandemic level, but also how the recovery differs by transport mode. In the chart, MRT ridership in 2025 is above its 2019 level, bus ridership remains below its 2019 level, and LRT remains much smaller in scale while slipping slightly from 2024 to 2025.</p>
-<p>The improved visualization will therefore focus on four connected dimensions: <strong>year</strong>, <strong>transport mode</strong>, <strong>average daily ridership</strong>, and <strong>recovery relative to 2019</strong>. This allows the project to move beyond a simple total-ridership comparison and examine how Singapore’s public transport mode mix has changed over time.</p>
+<p>The improved visualization will therefore focus on four connected dimensions: <strong>year</strong>, <strong>transport mode</strong>, <strong>average daily ridership</strong>, and <strong>recovery relative to 2019</strong>. This allows the project to move beyond a simple total-ridership comparison and examine how Singapore’s ridership share by transport mode has changed over time.</p>
 <div class="question-grid">
 <div class="question-card">
 <p><span class="question-index">Q1</span> How did Singapore’s average daily public transport ridership change from 2019 to 2025?</p>
@@ -2422,7 +2429,7 @@ width: 34%;
 <p><span class="question-index">Q2</span> How did bus, MRT and LRT ridership recover differently relative to the 2019 baseline?</p>
 </div>
 <div class="question-card">
-<p><span class="question-index">Q3</span> Has the overall public transport mode mix changed even though total ridership has nearly recovered?</p>
+<p><span class="question-index">Q3</span> Has the overall ridership share by transport mode changed even though total ridership has nearly recovered?</p>
 </div>
 </div>
 </section>
@@ -2441,11 +2448,11 @@ Published by <em>The Straits Times</em> on 30 January 2026. The article was writ
 Average daily rides by year and transport mode, measured in thousands.</p>
 </div>
 <div class="data-source-card">
-<p><span class="card-kicker">Optional enrichment</span> <strong>Transport network context</strong><br>
-Relevant rail-network or service-context information, if needed to explain mode shifts.</p>
+<p><span class="card-kicker">Supporting data direction</span> <strong>LTA monthly public transport ridership</strong><br>
+Monthly average daily rides by transport mode, used only for optional context and checking.</p>
 </div>
 <div class="data-source-card">
-<p><span class="card-kicker">Analytical focus</span> <strong>Recovery and mode mix</strong><br>
+<p><span class="card-kicker">Analytical focus</span> <strong>Recovery and ridership share</strong><br>
 Mode share, year-on-year change and recovery index against 2019.</p>
 </div>
 </div>
@@ -3104,7 +3111,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <tr class="odd">
 <td>The LTA source labels bus ridership as “Public Bus”, while the Straits Times chart labels it as “Bus”.</td>
 <td><span class="severity-low">Low</span></td>
-<td>Standardise the mode label to <code>Bus</code> in the final chart, while documenting that it comes from LTA’s <code>Public Bus</code> column.</td>
+<td>Standardise the mode label to <code>Bus</code> in the final chart, while documenting that it comes from LTA’s <code>Public Bus</code> mode value.</td>
 </tr>
 <tr class="even">
 <td>Annual values are average daily ridership, not total annual passenger trips.</td>
@@ -3175,11 +3182,11 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <td>3. Standardise units and validate values</td>
 <td><code>clean_yearly_long</code></td>
 <td>Keep the raw <code>ridership</code> value as full average daily rides; create <code>daily_rides_k = ridership / 1000</code> to match the original chart’s thousands unit; check row counts and known 2025 values</td>
-<td><code>validated_yearly_long</code></td>
+<td><code>clean_yearly_long</code> validated</td>
 </tr>
 <tr class="even">
 <td>4. Derive analytical metrics</td>
-<td><code>validated_yearly_long</code></td>
+<td><code>clean_yearly_long</code></td>
 <td>Calculate yearly total ridership, ridership share by transport mode, 2019 baseline by mode, recovery index, gap from 2019, percentage change from 2019 and year-on-year change</td>
 <td><code>ridership_metrics</code></td>
 </tr>
@@ -3191,7 +3198,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 </tr>
 <tr class="even">
 <td>6. Validate and export</td>
-<td><code>ridership_data</code>, <code>mode_labels</code></td>
+<td><code>ridership_metrics</code>, <code>ridership_data</code>, <code>mode_labels</code></td>
 <td>Check missing values, row counts, 2019 baseline values, mode-share sums and known 2025 totals before exporting processed data</td>
 <td><code>validation_checks</code>, processed CSV/RDS files</td>
 </tr>
@@ -3232,7 +3239,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <tr class="odd">
 <td>D3</td>
 <td>Source labels and chart labels differ slightly</td>
-<td>Map LTA’s <code>Public Bus</code> column to the final chart label <code>Bus</code>; keep MRT and LRT unchanged</td>
+<td>Map LTA’s <code>Public Bus</code> mode value to the final chart label <code>Bus</code>; keep MRT and LRT unchanged</td>
 <td>The shorter label is clearer in the chart while the data dictionary preserves the source meaning</td>
 </tr>
 <tr class="even">
@@ -3276,9 +3283,9 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 </section>
 <section id="target-output-schema" class="level2">
 <h2 class="anchored" data-anchor-id="target-output-schema">5.3 Target Output Schema</h2>
-<p>Two final objects will be passed from the data engineering workflow to the visualization stage. <code>ridership_data</code> will drive the main chart, while <code>mode_labels</code> will hold endpoint labels and annotation positions so that the plotting code stays clean.</p>
-<p><code>ridership_data</code> - Primary Visualization Table</p>
-<p>One row per year × transport mode × metric type. The default metric type will be Recovery Index, but the same chart object may support a metric toggle for Absolute Ridership and Ridership Share if technically feasible.</p>
+<p>Three planned objects will support the visualization stage. <code>ridership_metrics</code> will store the cleaned and derived yearly metrics, <code>ridership_data</code> will support the optional metric-toggle chart, and <code>mode_labels</code> will hold endpoint labels and annotation positions so that the plotting code stays clean.</p>
+<p><code>ridership_metrics</code> - Primary Metrics Table</p>
+<p><code>ridership_metrics</code> stores the cleaned yearly ridership data and derived metrics before reshaping for the optional metric toggle.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -3375,35 +3382,29 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <td>Recovery momentum tooltip and analysis</td>
 </tr>
 <tr class="even">
+<td><code>yoy_pct_change</code></td>
+<td>numeric</td>
+<td>Current year divided by previous year minus 1, by mode</td>
+<td>Percentage change</td>
+<td>Optional tooltip/context metric</td>
+</tr>
+<tr class="odd">
 <td><code>is_total</code></td>
 <td>logical</td>
 <td>Derived</td>
 <td><code>TRUE</code> or <code>FALSE</code></td>
 <td>Allows the optional total line to be toggled without creating a separate chart</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>label_rides_m</code></td>
 <td>character</td>
-<td>Formatted from <code>daily_rides_k</code></td>
+<td>Formatted from <code>daily_rides_k / 1000</code></td>
 <td>e.g. <code>&quot;3.490M&quot;</code></td>
 <td>Human-readable tooltip/display label</td>
 </tr>
-<tr class="even">
-<td><code>metric_type</code></td>
-<td>factor</td>
-<td>Derived</td>
-<td>Recovery Index / Absolute Ridership / Ridership Share</td>
-<td>Allows the same chart object to switch between different metrics</td>
-</tr>
-<tr class="odd">
-<td><code>metric_value</code></td>
-<td>numeric</td>
-<td>Derived</td>
-<td>Depends on selected metric</td>
-<td>Y-axis value for the selected metric</td>
-</tr>
 </tbody>
 </table>
+<p>The final <code>ridership_data</code> object will be created from <code>ridership_metrics</code> by reshaping selected metrics, such as <code>recovery_index</code>, <code>daily_rides_k</code> and <code>mode_share</code>, into <code>metric_type</code> and <code>metric_value</code> for the optional metric toggle.</p>
 <p><code>mode_labels</code> - Annotation Table</p>
 <table class="caption-top table">
 <colgroup>
@@ -3426,42 +3427,42 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <tr class="odd">
 <td><code>year</code></td>
 <td>integer</td>
-<td>Filtered from <code>ridership_data</code></td>
+<td>Filtered from <code>ridership_metrics</code></td>
 <td>Usually 2025</td>
 <td>Places endpoint labels on the final year</td>
 </tr>
 <tr class="even">
 <td><code>mode</code></td>
 <td>factor</td>
-<td><code>ridership_data</code></td>
-<td>Bus, MRT, LRT, optional Total</td>
+<td><code>ridership_metrics</code></td>
+<td>Bus, MRT, LRT</td>
 <td>Matches label to line colour/group</td>
 </tr>
 <tr class="odd">
 <td><code>recovery_index</code></td>
 <td>numeric</td>
-<td><code>ridership_data</code></td>
+<td><code>ridership_metrics</code></td>
 <td>2019 = 100</td>
 <td>Y-position for endpoint labels</td>
 </tr>
 <tr class="even">
 <td><code>daily_rides_k</code></td>
 <td>numeric</td>
-<td><code>ridership_data</code></td>
+<td><code>ridership_metrics</code></td>
 <td>Thousands of average daily rides</td>
 <td>Used in label text</td>
 </tr>
 <tr class="odd">
 <td><code>gap_from_2019_k</code></td>
 <td>numeric</td>
-<td><code>ridership_data</code></td>
+<td><code>ridership_metrics</code></td>
 <td>Thousands of average daily rides</td>
 <td>Supports above/below-baseline endpoint text</td>
 </tr>
 <tr class="even">
 <td><code>label_text</code></td>
 <td>character</td>
-<td>Formatted from metrics</td>
+<td>Formatted from mode and recovery index</td>
 <td>e.g. <code>&quot;MRT: 103.1&quot;</code></td>
 <td>Text displayed beside line endpoints</td>
 </tr>
@@ -3629,7 +3630,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 </tr>
 <tr class="odd">
 <td>Traceability</td>
-<td>Keep a data dictionary for <code>ridership_data</code> and <code>mode_labels</code>, including formulas for recovery index, mode share and gaps from 2019.</td>
+<td>Keep a data dictionary for <code>ridership_metrics</code>, <code>ridership_data</code> and <code>mode_labels</code>, including formulas for recovery index, mode share and gaps from 2019.</td>
 </tr>
 <tr class="even">
 <td>Determinism</td>
@@ -3643,7 +3644,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <h1>6. Data Analysis Plan</h1>
 <section id="what-this-analysis-is-for" class="level2">
 <h2 class="anchored" data-anchor-id="what-this-analysis-is-for">6.1 What This Analysis Is For</h2>
-<p>The analysis plan supports the redesigned visualization by producing the exact metrics needed to explain the public transport recovery story. The goal is descriptive rather than predictive: we want to quantify what changed from 2019 to 2025, which transport mode recovered most strongly, and how the mode mix shifted over time.</p>
+<p>The analysis plan supports the redesigned visualization by producing the exact metrics needed to explain the public transport recovery story. The goal is descriptive rather than predictive: we want to quantify what changed from 2019 to 2025, which transport mode recovered most strongly, and how ridership share by transport mode changed over time.</p>
 <p>The analysis will answer three practical questions:</p>
 <ul>
 <li><strong>A1:</strong> How far above or below the 2019 baseline is each transport mode by 2025?</li>
@@ -3721,7 +3722,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <p><strong>Question:</strong> Did the balance between Bus, MRT and LRT change even though total public transport ridership nearly returned to its 2019 level?</p>
 <p><strong>Method:</strong> Calculate each mode’s share of yearly total ridership, then compare 2019 and 2025 shares. The main comparison will be <code>mode_share_2025 - mode_share_2019</code>, reported in percentage points.</p>
 <p><strong>Expected output:</strong> A mode-share comparison table and tooltip values in the chart. The expected pattern is that Bus share decreases, MRT share increases and LRT remains a small share of the total.</p>
-<p><strong>Insight supported:</strong> This explains why total ridership alone is not enough. Similar total ridership can still hide a changed transport mode mix.</p>
+<p><strong>Insight supported:</strong> This explains why total ridership alone is not enough. Similar total ridership can still hide changes in ridership share by transport mode.</p>
 </section>
 <section id="a3-year-on-year-ridership-recovery-momentum" class="level3">
 <h3 class="anchored" data-anchor-id="a3-year-on-year-ridership-recovery-momentum">A3 — Year-on-Year Ridership Recovery Momentum</h3>
@@ -3731,8 +3732,8 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <p><strong>Insight supported:</strong> This adds time-path context to the final 2025 comparison. It helps readers see not only where ridership ended up, but how the recovery progressed across 2020 to 2025.</p>
 </section>
 </section>
-<section id="summary-what-we-produce-2025" class="level2">
-<h2 class="anchored" data-anchor-id="summary-what-we-produce-2025">6.4 Summary: What We Produce (2025)</h2>
+<section id="summary-what-we-produce-2019-to-2025" class="level2">
+<h2 class="anchored" data-anchor-id="summary-what-we-produce-2019-to-2025">6.4 Summary: What We Produce (2019 to 2025)</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -3744,7 +3745,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <thead>
 <tr class="header">
 <th>ID</th>
-<th>Question Answered (2025)</th>
+<th>Question Answered</th>
 <th>Output</th>
 <th>Supports Which Insight</th>
 <th>Data Needed</th>
@@ -3762,7 +3763,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <td>A2</td>
 <td>How did each mode’s share of total ridership change?</td>
 <td>2019 vs 2025 mode-share comparison table and tooltip values</td>
-<td>The total nearly recovered, but the mode mix shifted toward MRT</td>
+<td>The total nearly recovered, but ridership share shifted toward MRT</td>
 <td>Yearly LTA ridership by mode and yearly totals</td>
 </tr>
 <tr class="odd">
@@ -3778,47 +3779,49 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 </section>
 <section id="planned-work-distribution" class="level1">
 <h1>7. Planned Work Distribution</h1>
-<div class="placeholder-panel">
-<p>To be completed with final task ownership.</p>
-</div>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Team Member</th>
-<th>Primary Tasks</th>
+<th>Tasks Done</th>
 <th>Est. Hours</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Thaw Zin</td>
-<td></td>
+<td>Thaw Zin Htun</td>
+<td>To be confirmed by team</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Siyona</td>
-<td></td>
+<td>Siyona Shailesh Naik</td>
+<td>To be confirmed by team</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Wilson</td>
-<td></td>
-<td></td>
+<td>Wilson Teng Hao Feng</td>
+<td>Refined proposal Sections 1 to 6; shaped the 2019 recovery story; revised chart critique, weakness IDs and redesign plan; checked LTA PDF/CSV sources; aligned Section 4 and 5 with the actual DataMall CSV structure; planned the data workflow, output schema, validation checks and analysis measures; supported Quarto formatting and render checks.</td>
+<td>~20 hrs</td>
 </tr>
 <tr class="even">
 <td>Troy</td>
-<td></td>
+<td>To be confirmed by team</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Zayar</td>
-<td></td>
+<td>To be confirmed by team</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>All Members</td>
-<td></td>
-<td></td>
+<td>Final content review and consistency checking</td>
+<td>~4 hrs each</td>
 </tr>
 </tbody>
 </table>
@@ -3827,112 +3830,365 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <h1>8. References</h1>
 <section id="article-source" class="level2">
 <h2 class="anchored" data-anchor-id="article-source">8.1 Article Source</h2>
-<div class="placeholder-panel">
-<p>The Straits Times article URL and citation details will be finalized here.</p>
-</div>
+<ul>
+<li>Chelvan, V. P. (2026, January 30). <em>More rides on MRT in 2025 as LRT use fell; bus ride numbers still below pre-Covid-19 levels</em>. The Straits Times. <a href="https://www.straitstimes.com/singapore/transport/more-people-used-mrt-in-2025-as-lrt-ridership-falls-bus-numbers-still-below-pre-covid-levels" class="uri">https://www.straitstimes.com/singapore/transport/more-people-used-mrt-in-2025-as-lrt-ridership-falls-bus-numbers-still-below-pre-covid-levels</a></li>
+</ul>
+<p>This article is the source of the original news-media visualization and project story. It is used for critique and context, while the final plotted values will be sourced from LTA.</p>
 </section>
 <section id="data-sources" class="level2">
 <h2 class="anchored" data-anchor-id="data-sources">8.2 Data Sources</h2>
-<div class="placeholder-panel">
-<p>LTA and supporting data source citations will be finalized here.</p>
-</div>
+<ul>
+<li><p>Land Transport Authority. (n.d.). <em>Average public transport ridership by year (2015 to 2025)</em>. <a href="https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/PT_Ridership_Yearly_2015-2025.pdf" class="uri">https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/PT_Ridership_Yearly_2015-2025.pdf</a></p></li>
+<li><p>Land Transport Authority. (n.d.). <em>Average public transport ridership by month (2019 to 2025)</em>. <a href="https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/PT_Ridership_Monthly_2019-2025.pdf" class="uri">https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/PT_Ridership_Monthly_2019-2025.pdf</a></p></li>
+<li><p>Land Transport Authority. (n.d.). <em>LTA DataMall static datasets</em>. <a href="https://datamall.lta.gov.sg/content/datamall/en/static-data.html" class="uri">https://datamall.lta.gov.sg/content/datamall/en/static-data.html</a></p></li>
+</ul>
+<p>The yearly DataMall ridership dataset is the main data source for the proposed chart. The yearly PDF is retained as the official reference table for value checking, and the monthly source may be used only for supporting context or validation.</p>
 </section>
 <section id="design-reference" class="level2">
 <h2 class="anchored" data-anchor-id="design-reference">8.3 Design Reference</h2>
-<div class="placeholder-panel">
-<p>Design and accessibility references will be finalized here if used.</p>
-</div>
+<ul>
+<li>Wong, B. (2011). Points of view: Color blindness. <em>Nature Methods, 8</em>(6), 441–441. <a href="https://doi.org/10.1038/nmeth.1618" class="uri">https://doi.org/10.1038/nmeth.1618</a></li>
+</ul>
+<p>This reference supports the use of clearer colour contrast and a colourblind-conscious palette in the improved visualization.</p>
 </section>
 </section>
 <section id="appendix-data-dictionary" class="level1">
 <h1>9. Appendix: Data Dictionary</h1>
-<div class="placeholder-panel">
-<p>To be completed after the target output schema is confirmed.</p>
-</div>
-<section id="a.1-ridership_data-primary-visualization-table" class="level2">
-<h2 class="anchored" data-anchor-id="a.1-ridership_data-primary-visualization-table">A.1 ridership_data — Primary Visualization Table</h2>
+<p>This appendix defines the planned visualization-ready data objects. It follows the Section 5 workflow and supports the Section 6 analysis plan. The <code>ridership_metrics</code> table stores the cleaned and derived yearly metrics. The <code>ridership_data</code> table is created from <code>ridership_metrics</code> if the optional metric toggle is implemented.</p>
+<section id="a.1-ridership_metrics-primary-metrics-table" class="level2">
+<h2 class="anchored" data-anchor-id="a.1-ridership_metrics-primary-metrics-table">A.1 <code>ridership_metrics</code> — Primary Metrics Table</h2>
+<p><code>ridership_metrics</code> stores the cleaned yearly ridership data and derived metrics before reshaping for the optional metric toggle.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 5%">
+<col style="width: 32%">
+<col style="width: 19%">
+<col style="width: 29%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Column</th>
 <th>R Type</th>
-<th>Source</th>
+<th>Source / Derivation</th>
 <th>Unit / Range</th>
 <th>Role in Chart</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>year</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>year</code></td>
+<td>integer</td>
+<td>LTA yearly dataset</td>
+<td>2019-2025</td>
+<td>X-axis and time ordering</td>
 </tr>
 <tr class="even">
-<td>mode</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>mode</code></td>
+<td>factor</td>
+<td>Cleaned from LTA <code>mode</code> field</td>
+<td>Bus, MRT, LRT, optional Total</td>
+<td>Line colour and grouping</td>
 </tr>
 <tr class="odd">
-<td>daily_rides_k</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>ridership</code></td>
+<td>numeric</td>
+<td>LTA DataMall CSV</td>
+<td>Full average daily rides</td>
+<td>Raw value retained for traceability</td>
 </tr>
 <tr class="even">
-<td>recovery_index</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>daily_rides_k</code></td>
+<td>numeric</td>
+<td><code>ridership / 1000</code></td>
+<td>Thousands of average daily rides</td>
+<td>Absolute ridership values and tooltip label source</td>
+</tr>
+<tr class="odd">
+<td><code>total_rides_k</code></td>
+<td>numeric</td>
+<td>Sum of Bus, MRT and LRT per year</td>
+<td>Thousands of average daily rides</td>
+<td>Denominator for mode share and total context</td>
+</tr>
+<tr class="even">
+<td><code>mode_share</code></td>
+<td>numeric</td>
+<td><code>daily_rides_k / total_rides_k</code></td>
+<td>0-1 proportion</td>
+<td>Ridership share metric and tooltip value</td>
+</tr>
+<tr class="odd">
+<td><code>baseline_2019_k</code></td>
+<td>numeric</td>
+<td>2019 <code>daily_rides_k</code> by mode</td>
+<td>Thousands of average daily rides</td>
+<td>Baseline for recovery comparison</td>
+</tr>
+<tr class="even">
+<td><code>recovery_index</code></td>
+<td>numeric</td>
+<td><code>daily_rides_k / baseline_2019_k * 100</code></td>
+<td>2019 = 100</td>
+<td>Default y-axis metric</td>
+</tr>
+<tr class="odd">
+<td><code>gap_from_2019_k</code></td>
+<td>numeric</td>
+<td><code>daily_rides_k - baseline_2019_k</code></td>
+<td>Thousands of average daily rides</td>
+<td>Shows above/below 2019 level</td>
+</tr>
+<tr class="even">
+<td><code>pct_change_from_2019</code></td>
+<td>numeric</td>
+<td><code>daily_rides_k / baseline_2019_k - 1</code></td>
+<td>Percentage change</td>
+<td>Tooltip and summary analysis</td>
+</tr>
+<tr class="odd">
+<td><code>yoy_change_k</code></td>
+<td>numeric</td>
+<td>Current year minus previous year, by mode</td>
+<td>Thousands of average daily rides</td>
+<td>Year-on-year recovery momentum</td>
+</tr>
+<tr class="even">
+<td><code>yoy_pct_change</code></td>
+<td>numeric</td>
+<td>Current year divided by previous year minus 1, by mode</td>
+<td>Percentage change</td>
+<td>Optional tooltip/context metric</td>
+</tr>
+<tr class="odd">
+<td><code>is_total</code></td>
+<td>logical</td>
+<td>Derived from <code>mode == &quot;Total&quot;</code></td>
+<td><code>TRUE</code> or <code>FALSE</code></td>
+<td>Supports optional total-line toggle</td>
+</tr>
+<tr class="even">
+<td><code>label_rides_m</code></td>
+<td>character</td>
+<td>Formatted from <code>daily_rides_k / 1000</code></td>
+<td>e.g. <code>3.490M</code></td>
+<td>Readable display label</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="a.2-mode_labels-annotation-table" class="level2">
-<h2 class="anchored" data-anchor-id="a.2-mode_labels-annotation-table">A.2 mode_labels — Annotation Table</h2>
+<section id="a.2-ridership_data-interactive-chart-table" class="level2">
+<h2 class="anchored" data-anchor-id="a.2-ridership_data-interactive-chart-table">A.2 <code>ridership_data</code> — Interactive Chart Table</h2>
+<p><code>ridership_data</code> is created by reshaping selected metrics from <code>ridership_metrics</code> into a long format. This allows the same chart object to switch between recovery index, absolute ridership and ridership share if the metric toggle is implemented.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 5%">
+<col style="width: 24%">
+<col style="width: 33%">
+<col style="width: 22%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Column</th>
 <th>R Type</th>
-<th>Source</th>
+<th>Source / Derivation</th>
 <th>Unit / Range</th>
 <th>Role in Chart</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>year</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>year</code></td>
+<td>integer</td>
+<td>From <code>ridership_metrics</code></td>
+<td>2019-2025</td>
+<td>X-axis and time ordering</td>
 </tr>
 <tr class="even">
-<td>mode</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>mode</code></td>
+<td>factor</td>
+<td>From <code>ridership_metrics</code></td>
+<td>Bus, MRT, LRT, optional Total</td>
+<td>Line colour and grouping</td>
 </tr>
 <tr class="odd">
-<td>label_value</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>is_total</code></td>
+<td>logical</td>
+<td>From <code>ridership_metrics</code></td>
+<td><code>TRUE</code> or <code>FALSE</code></td>
+<td>Supports optional total-line toggle</td>
 </tr>
 <tr class="even">
-<td>label_position</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>metric_type</code></td>
+<td>factor</td>
+<td>Derived by reshaping selected metrics</td>
+<td>Recovery Index, Absolute Ridership, Ridership Share</td>
+<td>Metric toggle option</td>
+</tr>
+<tr class="odd">
+<td><code>metric_value</code></td>
+<td>numeric</td>
+<td>Value associated with <code>metric_type</code></td>
+<td>Depends on selected metric</td>
+<td>Y-axis value for selected metric</td>
+</tr>
+<tr class="even">
+<td><code>label_rides_m</code></td>
+<td>character</td>
+<td>From <code>ridership_metrics</code></td>
+<td>e.g. <code>3.490M</code></td>
+<td>Exact ridership label in tooltip</td>
+</tr>
+<tr class="odd">
+<td><code>gap_from_2019_k</code></td>
+<td>numeric</td>
+<td>From <code>ridership_metrics</code></td>
+<td>Thousands of average daily rides</td>
+<td>Tooltip and annotation context</td>
+</tr>
+<tr class="even">
+<td><code>pct_change_from_2019</code></td>
+<td>numeric</td>
+<td>From <code>ridership_metrics</code></td>
+<td>Percentage change</td>
+<td>Tooltip and analysis context</td>
+</tr>
+<tr class="odd">
+<td><code>yoy_change_k</code></td>
+<td>numeric</td>
+<td>From <code>ridership_metrics</code></td>
+<td>Thousands of average daily rides</td>
+<td>Tooltip showing year-on-year change</td>
+</tr>
+<tr class="even">
+<td><code>yoy_pct_change</code></td>
+<td>numeric</td>
+<td>From <code>ridership_metrics</code></td>
+<td>Percentage change</td>
+<td>Optional tooltip/context metric</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="a.3-mode_labels-annotation-table" class="level2">
+<h2 class="anchored" data-anchor-id="a.3-mode_labels-annotation-table">A.3 <code>mode_labels</code> — Annotation Table</h2>
+<p><code>mode_labels</code> stores endpoint labels and label-position decisions separately from the main data table. This keeps annotation logic out of the main plotting code.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 6%">
+<col style="width: 27%">
+<col style="width: 23%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>R Type</th>
+<th>Source / Derivation</th>
+<th>Unit / Range</th>
+<th>Role in Chart</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>year</code></td>
+<td>integer</td>
+<td>Filtered from <code>ridership_metrics</code></td>
+<td>Usually 2025</td>
+<td>Places labels at the end of each line</td>
+</tr>
+<tr class="even">
+<td><code>mode</code></td>
+<td>factor</td>
+<td>Filtered from <code>ridership_metrics</code></td>
+<td>Bus, MRT, LRT</td>
+<td>Matches label to the correct line</td>
+</tr>
+<tr class="odd">
+<td><code>recovery_index</code></td>
+<td>numeric</td>
+<td>From <code>ridership_metrics</code></td>
+<td>2019 = 100</td>
+<td>Y-position for default recovery-index view</td>
+</tr>
+<tr class="even">
+<td><code>daily_rides_k</code></td>
+<td>numeric</td>
+<td>From <code>ridership_metrics</code></td>
+<td>Thousands of average daily rides</td>
+<td>Used in label text and tooltip</td>
+</tr>
+<tr class="odd">
+<td><code>gap_from_2019_k</code></td>
+<td>numeric</td>
+<td>From <code>ridership_metrics</code></td>
+<td>Thousands of average daily rides</td>
+<td>Supports above/below-baseline label wording</td>
+</tr>
+<tr class="even">
+<td><code>label_text</code></td>
+<td>character</td>
+<td>Formatted from mode and recovery index</td>
+<td>e.g. <code>MRT: 103.1 (2019=100)</code></td>
+<td>Text displayed beside line endpoints</td>
+</tr>
+<tr class="odd">
+<td><code>label_position</code></td>
+<td>character</td>
+<td>Manual or derived adjustment</td>
+<td>right/left/above/below</td>
+<td>Reduces label overlap</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="a.4-key-validation-checks" class="level2">
+<h2 class="anchored" data-anchor-id="a.4-key-validation-checks">A.4 Key Validation Checks</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 43%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Expected Result</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mode-only row count</td>
+<td>21 rows: 7 years x 3 modes</td>
+<td>Confirms the 2019-2025 Bus/MRT/LRT subset is complete</td>
+</tr>
+<tr class="even">
+<td>Optional total row count</td>
+<td>28 rows if Total is included</td>
+<td>Confirms the optional total series has one row per year</td>
+</tr>
+<tr class="odd">
+<td>Missing values</td>
+<td>No missing <code>year</code>, <code>mode</code>, <code>ridership</code>, <code>daily_rides_k</code> or <code>recovery_index</code></td>
+<td>Prevents broken lines, labels or tooltips</td>
+</tr>
+<tr class="even">
+<td>2019 recovery index</td>
+<td>100 for every mode</td>
+<td>Confirms the baseline calculation is correct</td>
+</tr>
+<tr class="odd">
+<td>2025 total</td>
+<td>7,540 thousand average daily rides</td>
+<td>Confirms the plotted 2025 values match the LTA and Straits Times figures</td>
+</tr>
+<tr class="even">
+<td>Mode share totals</td>
+<td>Bus + MRT + LRT shares sum to 1 for each year</td>
+<td>Confirms mode-share calculations use the correct denominator</td>
 </tr>
 </tbody>
 </table>
@@ -4454,7 +4710,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>Our project aims to use this original visualization as the starting point for a clearer data story about public transport recovery in Singapore. The key issue is not only whether total ridership has returned to its pre-pandemic level, but also how the recovery differs by transport mode. In the chart, MRT ridership in 2025 is above its 2019 level, bus ridership remains below its 2019 level, and LRT remains much smaller in scale while slipping slightly from 2024 to 2025.</span>
 <span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>The improved visualization will therefore focus on four connected dimensions: **year**, **transport mode**, **average daily ridership**, and **recovery relative to 2019**. This allows the project to move beyond a simple total-ridership comparison and examine how Singapore&#39;s public transport mode mix has changed over time.</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>The improved visualization will therefore focus on four connected dimensions: **year**, **transport mode**, **average daily ridership**, and **recovery relative to 2019**. This allows the project to move beyond a simple total-ridership comparison and examine how Singapore&#39;s ridership share by transport mode has changed over time.</span>
 <span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>::: {.question-grid}</span>
 <span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>::: {.question-card}</span>
@@ -4469,7 +4725,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>::: {.question-card}</span>
 <span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;question-index&quot;</span><span class="dt">&gt;</span>Q3<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>Has the overall public transport mode mix changed even though total ridership has nearly recovered?</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>Has the overall ridership share by transport mode changed even though total ridership has nearly recovered?</span>
 <span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
@@ -4495,14 +4751,14 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>::: {.data-source-card}</span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;card-kicker&quot;</span><span class="dt">&gt;</span>Optional enrichment<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>**Transport network context**  </span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>Relevant rail-network or service-context information, if needed to explain mode shifts.</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;card-kicker&quot;</span><span class="dt">&gt;</span>Supporting data direction<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>**LTA monthly public transport ridership**  </span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>Monthly average daily rides by transport mode, used only for optional context and checking.</span>
 <span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>::: {.data-source-card}</span>
 <span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;card-kicker&quot;</span><span class="dt">&gt;</span>Analytical focus<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>**Recovery and mode mix**  </span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>**Recovery and ridership share**  </span>
 <span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>Mode share, year-on-year change and recovery index against 2019.</span>
 <span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>:::</span>
@@ -4825,7 +5081,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <span id="cb2-429"><a href="#cb2-429" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
 <span id="cb2-430"><a href="#cb2-430" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> The primary yearly data is available as a machine-readable CSV, while the LTA PDF is used as an official reference table. The two sources must be interpreted consistently because the CSV stores full ride counts while the PDF/chart display values in thousands. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-medium&quot;</span><span class="dt">&gt;</span>Medium<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Use the yearly CSV as the main data pipeline source. Keep the yearly PDF as a reference copy and derive <span class="in">`daily_rides_k = ridership / 1000`</span> for comparison with the original chart. <span class="pp">|</span></span>
 <span id="cb2-431"><a href="#cb2-431" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Units are published in thousands of average daily rides. It is easy to mix up thousands, millions and raw ride counts. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-high&quot;</span><span class="dt">&gt;</span>High<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Store ridership values in a clearly named <span class="in">`*_rides_k`</span> format, and create formatted labels such as &quot;3.490M&quot; only at the visualization stage. <span class="pp">|</span></span>
-<span id="cb2-432"><a href="#cb2-432" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> The LTA source labels bus ridership as &quot;Public Bus&quot;, while the Straits Times chart labels it as &quot;Bus&quot;. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-low&quot;</span><span class="dt">&gt;</span>Low<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Standardise the mode label to <span class="in">`Bus`</span> in the final chart, while documenting that it comes from LTA&#39;s <span class="in">`Public Bus`</span> column. <span class="pp">|</span></span>
+<span id="cb2-432"><a href="#cb2-432" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> The LTA source labels bus ridership as &quot;Public Bus&quot;, while the Straits Times chart labels it as &quot;Bus&quot;. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-low&quot;</span><span class="dt">&gt;</span>Low<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Standardise the mode label to <span class="in">`Bus`</span> in the final chart, while documenting that it comes from LTA&#39;s <span class="in">`Public Bus`</span> mode value. <span class="pp">|</span></span>
 <span id="cb2-433"><a href="#cb2-433" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Annual values are average daily ridership, not total annual passenger trips. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-high&quot;</span><span class="dt">&gt;</span>High<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Do not interpret the figures as yearly totals. Titles, subtitles, tooltips and captions will state &quot;average daily rides&quot; clearly. <span class="pp">|</span></span>
 <span id="cb2-434"><a href="#cb2-434" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Monthly values should not be averaged naively to recreate annual values because months have different numbers of days. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-medium&quot;</span><span class="dt">&gt;</span>Medium<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Use the official annual dataset as the authoritative source for the final chart. If monthly data is used for validation, treat it as contextual rather than as a replacement for annual figures. <span class="pp">|</span></span>
 <span id="cb2-435"><a href="#cb2-435" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> LRT values are small relative to bus and MRT, so rounding can make small differences look more precise than they are. <span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;severity-medium&quot;</span><span class="dt">&gt;</span>Medium<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Label LRT values clearly, but interpret small changes such as 210,000 to 209,000 rides cautiously. Use the recovery-index view to make the trend readable without overstating the magnitude. <span class="pp">|</span></span>
@@ -4851,10 +5107,10 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <span id="cb2-455"><a href="#cb2-455" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
 <span id="cb2-456"><a href="#cb2-456" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1. Ingest yearly CSV <span class="pp">|</span> LTA DataMall yearly ridership CSV <span class="pp">|</span> Read the CSV file containing <span class="in">`year`</span>, <span class="in">`mode`</span> and <span class="in">`ridership`</span>; keep the raw file unchanged for traceability <span class="pp">|</span> <span class="in">`raw_yearly_ridership`</span> <span class="pp">|</span></span>
 <span id="cb2-457"><a href="#cb2-457" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2. Filter and standardise data <span class="pp">|</span> <span class="in">`raw_yearly_ridership`</span> <span class="pp">|</span> Filter years 2019 to 2025; keep only Public Bus, MRT and LRT; rename <span class="in">`Public Bus`</span> to <span class="in">`Bus`</span>; convert <span class="in">`year`</span> and <span class="in">`ridership`</span> to numeric fields if needed <span class="pp">|</span> <span class="in">`clean_yearly_long`</span> <span class="pp">|</span></span>
-<span id="cb2-458"><a href="#cb2-458" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3. Standardise units and validate values <span class="pp">|</span> <span class="in">`clean_yearly_long`</span> <span class="pp">|</span> Keep the raw <span class="in">`ridership`</span> value as full average daily rides; create <span class="in">`daily_rides_k = ridership / 1000`</span> to match the original chart&#39;s thousands unit; check row counts and known 2025 values <span class="pp">|</span> <span class="in">`validated_yearly_long`</span> <span class="pp">|</span></span>
-<span id="cb2-459"><a href="#cb2-459" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4. Derive analytical metrics <span class="pp">|</span> <span class="in">`validated_yearly_long`</span> <span class="pp">|</span> Calculate yearly total ridership, ridership share by transport mode, 2019 baseline by mode, recovery index, gap from 2019, percentage change from 2019 and year-on-year change <span class="pp">|</span> <span class="in">`ridership_metrics`</span> <span class="pp">|</span></span>
+<span id="cb2-458"><a href="#cb2-458" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3. Standardise units and validate values <span class="pp">|</span> <span class="in">`clean_yearly_long`</span> <span class="pp">|</span> Keep the raw <span class="in">`ridership`</span> value as full average daily rides; create <span class="in">`daily_rides_k = ridership / 1000`</span> to match the original chart&#39;s thousands unit; check row counts and known 2025 values <span class="pp">|</span> <span class="in">`clean_yearly_long`</span> validated <span class="pp">|</span></span>
+<span id="cb2-459"><a href="#cb2-459" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4. Derive analytical metrics <span class="pp">|</span> <span class="in">`clean_yearly_long`</span> <span class="pp">|</span> Calculate yearly total ridership, ridership share by transport mode, 2019 baseline by mode, recovery index, gap from 2019, percentage change from 2019 and year-on-year change <span class="pp">|</span> <span class="in">`ridership_metrics`</span> <span class="pp">|</span></span>
 <span id="cb2-460"><a href="#cb2-460" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5. Prepare chart objects <span class="pp">|</span> <span class="in">`ridership_metrics`</span> <span class="pp">|</span> Create tooltip fields, endpoint labels, optional total-ridership series and metric-toggle data if implemented <span class="pp">|</span> <span class="in">`ridership_data`</span>, <span class="in">`mode_labels`</span> <span class="pp">|</span></span>
-<span id="cb2-461"><a href="#cb2-461" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 6. Validate and export <span class="pp">|</span> <span class="in">`ridership_data`</span>, <span class="in">`mode_labels`</span> <span class="pp">|</span> Check missing values, row counts, 2019 baseline values, mode-share sums and known 2025 totals before exporting processed data <span class="pp">|</span> <span class="in">`validation_checks`</span>, processed CSV/RDS files <span class="pp">|</span></span>
+<span id="cb2-461"><a href="#cb2-461" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 6. Validate and export <span class="pp">|</span> <span class="in">`ridership_metrics`</span>, <span class="in">`ridership_data`</span>, <span class="in">`mode_labels`</span> <span class="pp">|</span> Check missing values, row counts, 2019 baseline values, mode-share sums and known 2025 totals before exporting processed data <span class="pp">|</span> <span class="in">`validation_checks`</span>, processed CSV/RDS files <span class="pp">|</span></span>
 <span id="cb2-462"><a href="#cb2-462" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-463"><a href="#cb2-463" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.2 Planned Cleaning and Transformation Decisions</span></span>
 <span id="cb2-464"><a href="#cb2-464" aria-hidden="true" tabindex="-1"></a></span>
@@ -4864,7 +5120,7 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <span id="cb2-468"><a href="#cb2-468" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
 <span id="cb2-469"><a href="#cb2-469" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D1 <span class="pp">|</span> The main yearly data is available as a DataMall CSV, while the LTA PDF remains the official reference table <span class="pp">|</span> Use the CSV for the data pipeline and keep the PDF as a reference for checking values <span class="pp">|</span> This avoids manual transcription from the PDF while still allowing the team to verify that the CSV values match the official published table <span class="pp">|</span></span>
 <span id="cb2-470"><a href="#cb2-470" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D2 <span class="pp">|</span> The CSV stores ridership as full average daily ride counts, while the original chart displays values in thousands <span class="pp">|</span> Keep the raw <span class="in">`ridership`</span> column unchanged and create <span class="in">`daily_rides_k = ridership / 1000`</span> for chart comparison <span class="pp">|</span> This prevents confusion between full ride counts, thousands and millions <span class="pp">|</span></span>
-<span id="cb2-471"><a href="#cb2-471" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D3 <span class="pp">|</span> Source labels and chart labels differ slightly <span class="pp">|</span> Map LTA&#39;s <span class="in">`Public Bus`</span> column to the final chart label <span class="in">`Bus`</span>; keep MRT and LRT unchanged <span class="pp">|</span> The shorter label is clearer in the chart while the data dictionary preserves the source meaning <span class="pp">|</span></span>
+<span id="cb2-471"><a href="#cb2-471" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D3 <span class="pp">|</span> Source labels and chart labels differ slightly <span class="pp">|</span> Map LTA&#39;s <span class="in">`Public Bus`</span> mode value to the final chart label <span class="in">`Bus`</span>; keep MRT and LRT unchanged <span class="pp">|</span> The shorter label is clearer in the chart while the data dictionary preserves the source meaning <span class="pp">|</span></span>
 <span id="cb2-472"><a href="#cb2-472" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D4 <span class="pp">|</span> The DataMall yearly CSV is already in long format <span class="pp">|</span> Keep the long structure with <span class="in">`year`</span>, <span class="in">`mode`</span> and <span class="in">`daily_rides_k`</span> instead of pivoting from wide format <span class="pp">|</span> The existing long format already supports one line per mode in the recovery-index chart <span class="pp">|</span></span>
 <span id="cb2-473"><a href="#cb2-473" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D5 <span class="pp">|</span> The recovery story depends on a pre-Covid baseline <span class="pp">|</span> Use each mode&#39;s own 2019 value as its baseline <span class="pp">|</span> This ensures Bus, MRT and LRT are compared against their own pre-Covid ridership levels rather than against the total <span class="pp">|</span></span>
 <span id="cb2-474"><a href="#cb2-474" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> D6 <span class="pp">|</span> Total recovery and ridership share by transport mode are both important <span class="pp">|</span> Calculate <span class="in">`total_rides_k`</span> and <span class="in">`mode_share`</span> after filtering and standardising the mode data <span class="pp">|</span> This preserves the original chart&#39;s total-ridership context while revealing changes in Bus, MRT and LRT share <span class="pp">|</span></span>
@@ -4874,11 +5130,11 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <span id="cb2-478"><a href="#cb2-478" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-479"><a href="#cb2-479" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.3 Target Output Schema</span></span>
 <span id="cb2-480"><a href="#cb2-480" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-481"><a href="#cb2-481" aria-hidden="true" tabindex="-1"></a>Two final objects will be passed from the data engineering workflow to the visualization stage. <span class="in">`ridership_data`</span> will drive the main chart, while <span class="in">`mode_labels`</span> will hold endpoint labels and annotation positions so that the plotting code stays clean.</span>
+<span id="cb2-481"><a href="#cb2-481" aria-hidden="true" tabindex="-1"></a>Three planned objects will support the visualization stage. <span class="in">`ridership_metrics`</span> will store the cleaned and derived yearly metrics, <span class="in">`ridership_data`</span> will support the optional metric-toggle chart, and <span class="in">`mode_labels`</span> will hold endpoint labels and annotation positions so that the plotting code stays clean.</span>
 <span id="cb2-482"><a href="#cb2-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-483"><a href="#cb2-483" aria-hidden="true" tabindex="-1"></a><span class="in">`ridership_data`</span> - Primary Visualization Table</span>
+<span id="cb2-483"><a href="#cb2-483" aria-hidden="true" tabindex="-1"></a><span class="in">`ridership_metrics`</span> - Primary Metrics Table</span>
 <span id="cb2-484"><a href="#cb2-484" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-485"><a href="#cb2-485" aria-hidden="true" tabindex="-1"></a>One row per year × transport mode × metric type. The default metric type will be Recovery Index, but the same chart object may support a metric toggle for Absolute Ridership and Ridership Share if technically feasible.</span>
+<span id="cb2-485"><a href="#cb2-485" aria-hidden="true" tabindex="-1"></a><span class="in">`ridership_metrics`</span> stores the cleaned yearly ridership data and derived metrics before reshaping for the optional metric toggle.</span>
 <span id="cb2-486"><a href="#cb2-486" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-487"><a href="#cb2-487" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
 <span id="cb2-488"><a href="#cb2-488" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
@@ -4893,280 +5149,324 @@ Figure 1: Original Straits Times visualization, “Public transport: Average nu
 <span id="cb2-497"><a href="#cb2-497" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`gap_from_2019_k`</span> <span class="pp">|</span> numeric <span class="pp">|</span> <span class="in">`daily_rides_k - baseline_2019_k`</span> <span class="pp">|</span> Thousands of average daily rides <span class="pp">|</span> Shows whether each mode is above or below pre-Covid level <span class="pp">|</span></span>
 <span id="cb2-498"><a href="#cb2-498" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`pct_change_from_2019`</span> <span class="pp">|</span> numeric <span class="pp">|</span> <span class="in">`daily_rides_k / baseline_2019_k - 1`</span> <span class="pp">|</span> Percentage change <span class="pp">|</span> Tooltip and summary analysis <span class="pp">|</span></span>
 <span id="cb2-499"><a href="#cb2-499" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`yoy_change_k`</span> <span class="pp">|</span> numeric <span class="pp">|</span> Current year minus previous year by mode <span class="pp">|</span> Thousands of average daily rides <span class="pp">|</span> Recovery momentum tooltip and analysis <span class="pp">|</span></span>
-<span id="cb2-500"><a href="#cb2-500" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`is_total`</span> <span class="pp">|</span> logical <span class="pp">|</span> Derived <span class="pp">|</span> <span class="in">`TRUE`</span> or <span class="in">`FALSE`</span> <span class="pp">|</span> Allows the optional total line to be toggled without creating a separate chart <span class="pp">|</span></span>
-<span id="cb2-501"><a href="#cb2-501" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`label_rides_m`</span> <span class="pp">|</span> character <span class="pp">|</span> Formatted from <span class="in">`daily_rides_k`</span> <span class="pp">|</span> e.g. <span class="in">`&quot;3.490M&quot;`</span> <span class="pp">|</span> Human-readable tooltip/display label <span class="pp">|</span></span>
-<span id="cb2-502"><a href="#cb2-502" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`metric_type`</span> <span class="pp">|</span> factor <span class="pp">|</span> Derived <span class="pp">|</span> Recovery Index / Absolute Ridership / Ridership Share <span class="pp">|</span> Allows the same chart object to switch between different metrics <span class="pp">|</span></span>
-<span id="cb2-503"><a href="#cb2-503" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`metric_value`</span> <span class="pp">|</span> numeric <span class="pp">|</span> Derived <span class="pp">|</span> Depends on selected metric <span class="pp">|</span> Y-axis value for the selected metric <span class="pp">|</span></span>
-<span id="cb2-504"><a href="#cb2-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-505"><a href="#cb2-505" aria-hidden="true" tabindex="-1"></a><span class="in">`mode_labels`</span> - Annotation Table</span>
-<span id="cb2-506"><a href="#cb2-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-507"><a href="#cb2-507" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
-<span id="cb2-508"><a href="#cb2-508" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb2-509"><a href="#cb2-509" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`year`</span> <span class="pp">|</span> integer <span class="pp">|</span> Filtered from <span class="in">`ridership_data`</span> <span class="pp">|</span> Usually 2025 <span class="pp">|</span> Places endpoint labels on the final year <span class="pp">|</span></span>
-<span id="cb2-510"><a href="#cb2-510" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`mode`</span> <span class="pp">|</span> factor <span class="pp">|</span> <span class="in">`ridership_data`</span> <span class="pp">|</span> Bus, MRT, LRT, optional Total <span class="pp">|</span> Matches label to line colour/group <span class="pp">|</span></span>
-<span id="cb2-511"><a href="#cb2-511" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`recovery_index`</span> <span class="pp">|</span> numeric <span class="pp">|</span> <span class="in">`ridership_data`</span> <span class="pp">|</span> 2019 = 100 <span class="pp">|</span> Y-position for endpoint labels <span class="pp">|</span></span>
-<span id="cb2-512"><a href="#cb2-512" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`daily_rides_k`</span> <span class="pp">|</span> numeric <span class="pp">|</span> <span class="in">`ridership_data`</span> <span class="pp">|</span> Thousands of average daily rides <span class="pp">|</span> Used in label text <span class="pp">|</span></span>
-<span id="cb2-513"><a href="#cb2-513" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`gap_from_2019_k`</span> <span class="pp">|</span> numeric <span class="pp">|</span> <span class="in">`ridership_data`</span> <span class="pp">|</span> Thousands of average daily rides <span class="pp">|</span> Supports above/below-baseline endpoint text <span class="pp">|</span></span>
-<span id="cb2-514"><a href="#cb2-514" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`label_text`</span> <span class="pp">|</span> character <span class="pp">|</span> Formatted from metrics <span class="pp">|</span> e.g. <span class="in">`&quot;MRT: 103.1&quot;`</span> <span class="pp">|</span> Text displayed beside line endpoints <span class="pp">|</span></span>
-<span id="cb2-515"><a href="#cb2-515" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`label_position`</span> <span class="pp">|</span> character <span class="pp">|</span> Derived/manual adjustment <span class="pp">|</span> left/right/above/below <span class="pp">|</span> Prevents label overlap in the final chart <span class="pp">|</span></span>
-<span id="cb2-516"><a href="#cb2-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-517"><a href="#cb2-517" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4 Illustrative Code Structure</span></span>
-<span id="cb2-518"><a href="#cb2-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-519"><a href="#cb2-519" aria-hidden="true" tabindex="-1"></a>The final code will follow this structure. The exact file path may change depending on the project folder setup, but the downstream transformations will remain the same.</span>
-<span id="cb2-520"><a href="#cb2-520" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-521"><a href="#cb2-521" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb2-522"><a href="#cb2-522" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb2-523"><a href="#cb2-523" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-524"><a href="#cb2-524" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb2-525"><a href="#cb2-525" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
-<span id="cb2-526"><a href="#cb2-526" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-527"><a href="#cb2-527" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 1: ingest yearly ridership CSV.</span></span>
-<span id="cb2-528"><a href="#cb2-528" aria-hidden="true" tabindex="-1"></a>raw_yearly_ridership <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
-<span id="cb2-529"><a href="#cb2-529" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/raw/yearly_ave_daily_pt_ridership.csv&quot;</span>,</span>
-<span id="cb2-530"><a href="#cb2-530" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
-<span id="cb2-531"><a href="#cb2-531" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-532"><a href="#cb2-532" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-533"><a href="#cb2-533" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 2: filter years, standardise mode labels and create thousands unit.</span></span>
-<span id="cb2-534"><a href="#cb2-534" aria-hidden="true" tabindex="-1"></a>clean_yearly_long <span class="ot">&lt;-</span> raw_yearly_ridership <span class="sc">|&gt;</span></span>
-<span id="cb2-535"><a href="#cb2-535" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb2-536"><a href="#cb2-536" aria-hidden="true" tabindex="-1"></a>    year <span class="sc">&gt;=</span> <span class="dv">2019</span>,</span>
-<span id="cb2-537"><a href="#cb2-537" aria-hidden="true" tabindex="-1"></a>    year <span class="sc">&lt;=</span> <span class="dv">2025</span>,</span>
-<span id="cb2-538"><a href="#cb2-538" aria-hidden="true" tabindex="-1"></a>    mode <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Public Bus&quot;</span>, <span class="st">&quot;MRT&quot;</span>, <span class="st">&quot;LRT&quot;</span>)</span>
-<span id="cb2-539"><a href="#cb2-539" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb2-540"><a href="#cb2-540" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-541"><a href="#cb2-541" aria-hidden="true" tabindex="-1"></a>    <span class="at">mode =</span> <span class="fu">recode</span>(mode, <span class="st">&quot;Public Bus&quot;</span> <span class="ot">=</span> <span class="st">&quot;Bus&quot;</span>),</span>
-<span id="cb2-542"><a href="#cb2-542" aria-hidden="true" tabindex="-1"></a>    <span class="at">mode =</span> <span class="fu">factor</span>(mode, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Bus&quot;</span>, <span class="st">&quot;MRT&quot;</span>, <span class="st">&quot;LRT&quot;</span>)),</span>
-<span id="cb2-543"><a href="#cb2-543" aria-hidden="true" tabindex="-1"></a>    <span class="at">ridership =</span> <span class="fu">as.numeric</span>(ridership),</span>
-<span id="cb2-544"><a href="#cb2-544" aria-hidden="true" tabindex="-1"></a>    <span class="at">daily_rides_k =</span> ridership <span class="sc">/</span> <span class="dv">1000</span></span>
-<span id="cb2-545"><a href="#cb2-545" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb2-546"><a href="#cb2-546" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(mode, year)</span>
-<span id="cb2-547"><a href="#cb2-547" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-548"><a href="#cb2-548" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 3: validate basic structure and known values.</span></span>
-<span id="cb2-549"><a href="#cb2-549" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">nrow</span>(clean_yearly_long) <span class="sc">==</span> <span class="dv">21</span>)</span>
-<span id="cb2-550"><a href="#cb2-550" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="sc">!</span><span class="fu">anyNA</span>(clean_yearly_long[<span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;mode&quot;</span>, <span class="st">&quot;ridership&quot;</span>, <span class="st">&quot;daily_rides_k&quot;</span>)]))</span>
-<span id="cb2-551"><a href="#cb2-551" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">near</span>(<span class="fu">sum</span>(<span class="fu">filter</span>(clean_yearly_long, year <span class="sc">==</span> <span class="dv">2025</span>)<span class="sc">$</span>daily_rides_k), <span class="dv">7540</span>))</span>
-<span id="cb2-552"><a href="#cb2-552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-553"><a href="#cb2-553" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 4: reusable function for recovery metrics.</span></span>
-<span id="cb2-554"><a href="#cb2-554" aria-hidden="true" tabindex="-1"></a>add_recovery_metrics <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
-<span id="cb2-555"><a href="#cb2-555" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span></span>
-<span id="cb2-556"><a href="#cb2-556" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(mode) <span class="sc">|&gt;</span></span>
-<span id="cb2-557"><a href="#cb2-557" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(year, <span class="at">.by_group =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-558"><a href="#cb2-558" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb2-559"><a href="#cb2-559" aria-hidden="true" tabindex="-1"></a>      <span class="at">baseline_2019_k =</span> daily_rides_k[year <span class="sc">==</span> <span class="dv">2019</span>],</span>
-<span id="cb2-560"><a href="#cb2-560" aria-hidden="true" tabindex="-1"></a>      <span class="at">recovery_index =</span> daily_rides_k <span class="sc">/</span> baseline_2019_k <span class="sc">*</span> <span class="dv">100</span>,</span>
-<span id="cb2-561"><a href="#cb2-561" aria-hidden="true" tabindex="-1"></a>      <span class="at">gap_from_2019_k =</span> daily_rides_k <span class="sc">-</span> baseline_2019_k,</span>
-<span id="cb2-562"><a href="#cb2-562" aria-hidden="true" tabindex="-1"></a>      <span class="at">pct_change_from_2019 =</span> daily_rides_k <span class="sc">/</span> baseline_2019_k <span class="sc">-</span> <span class="dv">1</span>,</span>
-<span id="cb2-563"><a href="#cb2-563" aria-hidden="true" tabindex="-1"></a>      <span class="at">yoy_change_k =</span> daily_rides_k <span class="sc">-</span> <span class="fu">lag</span>(daily_rides_k),</span>
-<span id="cb2-564"><a href="#cb2-564" aria-hidden="true" tabindex="-1"></a>      <span class="at">yoy_pct_change =</span> daily_rides_k <span class="sc">/</span> <span class="fu">lag</span>(daily_rides_k) <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb2-565"><a href="#cb2-565" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb2-566"><a href="#cb2-566" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
-<span id="cb2-567"><a href="#cb2-567" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-568"><a href="#cb2-568" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-569"><a href="#cb2-569" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 5: calculate mode-level metrics.</span></span>
-<span id="cb2-570"><a href="#cb2-570" aria-hidden="true" tabindex="-1"></a>mode_data <span class="ot">&lt;-</span> clean_yearly_long <span class="sc">|&gt;</span></span>
-<span id="cb2-571"><a href="#cb2-571" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
-<span id="cb2-572"><a href="#cb2-572" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_rides_k =</span> <span class="fu">sum</span>(daily_rides_k)) <span class="sc">|&gt;</span></span>
-<span id="cb2-573"><a href="#cb2-573" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb2-574"><a href="#cb2-574" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-575"><a href="#cb2-575" aria-hidden="true" tabindex="-1"></a>    <span class="at">mode_share =</span> daily_rides_k <span class="sc">/</span> total_rides_k</span>
-<span id="cb2-576"><a href="#cb2-576" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb2-577"><a href="#cb2-577" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recovery_metrics</span>()</span>
-<span id="cb2-578"><a href="#cb2-578" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-579"><a href="#cb2-579" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 6: create optional total series for the same chart object.</span></span>
-<span id="cb2-580"><a href="#cb2-580" aria-hidden="true" tabindex="-1"></a>total_data <span class="ot">&lt;-</span> clean_yearly_long <span class="sc">|&gt;</span></span>
-<span id="cb2-581"><a href="#cb2-581" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
-<span id="cb2-582"><a href="#cb2-582" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb2-583"><a href="#cb2-583" aria-hidden="true" tabindex="-1"></a>    <span class="at">ridership =</span> <span class="fu">sum</span>(ridership),</span>
-<span id="cb2-584"><a href="#cb2-584" aria-hidden="true" tabindex="-1"></a>    <span class="at">daily_rides_k =</span> <span class="fu">sum</span>(daily_rides_k),</span>
-<span id="cb2-585"><a href="#cb2-585" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb2-586"><a href="#cb2-586" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb2-587"><a href="#cb2-587" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-588"><a href="#cb2-588" aria-hidden="true" tabindex="-1"></a>    <span class="at">mode =</span> <span class="fu">factor</span>(<span class="st">&quot;Total&quot;</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Bus&quot;</span>, <span class="st">&quot;MRT&quot;</span>, <span class="st">&quot;LRT&quot;</span>, <span class="st">&quot;Total&quot;</span>)),</span>
-<span id="cb2-589"><a href="#cb2-589" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_rides_k =</span> daily_rides_k,</span>
-<span id="cb2-590"><a href="#cb2-590" aria-hidden="true" tabindex="-1"></a>    <span class="at">mode_share =</span> <span class="cn">NA_real_</span></span>
-<span id="cb2-591"><a href="#cb2-591" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb2-592"><a href="#cb2-592" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recovery_metrics</span>()</span>
-<span id="cb2-593"><a href="#cb2-593" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-594"><a href="#cb2-594" aria-hidden="true" tabindex="-1"></a>ridership_metrics <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(mode_data, total_data) <span class="sc">|&gt;</span></span>
-<span id="cb2-595"><a href="#cb2-595" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-596"><a href="#cb2-596" aria-hidden="true" tabindex="-1"></a>    <span class="at">mode =</span> <span class="fu">factor</span>(mode, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Bus&quot;</span>, <span class="st">&quot;MRT&quot;</span>, <span class="st">&quot;LRT&quot;</span>, <span class="st">&quot;Total&quot;</span>)),</span>
-<span id="cb2-597"><a href="#cb2-597" aria-hidden="true" tabindex="-1"></a>    <span class="at">is_total =</span> mode <span class="sc">==</span> <span class="st">&quot;Total&quot;</span>,</span>
-<span id="cb2-598"><a href="#cb2-598" aria-hidden="true" tabindex="-1"></a>    <span class="at">label_rides_m =</span> <span class="fu">number</span>(daily_rides_k <span class="sc">/</span> <span class="dv">1000</span>, <span class="at">accuracy =</span> <span class="fl">0.001</span>, <span class="at">suffix =</span> <span class="st">&quot;M&quot;</span>)</span>
-<span id="cb2-599"><a href="#cb2-599" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-600"><a href="#cb2-600" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-601"><a href="#cb2-601" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 7: prepare metric-toggle data for the same chart object.</span></span>
-<span id="cb2-602"><a href="#cb2-602" aria-hidden="true" tabindex="-1"></a>ridership_data <span class="ot">&lt;-</span> ridership_metrics <span class="sc">|&gt;</span></span>
-<span id="cb2-603"><a href="#cb2-603" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb2-604"><a href="#cb2-604" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(recovery_index, daily_rides_k, mode_share),</span>
-<span id="cb2-605"><a href="#cb2-605" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;metric_type&quot;</span>,</span>
-<span id="cb2-606"><a href="#cb2-606" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;metric_value&quot;</span></span>
-<span id="cb2-607"><a href="#cb2-607" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb2-608"><a href="#cb2-608" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-609"><a href="#cb2-609" aria-hidden="true" tabindex="-1"></a>    <span class="at">metric_type =</span> <span class="fu">recode</span>(</span>
-<span id="cb2-610"><a href="#cb2-610" aria-hidden="true" tabindex="-1"></a>      metric_type,</span>
-<span id="cb2-611"><a href="#cb2-611" aria-hidden="true" tabindex="-1"></a>      <span class="at">recovery_index =</span> <span class="st">&quot;Recovery Index&quot;</span>,</span>
-<span id="cb2-612"><a href="#cb2-612" aria-hidden="true" tabindex="-1"></a>      <span class="at">daily_rides_k =</span> <span class="st">&quot;Absolute Ridership&quot;</span>,</span>
-<span id="cb2-613"><a href="#cb2-613" aria-hidden="true" tabindex="-1"></a>      <span class="at">mode_share =</span> <span class="st">&quot;Ridership Share&quot;</span></span>
-<span id="cb2-614"><a href="#cb2-614" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-615"><a href="#cb2-615" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb2-616"><a href="#cb2-616" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(metric_value))</span>
-<span id="cb2-617"><a href="#cb2-617" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-618"><a href="#cb2-618" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 8: endpoint labels for default recovery-index view.</span></span>
-<span id="cb2-619"><a href="#cb2-619" aria-hidden="true" tabindex="-1"></a>mode_labels <span class="ot">&lt;-</span> ridership_metrics <span class="sc">|&gt;</span></span>
-<span id="cb2-620"><a href="#cb2-620" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2025</span>, <span class="sc">!</span>is_total) <span class="sc">|&gt;</span></span>
-<span id="cb2-621"><a href="#cb2-621" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-622"><a href="#cb2-622" aria-hidden="true" tabindex="-1"></a>    <span class="at">label_text =</span> <span class="fu">paste0</span>(mode, <span class="st">&quot;: &quot;</span>, <span class="fu">round</span>(recovery_index, <span class="dv">1</span>), <span class="st">&quot; (2019=100)&quot;</span>),</span>
-<span id="cb2-623"><a href="#cb2-623" aria-hidden="true" tabindex="-1"></a>    <span class="at">label_position =</span> <span class="st">&quot;right&quot;</span></span>
-<span id="cb2-624"><a href="#cb2-624" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-625"><a href="#cb2-625" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-626"><a href="#cb2-626" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 9: validation checks.</span></span>
-<span id="cb2-627"><a href="#cb2-627" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">nrow</span>(<span class="fu">filter</span>(ridership_metrics, <span class="sc">!</span>is_total)) <span class="sc">==</span> <span class="dv">21</span>)</span>
-<span id="cb2-628"><a href="#cb2-628" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">nrow</span>(ridership_metrics) <span class="sc">==</span> <span class="dv">28</span>)</span>
-<span id="cb2-629"><a href="#cb2-629" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">all</span>(ridership_metrics<span class="sc">$</span>recovery_index[ridership_metrics<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2019</span>] <span class="sc">==</span> <span class="dv">100</span>))</span>
-<span id="cb2-630"><a href="#cb2-630" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">near</span>(<span class="fu">sum</span>(<span class="fu">filter</span>(ridership_metrics, year <span class="sc">==</span> <span class="dv">2025</span>, <span class="sc">!</span>is_total)<span class="sc">$</span>daily_rides_k), <span class="dv">7540</span>))</span>
-<span id="cb2-631"><a href="#cb2-631" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-632"><a href="#cb2-632" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-633"><a href="#cb2-633" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.5 Reproducibility Considerations</span></span>
-<span id="cb2-634"><a href="#cb2-634" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-635"><a href="#cb2-635" aria-hidden="true" tabindex="-1"></a>The workflow will be designed so that another team member can render the document and obtain the same chart outputs without editing paths or manually recalculating metrics.</span>
-<span id="cb2-636"><a href="#cb2-636" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-637"><a href="#cb2-637" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Area <span class="pp">|</span> Reproducibility Action <span class="pp">|</span></span>
-<span id="cb2-638"><a href="#cb2-638" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
-<span id="cb2-639"><a href="#cb2-639" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Source files <span class="pp">|</span> Keep the LTA DataMall yearly CSV as the main raw data file, and keep the LTA yearly PDF as a reference copy for checking values. If monthly context is used, keep the monthly PDF and note that the DataMall monthly CSV only covers up to 2024. Record retrieval dates and source links in the references. <span class="pp">|</span></span>
-<span id="cb2-640"><a href="#cb2-640" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Raw/processed separation <span class="pp">|</span> Store raw source files separately from cleaned and derived files. Processed outputs can be regenerated, but raw source files should not be edited directly. <span class="pp">|</span></span>
-<span id="cb2-641"><a href="#cb2-641" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> File paths <span class="pp">|</span> Use project-relative paths such as <span class="in">`data/raw/`</span> and <span class="in">`data/processed/`</span> rather than absolute local paths. This allows the same Quarto file to render on different team members&#39; machines. <span class="pp">|</span></span>
-<span id="cb2-642"><a href="#cb2-642" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Package use <span class="pp">|</span> Load all required packages in one setup block, including <span class="in">`readr`</span>, <span class="in">`dplyr`</span>, <span class="in">`tidyr`</span>, <span class="in">`ggplot2`</span>, <span class="in">`scales`</span> and the selected interactive chart package. If time allows, package versions can be captured with <span class="in">`renv`</span>. <span class="pp">|</span></span>
-<span id="cb2-643"><a href="#cb2-643" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Validation checks <span class="pp">|</span> Include row-count, missing-value, baseline, mode-share and known-value checks before plotting. The expected mode-only table size is 21 rows, or 28 rows if the optional total series is included. <span class="pp">|</span></span>
-<span id="cb2-644"><a href="#cb2-644" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Units and labels <span class="pp">|</span> Keep the raw CSV ridership values unchanged, create <span class="in">`daily_rides_k = ridership / 1000`</span> for analysis, and create display labels separately. This prevents accidental mixing of analytical values and presentation formatting. <span class="pp">|</span></span>
-<span id="cb2-645"><a href="#cb2-645" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Traceability <span class="pp">|</span> Keep a data dictionary for <span class="in">`ridership_data`</span> and <span class="in">`mode_labels`</span>, including formulas for recovery index, mode share and gaps from 2019. <span class="pp">|</span></span>
-<span id="cb2-646"><a href="#cb2-646" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Determinism <span class="pp">|</span> The workflow uses fixed official values and deterministic transformations, so no random seed is required. Any manual label-position adjustments will be stored in <span class="in">`mode_labels`</span>. <span class="pp">|</span></span>
-<span id="cb2-647"><a href="#cb2-647" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-648"><a href="#cb2-648" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6. Data Analysis Plan</span></span>
-<span id="cb2-649"><a href="#cb2-649" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-650"><a href="#cb2-650" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.1 What This Analysis Is For</span></span>
-<span id="cb2-651"><a href="#cb2-651" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-652"><a href="#cb2-652" aria-hidden="true" tabindex="-1"></a>The analysis plan supports the redesigned visualization by producing the exact metrics needed to explain the public transport recovery story. The goal is descriptive rather than predictive: we want to quantify what changed from 2019 to 2025, which transport mode recovered most strongly, and how the mode mix shifted over time.</span>
-<span id="cb2-653"><a href="#cb2-653" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-654"><a href="#cb2-654" aria-hidden="true" tabindex="-1"></a>The analysis will answer three practical questions:</span>
-<span id="cb2-655"><a href="#cb2-655" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-656"><a href="#cb2-656" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**A1:** How far above or below the 2019 baseline is each transport mode by 2025?</span>
-<span id="cb2-657"><a href="#cb2-657" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**A2:** How did each mode&#39;s share of total public transport ridership change between 2019 and 2025?</span>
-<span id="cb2-658"><a href="#cb2-658" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**A3:** Which years show the strongest year-on-year recovery momentum after the 2020 drop?</span>
-<span id="cb2-659"><a href="#cb2-659" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-660"><a href="#cb2-660" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.2 Measures We Will Compute</span></span>
-<span id="cb2-661"><a href="#cb2-661" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-662"><a href="#cb2-662" aria-hidden="true" tabindex="-1"></a>The measures are deliberately simple so that they can be checked by hand and explained clearly in the visualization tooltips and annotations.</span>
-<span id="cb2-663"><a href="#cb2-663" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-664"><a href="#cb2-664" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Measure <span class="pp">|</span> Formula / Method <span class="pp">|</span> Interpretation <span class="pp">|</span></span>
-<span id="cb2-665"><a href="#cb2-665" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb2-666"><a href="#cb2-666" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Total ridership <span class="pp">|</span> <span class="in">`sum(daily_rides_k)`</span> across Bus, MRT and LRT for each year <span class="pp">|</span> Overall average daily public transport ridership in thousands <span class="pp">|</span></span>
-<span id="cb2-667"><a href="#cb2-667" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mode share <span class="pp">|</span> <span class="in">`daily_rides_k / total_rides_k`</span> <span class="pp">|</span> The percentage contribution of each mode to total ridership in that year <span class="pp">|</span></span>
-<span id="cb2-668"><a href="#cb2-668" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2019 baseline <span class="pp">|</span> For each mode, use its 2019 <span class="in">`daily_rides_k`</span> value <span class="pp">|</span> Pre-Covid reference point for recovery comparison <span class="pp">|</span></span>
-<span id="cb2-669"><a href="#cb2-669" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Recovery index <span class="pp">|</span> <span class="in">`daily_rides_k / baseline_2019_k * 100`</span> <span class="pp">|</span> Values above 100 exceed 2019 levels; values below 100 remain below 2019 <span class="pp">|</span></span>
-<span id="cb2-670"><a href="#cb2-670" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Gap from 2019 <span class="pp">|</span> <span class="in">`daily_rides_k - baseline_2019_k`</span> <span class="pp">|</span> Absolute difference from pre-Covid ridership, in thousands of average daily rides <span class="pp">|</span></span>
-<span id="cb2-671"><a href="#cb2-671" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Percentage change from 2019 <span class="pp">|</span> <span class="in">`daily_rides_k / baseline_2019_k - 1`</span> <span class="pp">|</span> Relative percentage change compared with the 2019 baseline <span class="pp">|</span></span>
-<span id="cb2-672"><a href="#cb2-672" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Year-on-year change <span class="pp">|</span> Current year&#39;s <span class="in">`daily_rides_k`</span> minus previous year&#39;s value for the same mode <span class="pp">|</span> Shows the speed and direction of recovery between adjacent years <span class="pp">|</span></span>
-<span id="cb2-673"><a href="#cb2-673" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-674"><a href="#cb2-674" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.3 Planned Analyses</span></span>
-<span id="cb2-675"><a href="#cb2-675" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-676"><a href="#cb2-676" aria-hidden="true" tabindex="-1"></a>The planned analyses map directly to the proposed interactive recovery-index chart. Each analysis produces either a calculated field for the chart, a small summary table, or an annotation used to guide the reader.</span>
-<span id="cb2-677"><a href="#cb2-677" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-678"><a href="#cb2-678" aria-hidden="true" tabindex="-1"></a><span class="fu">### A1 — Recovery Gap from 2019 by Mode</span></span>
-<span id="cb2-679"><a href="#cb2-679" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-680"><a href="#cb2-680" aria-hidden="true" tabindex="-1"></a>**Question:** By 2025, which transport modes have recovered to or exceeded their 2019 average daily ridership levels?</span>
-<span id="cb2-681"><a href="#cb2-681" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-682"><a href="#cb2-682" aria-hidden="true" tabindex="-1"></a>**Method:** For each mode, calculate <span class="in">`recovery_index`</span>, <span class="in">`gap_from_2019_k`</span> and <span class="in">`pct_change_from_2019`</span> using 2019 as the fixed baseline.</span>
-<span id="cb2-683"><a href="#cb2-683" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-684"><a href="#cb2-684" aria-hidden="true" tabindex="-1"></a>**Expected output:** A 2025 summary table and endpoint labels for the recovery-index chart. Based on the current values, MRT should be above 2019, Bus should remain below 2019 and LRT should be almost unchanged from 2019.</span>
-<span id="cb2-685"><a href="#cb2-685" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-686"><a href="#cb2-686" aria-hidden="true" tabindex="-1"></a>**Insight supported:** This directly supports the main story that overall ridership nearly recovered, but the recovery was uneven across transport modes.</span>
-<span id="cb2-687"><a href="#cb2-687" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-688"><a href="#cb2-688" aria-hidden="true" tabindex="-1"></a><span class="fu">### A2 — Mode Share Shift Across Bus, MRT and LRT</span></span>
-<span id="cb2-689"><a href="#cb2-689" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-690"><a href="#cb2-690" aria-hidden="true" tabindex="-1"></a>**Question:** Did the balance between Bus, MRT and LRT change even though total public transport ridership nearly returned to its 2019 level?</span>
-<span id="cb2-691"><a href="#cb2-691" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-692"><a href="#cb2-692" aria-hidden="true" tabindex="-1"></a>**Method:** Calculate each mode&#39;s share of yearly total ridership, then compare 2019 and 2025 shares. The main comparison will be <span class="in">`mode_share_2025 - mode_share_2019`</span>, reported in percentage points.</span>
-<span id="cb2-693"><a href="#cb2-693" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-694"><a href="#cb2-694" aria-hidden="true" tabindex="-1"></a>**Expected output:** A mode-share comparison table and tooltip values in the chart. The expected pattern is that Bus share decreases, MRT share increases and LRT remains a small share of the total.</span>
-<span id="cb2-695"><a href="#cb2-695" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-696"><a href="#cb2-696" aria-hidden="true" tabindex="-1"></a>**Insight supported:** This explains why total ridership alone is not enough. Similar total ridership can still hide a changed transport mode mix.</span>
-<span id="cb2-697"><a href="#cb2-697" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-698"><a href="#cb2-698" aria-hidden="true" tabindex="-1"></a><span class="fu">### A3 — Year-on-Year Ridership Recovery Momentum</span></span>
-<span id="cb2-699"><a href="#cb2-699" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-700"><a href="#cb2-700" aria-hidden="true" tabindex="-1"></a>**Question:** After the sharp 2020 drop, which years show the strongest recovery momentum for each mode?</span>
-<span id="cb2-701"><a href="#cb2-701" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-702"><a href="#cb2-702" aria-hidden="true" tabindex="-1"></a>**Method:** Calculate <span class="in">`yoy_change_k`</span> by mode and year. The largest positive changes will identify the years where ridership recovered most quickly, while negative values will flag setbacks such as the 2019 to 2020 fall.</span>
-<span id="cb2-703"><a href="#cb2-703" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-704"><a href="#cb2-704" aria-hidden="true" tabindex="-1"></a>**Expected output:** A compact table of the largest year-on-year increases by mode, plus tooltip fields showing year-on-year change for every point in the chart.</span>
-<span id="cb2-705"><a href="#cb2-705" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-706"><a href="#cb2-706" aria-hidden="true" tabindex="-1"></a>**Insight supported:** This adds time-path context to the final 2025 comparison. It helps readers see not only where ridership ended up, but how the recovery progressed across 2020 to 2025.</span>
-<span id="cb2-707"><a href="#cb2-707" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-708"><a href="#cb2-708" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.4 Summary: What We Produce (2025)</span></span>
-<span id="cb2-709"><a href="#cb2-709" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-710"><a href="#cb2-710" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ID <span class="pp">|</span> Question Answered (2025) <span class="pp">|</span> Output <span class="pp">|</span> Supports Which Insight <span class="pp">|</span> Data Needed <span class="pp">|</span></span>
-<span id="cb2-711"><a href="#cb2-711" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb2-712"><a href="#cb2-712" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A1 <span class="pp">|</span> Which modes are above or below their 2019 ridership level? <span class="pp">|</span> Recovery-gap table, recovery-index values and 2025 endpoint labels <span class="pp">|</span> MRT exceeded 2019, Bus remained below 2019 and LRT was nearly unchanged <span class="pp">|</span> Yearly LTA ridership by mode, 2019-2025 <span class="pp">|</span></span>
-<span id="cb2-713"><a href="#cb2-713" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A2 <span class="pp">|</span> How did each mode&#39;s share of total ridership change? <span class="pp">|</span> 2019 vs 2025 mode-share comparison table and tooltip values <span class="pp">|</span> The total nearly recovered, but the mode mix shifted toward MRT <span class="pp">|</span> Yearly LTA ridership by mode and yearly totals <span class="pp">|</span></span>
-<span id="cb2-714"><a href="#cb2-714" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A3 <span class="pp">|</span> Which years had the strongest recovery momentum after 2020? <span class="pp">|</span> Year-on-year change table and tooltip values <span class="pp">|</span> Recovery was gradual, with different speeds across Bus, MRT and LRT <span class="pp">|</span> Yearly LTA ridership by mode, ordered by year <span class="pp">|</span></span>
-<span id="cb2-715"><a href="#cb2-715" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-716"><a href="#cb2-716" aria-hidden="true" tabindex="-1"></a><span class="fu"># 7. Planned Work Distribution</span></span>
-<span id="cb2-717"><a href="#cb2-717" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-718"><a href="#cb2-718" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb2-719"><a href="#cb2-719" aria-hidden="true" tabindex="-1"></a>To be completed with final task ownership.</span>
-<span id="cb2-720"><a href="#cb2-720" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-721"><a href="#cb2-721" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-722"><a href="#cb2-722" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Team Member <span class="pp">|</span> Primary Tasks <span class="pp">|</span> Est. Hours <span class="pp">|</span></span>
-<span id="cb2-723"><a href="#cb2-723" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb2-724"><a href="#cb2-724" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Thaw Zin <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb2-725"><a href="#cb2-725" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Siyona <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb2-726"><a href="#cb2-726" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Wilson <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb2-727"><a href="#cb2-727" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Troy <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb2-728"><a href="#cb2-728" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Zayar <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb2-729"><a href="#cb2-729" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> All Members <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb2-730"><a href="#cb2-730" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-731"><a href="#cb2-731" aria-hidden="true" tabindex="-1"></a><span class="fu"># 8. References</span></span>
-<span id="cb2-732"><a href="#cb2-732" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-733"><a href="#cb2-733" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.1 Article Source</span></span>
-<span id="cb2-734"><a href="#cb2-734" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-735"><a href="#cb2-735" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb2-736"><a href="#cb2-736" aria-hidden="true" tabindex="-1"></a>The Straits Times article URL and citation details will be finalized here.</span>
-<span id="cb2-737"><a href="#cb2-737" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-738"><a href="#cb2-738" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-739"><a href="#cb2-739" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.2 Data Sources</span></span>
-<span id="cb2-740"><a href="#cb2-740" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-741"><a href="#cb2-741" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb2-742"><a href="#cb2-742" aria-hidden="true" tabindex="-1"></a>LTA and supporting data source citations will be finalized here.</span>
-<span id="cb2-743"><a href="#cb2-743" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-744"><a href="#cb2-744" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-745"><a href="#cb2-745" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.3 Design Reference</span></span>
-<span id="cb2-746"><a href="#cb2-746" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-747"><a href="#cb2-747" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb2-748"><a href="#cb2-748" aria-hidden="true" tabindex="-1"></a>Design and accessibility references will be finalized here if used.</span>
-<span id="cb2-749"><a href="#cb2-749" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-750"><a href="#cb2-750" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-751"><a href="#cb2-751" aria-hidden="true" tabindex="-1"></a><span class="fu"># 9. Appendix: Data Dictionary</span></span>
-<span id="cb2-752"><a href="#cb2-752" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-753"><a href="#cb2-753" aria-hidden="true" tabindex="-1"></a>::: {.placeholder-panel}</span>
-<span id="cb2-754"><a href="#cb2-754" aria-hidden="true" tabindex="-1"></a>To be completed after the target output schema is confirmed.</span>
-<span id="cb2-755"><a href="#cb2-755" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-756"><a href="#cb2-756" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-757"><a href="#cb2-757" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.1 ridership_data — Primary Visualization Table</span></span>
-<span id="cb2-758"><a href="#cb2-758" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-759"><a href="#cb2-759" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
-<span id="cb2-760"><a href="#cb2-760" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb2-761"><a href="#cb2-761" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> year <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb2-762"><a href="#cb2-762" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> mode <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb2-763"><a href="#cb2-763" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> daily_rides_k <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb2-764"><a href="#cb2-764" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> recovery_index <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb2-765"><a href="#cb2-765" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-766"><a href="#cb2-766" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.2 mode_labels — Annotation Table</span></span>
-<span id="cb2-767"><a href="#cb2-767" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-768"><a href="#cb2-768" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
-<span id="cb2-769"><a href="#cb2-769" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
-<span id="cb2-770"><a href="#cb2-770" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> year <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb2-771"><a href="#cb2-771" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> mode <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb2-772"><a href="#cb2-772" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> label_value <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb2-773"><a href="#cb2-773" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> label_position <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
+<span id="cb2-500"><a href="#cb2-500" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`yoy_pct_change`</span> <span class="pp">|</span> numeric <span class="pp">|</span> Current year divided by previous year minus 1, by mode <span class="pp">|</span> Percentage change <span class="pp">|</span> Optional tooltip/context metric <span class="pp">|</span></span>
+<span id="cb2-501"><a href="#cb2-501" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`is_total`</span> <span class="pp">|</span> logical <span class="pp">|</span> Derived <span class="pp">|</span> <span class="in">`TRUE`</span> or <span class="in">`FALSE`</span> <span class="pp">|</span> Allows the optional total line to be toggled without creating a separate chart <span class="pp">|</span></span>
+<span id="cb2-502"><a href="#cb2-502" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`label_rides_m`</span> <span class="pp">|</span> character <span class="pp">|</span> Formatted from <span class="in">`daily_rides_k / 1000`</span> <span class="pp">|</span> e.g. <span class="in">`&quot;3.490M&quot;`</span> <span class="pp">|</span> Human-readable tooltip/display label <span class="pp">|</span></span>
+<span id="cb2-503"><a href="#cb2-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-504"><a href="#cb2-504" aria-hidden="true" tabindex="-1"></a>The final <span class="in">`ridership_data`</span> object will be created from <span class="in">`ridership_metrics`</span> by reshaping selected metrics, such as <span class="in">`recovery_index`</span>, <span class="in">`daily_rides_k`</span> and <span class="in">`mode_share`</span>, into <span class="in">`metric_type`</span> and <span class="in">`metric_value`</span> for the optional metric toggle.</span>
+<span id="cb2-505"><a href="#cb2-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-506"><a href="#cb2-506" aria-hidden="true" tabindex="-1"></a><span class="in">`mode_labels`</span> - Annotation Table</span>
+<span id="cb2-507"><a href="#cb2-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-508"><a href="#cb2-508" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> R Type <span class="pp">|</span> Source <span class="pp">|</span> Unit / Range <span class="pp">|</span> Role in Chart <span class="pp">|</span></span>
+<span id="cb2-509"><a href="#cb2-509" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb2-510"><a href="#cb2-510" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`year`</span> <span class="pp">|</span> integer <span class="pp">|</span> Filtered from <span class="in">`ridership_metrics`</span> <span class="pp">|</span> Usually 2025 <span class="pp">|</span> Places endpoint labels on the final year <span class="pp">|</span></span>
+<span id="cb2-511"><a href="#cb2-511" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`mode`</span> <span class="pp">|</span> factor <span class="pp">|</span> <span class="in">`ridership_metrics`</span> <span class="pp">|</span> Bus, MRT, LRT <span class="pp">|</span> Matches label to line colour/group <span class="pp">|</span></span>
+<span id="cb2-512"><a href="#cb2-512" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`recovery_index`</span> <span class="pp">|</span> numeric <span class="pp">|</span> <span class="in">`ridership_metrics`</span> <span class="pp">|</span> 2019 = 100 <span class="pp">|</span> Y-position for endpoint labels <span class="pp">|</span></span>
+<span id="cb2-513"><a href="#cb2-513" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`daily_rides_k`</span> <span class="pp">|</span> numeric <span class="pp">|</span> <span class="in">`ridership_metrics`</span> <span class="pp">|</span> Thousands of average daily rides <span class="pp">|</span> Used in label text <span class="pp">|</span></span>
+<span id="cb2-514"><a href="#cb2-514" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`gap_from_2019_k`</span> <span class="pp">|</span> numeric <span class="pp">|</span> <span class="in">`ridership_metrics`</span> <span class="pp">|</span> Thousands of average daily rides <span class="pp">|</span> Supports above/below-baseline endpoint text <span class="pp">|</span></span>
+<span id="cb2-515"><a href="#cb2-515" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`label_text`</span> <span class="pp">|</span> character <span class="pp">|</span> Formatted from mode and recovery index <span class="pp">|</span> e.g. <span class="in">`&quot;MRT: 103.1&quot;`</span> <span class="pp">|</span> Text displayed beside line endpoints <span class="pp">|</span></span>
+<span id="cb2-516"><a href="#cb2-516" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`label_position`</span> <span class="pp">|</span> character <span class="pp">|</span> Derived/manual adjustment <span class="pp">|</span> left/right/above/below <span class="pp">|</span> Prevents label overlap in the final chart <span class="pp">|</span></span>
+<span id="cb2-517"><a href="#cb2-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-518"><a href="#cb2-518" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.4 Illustrative Code Structure</span></span>
+<span id="cb2-519"><a href="#cb2-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-520"><a href="#cb2-520" aria-hidden="true" tabindex="-1"></a>The final code will follow this structure. The exact file path may change depending on the project folder setup, but the downstream transformations will remain the same.</span>
+<span id="cb2-521"><a href="#cb2-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-522"><a href="#cb2-522" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb2-523"><a href="#cb2-523" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-524"><a href="#cb2-524" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-525"><a href="#cb2-525" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb2-526"><a href="#cb2-526" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb2-527"><a href="#cb2-527" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-528"><a href="#cb2-528" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 1: ingest yearly ridership CSV.</span></span>
+<span id="cb2-529"><a href="#cb2-529" aria-hidden="true" tabindex="-1"></a>raw_yearly_ridership <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb2-530"><a href="#cb2-530" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/raw/yearly_ave_daily_pt_ridership.csv&quot;</span>,</span>
+<span id="cb2-531"><a href="#cb2-531" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-532"><a href="#cb2-532" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-533"><a href="#cb2-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-534"><a href="#cb2-534" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 2: filter years, standardise mode labels and create thousands unit.</span></span>
+<span id="cb2-535"><a href="#cb2-535" aria-hidden="true" tabindex="-1"></a>clean_yearly_long <span class="ot">&lt;-</span> raw_yearly_ridership <span class="sc">|&gt;</span></span>
+<span id="cb2-536"><a href="#cb2-536" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb2-537"><a href="#cb2-537" aria-hidden="true" tabindex="-1"></a>    year <span class="sc">&gt;=</span> <span class="dv">2019</span>,</span>
+<span id="cb2-538"><a href="#cb2-538" aria-hidden="true" tabindex="-1"></a>    year <span class="sc">&lt;=</span> <span class="dv">2025</span>,</span>
+<span id="cb2-539"><a href="#cb2-539" aria-hidden="true" tabindex="-1"></a>    mode <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Public Bus&quot;</span>, <span class="st">&quot;MRT&quot;</span>, <span class="st">&quot;LRT&quot;</span>)</span>
+<span id="cb2-540"><a href="#cb2-540" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-541"><a href="#cb2-541" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-542"><a href="#cb2-542" aria-hidden="true" tabindex="-1"></a>    <span class="at">mode =</span> <span class="fu">recode</span>(mode, <span class="st">&quot;Public Bus&quot;</span> <span class="ot">=</span> <span class="st">&quot;Bus&quot;</span>),</span>
+<span id="cb2-543"><a href="#cb2-543" aria-hidden="true" tabindex="-1"></a>    <span class="at">mode =</span> <span class="fu">factor</span>(mode, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Bus&quot;</span>, <span class="st">&quot;MRT&quot;</span>, <span class="st">&quot;LRT&quot;</span>)),</span>
+<span id="cb2-544"><a href="#cb2-544" aria-hidden="true" tabindex="-1"></a>    <span class="at">ridership =</span> <span class="fu">as.numeric</span>(ridership),</span>
+<span id="cb2-545"><a href="#cb2-545" aria-hidden="true" tabindex="-1"></a>    <span class="at">daily_rides_k =</span> ridership <span class="sc">/</span> <span class="dv">1000</span></span>
+<span id="cb2-546"><a href="#cb2-546" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-547"><a href="#cb2-547" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(mode, year)</span>
+<span id="cb2-548"><a href="#cb2-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-549"><a href="#cb2-549" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 3: validate basic structure and known values.</span></span>
+<span id="cb2-550"><a href="#cb2-550" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">nrow</span>(clean_yearly_long) <span class="sc">==</span> <span class="dv">21</span>)</span>
+<span id="cb2-551"><a href="#cb2-551" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="sc">!</span><span class="fu">anyNA</span>(clean_yearly_long[<span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;mode&quot;</span>, <span class="st">&quot;ridership&quot;</span>, <span class="st">&quot;daily_rides_k&quot;</span>)]))</span>
+<span id="cb2-552"><a href="#cb2-552" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">near</span>(<span class="fu">sum</span>(<span class="fu">filter</span>(clean_yearly_long, year <span class="sc">==</span> <span class="dv">2025</span>)<span class="sc">$</span>daily_rides_k), <span class="dv">7540</span>))</span>
+<span id="cb2-553"><a href="#cb2-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-554"><a href="#cb2-554" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 4: reusable function for recovery metrics.</span></span>
+<span id="cb2-555"><a href="#cb2-555" aria-hidden="true" tabindex="-1"></a>add_recovery_metrics <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb2-556"><a href="#cb2-556" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span></span>
+<span id="cb2-557"><a href="#cb2-557" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(mode) <span class="sc">|&gt;</span></span>
+<span id="cb2-558"><a href="#cb2-558" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(year, <span class="at">.by_group =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-559"><a href="#cb2-559" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb2-560"><a href="#cb2-560" aria-hidden="true" tabindex="-1"></a>      <span class="at">baseline_2019_k =</span> daily_rides_k[year <span class="sc">==</span> <span class="dv">2019</span>],</span>
+<span id="cb2-561"><a href="#cb2-561" aria-hidden="true" tabindex="-1"></a>      <span class="at">recovery_index =</span> daily_rides_k <span class="sc">/</span> baseline_2019_k <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb2-562"><a href="#cb2-562" aria-hidden="true" tabindex="-1"></a>      <span class="at">gap_from_2019_k =</span> daily_rides_k <span class="sc">-</span> baseline_2019_k,</span>
+<span id="cb2-563"><a href="#cb2-563" aria-hidden="true" tabindex="-1"></a>      <span class="at">pct_change_from_2019 =</span> daily_rides_k <span class="sc">/</span> baseline_2019_k <span class="sc">-</span> <span class="dv">1</span>,</span>
+<span id="cb2-564"><a href="#cb2-564" aria-hidden="true" tabindex="-1"></a>      <span class="at">yoy_change_k =</span> daily_rides_k <span class="sc">-</span> <span class="fu">lag</span>(daily_rides_k),</span>
+<span id="cb2-565"><a href="#cb2-565" aria-hidden="true" tabindex="-1"></a>      <span class="at">yoy_pct_change =</span> daily_rides_k <span class="sc">/</span> <span class="fu">lag</span>(daily_rides_k) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb2-566"><a href="#cb2-566" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb2-567"><a href="#cb2-567" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb2-568"><a href="#cb2-568" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-569"><a href="#cb2-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-570"><a href="#cb2-570" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 5: calculate mode-level metrics.</span></span>
+<span id="cb2-571"><a href="#cb2-571" aria-hidden="true" tabindex="-1"></a>mode_data <span class="ot">&lt;-</span> clean_yearly_long <span class="sc">|&gt;</span></span>
+<span id="cb2-572"><a href="#cb2-572" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
+<span id="cb2-573"><a href="#cb2-573" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_rides_k =</span> <span class="fu">sum</span>(daily_rides_k)) <span class="sc">|&gt;</span></span>
+<span id="cb2-574"><a href="#cb2-574" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb2-575"><a href="#cb2-575" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-576"><a href="#cb2-576" aria-hidden="true" tabindex="-1"></a>    <span class="at">mode_share =</span> daily_rides_k <span class="sc">/</span> total_rides_k</span>
+<span id="cb2-577"><a href="#cb2-577" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-578"><a href="#cb2-578" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recovery_metrics</span>()</span>
+<span id="cb2-579"><a href="#cb2-579" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-580"><a href="#cb2-580" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 6: create optional total series for the same chart object.</span></span>
+<span id="cb2-581"><a href="#cb2-581" aria-hidden="true" tabindex="-1"></a>total_data <span class="ot">&lt;-</span> clean_yearly_long <span class="sc">|&gt;</span></span>
+<span id="cb2-582"><a href="#cb2-582" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
+<span id="cb2-583"><a href="#cb2-583" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb2-584"><a href="#cb2-584" aria-hidden="true" tabindex="-1"></a>    <span class="at">ridership =</span> <span class="fu">sum</span>(ridership),</span>
+<span id="cb2-585"><a href="#cb2-585" aria-hidden="true" tabindex="-1"></a>    <span class="at">daily_rides_k =</span> <span class="fu">sum</span>(daily_rides_k),</span>
+<span id="cb2-586"><a href="#cb2-586" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb2-587"><a href="#cb2-587" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-588"><a href="#cb2-588" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-589"><a href="#cb2-589" aria-hidden="true" tabindex="-1"></a>    <span class="at">mode =</span> <span class="fu">factor</span>(<span class="st">&quot;Total&quot;</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Bus&quot;</span>, <span class="st">&quot;MRT&quot;</span>, <span class="st">&quot;LRT&quot;</span>, <span class="st">&quot;Total&quot;</span>)),</span>
+<span id="cb2-590"><a href="#cb2-590" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_rides_k =</span> daily_rides_k,</span>
+<span id="cb2-591"><a href="#cb2-591" aria-hidden="true" tabindex="-1"></a>    <span class="at">mode_share =</span> <span class="cn">NA_real_</span></span>
+<span id="cb2-592"><a href="#cb2-592" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-593"><a href="#cb2-593" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recovery_metrics</span>()</span>
+<span id="cb2-594"><a href="#cb2-594" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-595"><a href="#cb2-595" aria-hidden="true" tabindex="-1"></a>ridership_metrics <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(mode_data, total_data) <span class="sc">|&gt;</span></span>
+<span id="cb2-596"><a href="#cb2-596" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-597"><a href="#cb2-597" aria-hidden="true" tabindex="-1"></a>    <span class="at">mode =</span> <span class="fu">factor</span>(mode, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Bus&quot;</span>, <span class="st">&quot;MRT&quot;</span>, <span class="st">&quot;LRT&quot;</span>, <span class="st">&quot;Total&quot;</span>)),</span>
+<span id="cb2-598"><a href="#cb2-598" aria-hidden="true" tabindex="-1"></a>    <span class="at">is_total =</span> mode <span class="sc">==</span> <span class="st">&quot;Total&quot;</span>,</span>
+<span id="cb2-599"><a href="#cb2-599" aria-hidden="true" tabindex="-1"></a>    <span class="at">label_rides_m =</span> <span class="fu">number</span>(daily_rides_k <span class="sc">/</span> <span class="dv">1000</span>, <span class="at">accuracy =</span> <span class="fl">0.001</span>, <span class="at">suffix =</span> <span class="st">&quot;M&quot;</span>)</span>
+<span id="cb2-600"><a href="#cb2-600" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-601"><a href="#cb2-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-602"><a href="#cb2-602" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 7: prepare metric-toggle data for the same chart object.</span></span>
+<span id="cb2-603"><a href="#cb2-603" aria-hidden="true" tabindex="-1"></a>ridership_data <span class="ot">&lt;-</span> ridership_metrics <span class="sc">|&gt;</span></span>
+<span id="cb2-604"><a href="#cb2-604" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb2-605"><a href="#cb2-605" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(recovery_index, daily_rides_k, mode_share),</span>
+<span id="cb2-606"><a href="#cb2-606" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;metric_type&quot;</span>,</span>
+<span id="cb2-607"><a href="#cb2-607" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;metric_value&quot;</span></span>
+<span id="cb2-608"><a href="#cb2-608" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-609"><a href="#cb2-609" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-610"><a href="#cb2-610" aria-hidden="true" tabindex="-1"></a>    <span class="at">metric_type =</span> <span class="fu">recode</span>(</span>
+<span id="cb2-611"><a href="#cb2-611" aria-hidden="true" tabindex="-1"></a>      metric_type,</span>
+<span id="cb2-612"><a href="#cb2-612" aria-hidden="true" tabindex="-1"></a>      <span class="at">recovery_index =</span> <span class="st">&quot;Recovery Index&quot;</span>,</span>
+<span id="cb2-613"><a href="#cb2-613" aria-hidden="true" tabindex="-1"></a>      <span class="at">daily_rides_k =</span> <span class="st">&quot;Absolute Ridership&quot;</span>,</span>
+<span id="cb2-614"><a href="#cb2-614" aria-hidden="true" tabindex="-1"></a>      <span class="at">mode_share =</span> <span class="st">&quot;Ridership Share&quot;</span></span>
+<span id="cb2-615"><a href="#cb2-615" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-616"><a href="#cb2-616" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-617"><a href="#cb2-617" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(metric_value))</span>
+<span id="cb2-618"><a href="#cb2-618" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-619"><a href="#cb2-619" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 8: endpoint labels for default recovery-index view.</span></span>
+<span id="cb2-620"><a href="#cb2-620" aria-hidden="true" tabindex="-1"></a>mode_labels <span class="ot">&lt;-</span> ridership_metrics <span class="sc">|&gt;</span></span>
+<span id="cb2-621"><a href="#cb2-621" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2025</span>, <span class="sc">!</span>is_total) <span class="sc">|&gt;</span></span>
+<span id="cb2-622"><a href="#cb2-622" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-623"><a href="#cb2-623" aria-hidden="true" tabindex="-1"></a>    <span class="at">label_text =</span> <span class="fu">paste0</span>(mode, <span class="st">&quot;: &quot;</span>, <span class="fu">round</span>(recovery_index, <span class="dv">1</span>), <span class="st">&quot; (2019=100)&quot;</span>),</span>
+<span id="cb2-624"><a href="#cb2-624" aria-hidden="true" tabindex="-1"></a>    <span class="at">label_position =</span> <span class="st">&quot;right&quot;</span></span>
+<span id="cb2-625"><a href="#cb2-625" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-626"><a href="#cb2-626" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-627"><a href="#cb2-627" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage 9: validation checks.</span></span>
+<span id="cb2-628"><a href="#cb2-628" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">nrow</span>(<span class="fu">filter</span>(ridership_metrics, <span class="sc">!</span>is_total)) <span class="sc">==</span> <span class="dv">21</span>)</span>
+<span id="cb2-629"><a href="#cb2-629" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">nrow</span>(ridership_metrics) <span class="sc">==</span> <span class="dv">28</span>)</span>
+<span id="cb2-630"><a href="#cb2-630" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">all</span>(ridership_metrics<span class="sc">$</span>recovery_index[ridership_metrics<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2019</span>] <span class="sc">==</span> <span class="dv">100</span>))</span>
+<span id="cb2-631"><a href="#cb2-631" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">near</span>(<span class="fu">sum</span>(<span class="fu">filter</span>(ridership_metrics, year <span class="sc">==</span> <span class="dv">2025</span>, <span class="sc">!</span>is_total)<span class="sc">$</span>daily_rides_k), <span class="dv">7540</span>))</span>
+<span id="cb2-632"><a href="#cb2-632" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-633"><a href="#cb2-633" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-634"><a href="#cb2-634" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5.5 Reproducibility Considerations</span></span>
+<span id="cb2-635"><a href="#cb2-635" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-636"><a href="#cb2-636" aria-hidden="true" tabindex="-1"></a>The workflow will be designed so that another team member can render the document and obtain the same chart outputs without editing paths or manually recalculating metrics.</span>
+<span id="cb2-637"><a href="#cb2-637" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-638"><a href="#cb2-638" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Area <span class="pp">|</span> Reproducibility Action <span class="pp">|</span></span>
+<span id="cb2-639"><a href="#cb2-639" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb2-640"><a href="#cb2-640" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Source files <span class="pp">|</span> Keep the LTA DataMall yearly CSV as the main raw data file, and keep the LTA yearly PDF as a reference copy for checking values. If monthly context is used, keep the monthly PDF and note that the DataMall monthly CSV only covers up to 2024. Record retrieval dates and source links in the references. <span class="pp">|</span></span>
+<span id="cb2-641"><a href="#cb2-641" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Raw/processed separation <span class="pp">|</span> Store raw source files separately from cleaned and derived files. Processed outputs can be regenerated, but raw source files should not be edited directly. <span class="pp">|</span></span>
+<span id="cb2-642"><a href="#cb2-642" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> File paths <span class="pp">|</span> Use project-relative paths such as <span class="in">`data/raw/`</span> and <span class="in">`data/processed/`</span> rather than absolute local paths. This allows the same Quarto file to render on different team members&#39; machines. <span class="pp">|</span></span>
+<span id="cb2-643"><a href="#cb2-643" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Package use <span class="pp">|</span> Load all required packages in one setup block, including <span class="in">`readr`</span>, <span class="in">`dplyr`</span>, <span class="in">`tidyr`</span>, <span class="in">`ggplot2`</span>, <span class="in">`scales`</span> and the selected interactive chart package. If time allows, package versions can be captured with <span class="in">`renv`</span>. <span class="pp">|</span></span>
+<span id="cb2-644"><a href="#cb2-644" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Validation checks <span class="pp">|</span> Include row-count, missing-value, baseline, mode-share and known-value checks before plotting. The expected mode-only table size is 21 rows, or 28 rows if the optional total series is included. <span class="pp">|</span></span>
+<span id="cb2-645"><a href="#cb2-645" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Units and labels <span class="pp">|</span> Keep the raw CSV ridership values unchanged, create <span class="in">`daily_rides_k = ridership / 1000`</span> for analysis, and create display labels separately. This prevents accidental mixing of analytical values and presentation formatting. <span class="pp">|</span></span>
+<span id="cb2-646"><a href="#cb2-646" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Traceability <span class="pp">|</span> Keep a data dictionary for <span class="in">`ridership_metrics`</span>, <span class="in">`ridership_data`</span> and <span class="in">`mode_labels`</span>, including formulas for recovery index, mode share and gaps from 2019. <span class="pp">|</span></span>
+<span id="cb2-647"><a href="#cb2-647" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Determinism <span class="pp">|</span> The workflow uses fixed official values and deterministic transformations, so no random seed is required. Any manual label-position adjustments will be stored in <span class="in">`mode_labels`</span>. <span class="pp">|</span></span>
+<span id="cb2-648"><a href="#cb2-648" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-649"><a href="#cb2-649" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6. Data Analysis Plan</span></span>
+<span id="cb2-650"><a href="#cb2-650" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-651"><a href="#cb2-651" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.1 What This Analysis Is For</span></span>
+<span id="cb2-652"><a href="#cb2-652" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-653"><a href="#cb2-653" aria-hidden="true" tabindex="-1"></a>The analysis plan supports the redesigned visualization by producing the exact metrics needed to explain the public transport recovery story. The goal is descriptive rather than predictive: we want to quantify what changed from 2019 to 2025, which transport mode recovered most strongly, and how ridership share by transport mode changed over time.</span>
+<span id="cb2-654"><a href="#cb2-654" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-655"><a href="#cb2-655" aria-hidden="true" tabindex="-1"></a>The analysis will answer three practical questions:</span>
+<span id="cb2-656"><a href="#cb2-656" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-657"><a href="#cb2-657" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**A1:** How far above or below the 2019 baseline is each transport mode by 2025?</span>
+<span id="cb2-658"><a href="#cb2-658" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**A2:** How did each mode&#39;s share of total public transport ridership change between 2019 and 2025?</span>
+<span id="cb2-659"><a href="#cb2-659" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**A3:** Which years show the strongest year-on-year recovery momentum after the 2020 drop?</span>
+<span id="cb2-660"><a href="#cb2-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-661"><a href="#cb2-661" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.2 Measures We Will Compute</span></span>
+<span id="cb2-662"><a href="#cb2-662" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-663"><a href="#cb2-663" aria-hidden="true" tabindex="-1"></a>The measures are deliberately simple so that they can be checked by hand and explained clearly in the visualization tooltips and annotations.</span>
+<span id="cb2-664"><a href="#cb2-664" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-665"><a href="#cb2-665" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Measure <span class="pp">|</span> Formula / Method <span class="pp">|</span> Interpretation <span class="pp">|</span></span>
+<span id="cb2-666"><a href="#cb2-666" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb2-667"><a href="#cb2-667" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Total ridership <span class="pp">|</span> <span class="in">`sum(daily_rides_k)`</span> across Bus, MRT and LRT for each year <span class="pp">|</span> Overall average daily public transport ridership in thousands <span class="pp">|</span></span>
+<span id="cb2-668"><a href="#cb2-668" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mode share <span class="pp">|</span> <span class="in">`daily_rides_k / total_rides_k`</span> <span class="pp">|</span> The percentage contribution of each mode to total ridership in that year <span class="pp">|</span></span>
+<span id="cb2-669"><a href="#cb2-669" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2019 baseline <span class="pp">|</span> For each mode, use its 2019 <span class="in">`daily_rides_k`</span> value <span class="pp">|</span> Pre-Covid reference point for recovery comparison <span class="pp">|</span></span>
+<span id="cb2-670"><a href="#cb2-670" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Recovery index <span class="pp">|</span> <span class="in">`daily_rides_k / baseline_2019_k * 100`</span> <span class="pp">|</span> Values above 100 exceed 2019 levels; values below 100 remain below 2019 <span class="pp">|</span></span>
+<span id="cb2-671"><a href="#cb2-671" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Gap from 2019 <span class="pp">|</span> <span class="in">`daily_rides_k - baseline_2019_k`</span> <span class="pp">|</span> Absolute difference from pre-Covid ridership, in thousands of average daily rides <span class="pp">|</span></span>
+<span id="cb2-672"><a href="#cb2-672" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Percentage change from 2019 <span class="pp">|</span> <span class="in">`daily_rides_k / baseline_2019_k - 1`</span> <span class="pp">|</span> Relative percentage change compared with the 2019 baseline <span class="pp">|</span></span>
+<span id="cb2-673"><a href="#cb2-673" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Year-on-year change <span class="pp">|</span> Current year&#39;s <span class="in">`daily_rides_k`</span> minus previous year&#39;s value for the same mode <span class="pp">|</span> Shows the speed and direction of recovery between adjacent years <span class="pp">|</span></span>
+<span id="cb2-674"><a href="#cb2-674" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-675"><a href="#cb2-675" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.3 Planned Analyses</span></span>
+<span id="cb2-676"><a href="#cb2-676" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-677"><a href="#cb2-677" aria-hidden="true" tabindex="-1"></a>The planned analyses map directly to the proposed interactive recovery-index chart. Each analysis produces either a calculated field for the chart, a small summary table, or an annotation used to guide the reader.</span>
+<span id="cb2-678"><a href="#cb2-678" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-679"><a href="#cb2-679" aria-hidden="true" tabindex="-1"></a><span class="fu">### A1 — Recovery Gap from 2019 by Mode</span></span>
+<span id="cb2-680"><a href="#cb2-680" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-681"><a href="#cb2-681" aria-hidden="true" tabindex="-1"></a>**Question:** By 2025, which transport modes have recovered to or exceeded their 2019 average daily ridership levels?</span>
+<span id="cb2-682"><a href="#cb2-682" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-683"><a href="#cb2-683" aria-hidden="true" tabindex="-1"></a>**Method:** For each mode, calculate <span class="in">`recovery_index`</span>, <span class="in">`gap_from_2019_k`</span> and <span class="in">`pct_change_from_2019`</span> using 2019 as the fixed baseline.</span>
+<span id="cb2-684"><a href="#cb2-684" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-685"><a href="#cb2-685" aria-hidden="true" tabindex="-1"></a>**Expected output:** A 2025 summary table and endpoint labels for the recovery-index chart. Based on the current values, MRT should be above 2019, Bus should remain below 2019 and LRT should be almost unchanged from 2019.</span>
+<span id="cb2-686"><a href="#cb2-686" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-687"><a href="#cb2-687" aria-hidden="true" tabindex="-1"></a>**Insight supported:** This directly supports the main story that overall ridership nearly recovered, but the recovery was uneven across transport modes.</span>
+<span id="cb2-688"><a href="#cb2-688" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-689"><a href="#cb2-689" aria-hidden="true" tabindex="-1"></a><span class="fu">### A2 — Mode Share Shift Across Bus, MRT and LRT</span></span>
+<span id="cb2-690"><a href="#cb2-690" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-691"><a href="#cb2-691" aria-hidden="true" tabindex="-1"></a>**Question:** Did the balance between Bus, MRT and LRT change even though total public transport ridership nearly returned to its 2019 level?</span>
+<span id="cb2-692"><a href="#cb2-692" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-693"><a href="#cb2-693" aria-hidden="true" tabindex="-1"></a>**Method:** Calculate each mode&#39;s share of yearly total ridership, then compare 2019 and 2025 shares. The main comparison will be <span class="in">`mode_share_2025 - mode_share_2019`</span>, reported in percentage points.</span>
+<span id="cb2-694"><a href="#cb2-694" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-695"><a href="#cb2-695" aria-hidden="true" tabindex="-1"></a>**Expected output:** A mode-share comparison table and tooltip values in the chart. The expected pattern is that Bus share decreases, MRT share increases and LRT remains a small share of the total.</span>
+<span id="cb2-696"><a href="#cb2-696" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-697"><a href="#cb2-697" aria-hidden="true" tabindex="-1"></a>**Insight supported:** This explains why total ridership alone is not enough. Similar total ridership can still hide changes in ridership share by transport mode.</span>
+<span id="cb2-698"><a href="#cb2-698" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-699"><a href="#cb2-699" aria-hidden="true" tabindex="-1"></a><span class="fu">### A3 — Year-on-Year Ridership Recovery Momentum</span></span>
+<span id="cb2-700"><a href="#cb2-700" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-701"><a href="#cb2-701" aria-hidden="true" tabindex="-1"></a>**Question:** After the sharp 2020 drop, which years show the strongest recovery momentum for each mode?</span>
+<span id="cb2-702"><a href="#cb2-702" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-703"><a href="#cb2-703" aria-hidden="true" tabindex="-1"></a>**Method:** Calculate <span class="in">`yoy_change_k`</span> by mode and year. The largest positive changes will identify the years where ridership recovered most quickly, while negative values will flag setbacks such as the 2019 to 2020 fall.</span>
+<span id="cb2-704"><a href="#cb2-704" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-705"><a href="#cb2-705" aria-hidden="true" tabindex="-1"></a>**Expected output:** A compact table of the largest year-on-year increases by mode, plus tooltip fields showing year-on-year change for every point in the chart.</span>
+<span id="cb2-706"><a href="#cb2-706" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-707"><a href="#cb2-707" aria-hidden="true" tabindex="-1"></a>**Insight supported:** This adds time-path context to the final 2025 comparison. It helps readers see not only where ridership ended up, but how the recovery progressed across 2020 to 2025.</span>
+<span id="cb2-708"><a href="#cb2-708" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-709"><a href="#cb2-709" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6.4 Summary: What We Produce (2019 to 2025)</span></span>
+<span id="cb2-710"><a href="#cb2-710" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-711"><a href="#cb2-711" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ID <span class="pp">|</span> Question Answered <span class="pp">|</span> Output <span class="pp">|</span> Supports Which Insight <span class="pp">|</span> Data Needed <span class="pp">|</span></span>
+<span id="cb2-712"><a href="#cb2-712" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb2-713"><a href="#cb2-713" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A1 <span class="pp">|</span> Which modes are above or below their 2019 ridership level? <span class="pp">|</span> Recovery-gap table, recovery-index values and 2025 endpoint labels <span class="pp">|</span> MRT exceeded 2019, Bus remained below 2019 and LRT was nearly unchanged <span class="pp">|</span> Yearly LTA ridership by mode, 2019-2025 <span class="pp">|</span></span>
+<span id="cb2-714"><a href="#cb2-714" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A2 <span class="pp">|</span> How did each mode&#39;s share of total ridership change? <span class="pp">|</span> 2019 vs 2025 mode-share comparison table and tooltip values <span class="pp">|</span> The total nearly recovered, but ridership share shifted toward MRT <span class="pp">|</span> Yearly LTA ridership by mode and yearly totals <span class="pp">|</span></span>
+<span id="cb2-715"><a href="#cb2-715" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A3 <span class="pp">|</span> Which years had the strongest recovery momentum after 2020? <span class="pp">|</span> Year-on-year change table and tooltip values <span class="pp">|</span> Recovery was gradual, with different speeds across Bus, MRT and LRT <span class="pp">|</span> Yearly LTA ridership by mode, ordered by year <span class="pp">|</span></span>
+<span id="cb2-716"><a href="#cb2-716" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-717"><a href="#cb2-717" aria-hidden="true" tabindex="-1"></a><span class="fu"># 7. Planned Work Distribution</span></span>
+<span id="cb2-718"><a href="#cb2-718" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-719"><a href="#cb2-719" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Team Member <span class="pp">|</span> Tasks Done <span class="pp">|</span> Est. Hours <span class="pp">|</span></span>
+<span id="cb2-720"><a href="#cb2-720" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb2-721"><a href="#cb2-721" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Thaw Zin Htun <span class="pp">|</span> To be confirmed by team <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb2-722"><a href="#cb2-722" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Siyona Shailesh Naik <span class="pp">|</span> To be confirmed by team <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb2-723"><a href="#cb2-723" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Wilson Teng Hao Feng <span class="pp">|</span> Refined proposal Sections 1 to 6; shaped the 2019 recovery story; revised chart critique, weakness IDs and redesign plan; checked LTA PDF/CSV sources; aligned Section 4 and 5 with the actual DataMall CSV structure; planned the data workflow, output schema, validation checks and analysis measures; supported Quarto formatting and render checks. <span class="pp">|</span> ~20 hrs <span class="pp">|</span></span>
+<span id="cb2-724"><a href="#cb2-724" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Troy <span class="pp">|</span> To be confirmed by team <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb2-725"><a href="#cb2-725" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Zayar <span class="pp">|</span> To be confirmed by team <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb2-726"><a href="#cb2-726" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> All Members <span class="pp">|</span> Final content review and consistency checking <span class="pp">|</span> ~4 hrs each <span class="pp">|</span></span>
+<span id="cb2-727"><a href="#cb2-727" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-728"><a href="#cb2-728" aria-hidden="true" tabindex="-1"></a><span class="fu"># 8. References</span></span>
+<span id="cb2-729"><a href="#cb2-729" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-730"><a href="#cb2-730" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.1 Article Source</span></span>
+<span id="cb2-731"><a href="#cb2-731" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-732"><a href="#cb2-732" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Chelvan, V. P. (2026, January 30). *More rides on MRT in 2025 as LRT use fell; bus ride numbers still below pre-Covid-19 levels*. The Straits Times. <span class="ot">&lt;https://www.straitstimes.com/singapore/transport/more-people-used-mrt-in-2025-as-lrt-ridership-falls-bus-numbers-still-below-pre-covid-levels&gt;</span></span>
+<span id="cb2-733"><a href="#cb2-733" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-734"><a href="#cb2-734" aria-hidden="true" tabindex="-1"></a>This article is the source of the original news-media visualization and project story. It is used for critique and context, while the final plotted values will be sourced from LTA.</span>
+<span id="cb2-735"><a href="#cb2-735" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-736"><a href="#cb2-736" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.2 Data Sources</span></span>
+<span id="cb2-737"><a href="#cb2-737" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-738"><a href="#cb2-738" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Land Transport Authority. (n.d.). *Average public transport ridership by year (2015 to 2025)*. <span class="ot">&lt;https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/PT_Ridership_Yearly_2015-2025.pdf&gt;</span></span>
+<span id="cb2-739"><a href="#cb2-739" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-740"><a href="#cb2-740" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Land Transport Authority. (n.d.). *Average public transport ridership by month (2019 to 2025)*. <span class="ot">&lt;https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/PT_Ridership_Monthly_2019-2025.pdf&gt;</span></span>
+<span id="cb2-741"><a href="#cb2-741" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-742"><a href="#cb2-742" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Land Transport Authority. (n.d.). *LTA DataMall static datasets*. <span class="ot">&lt;https://datamall.lta.gov.sg/content/datamall/en/static-data.html&gt;</span></span>
+<span id="cb2-743"><a href="#cb2-743" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-744"><a href="#cb2-744" aria-hidden="true" tabindex="-1"></a>The yearly DataMall ridership dataset is the main data source for the proposed chart. The yearly PDF is retained as the official reference table for value checking, and the monthly source may be used only for supporting context or validation.</span>
+<span id="cb2-745"><a href="#cb2-745" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-746"><a href="#cb2-746" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8.3 Design Reference</span></span>
+<span id="cb2-747"><a href="#cb2-747" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-748"><a href="#cb2-748" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Wong, B. (2011). Points of view: Color blindness. *Nature Methods, 8*(6), 441–441. <span class="ot">&lt;https://doi.org/10.1038/nmeth.1618&gt;</span></span>
+<span id="cb2-749"><a href="#cb2-749" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-750"><a href="#cb2-750" aria-hidden="true" tabindex="-1"></a>This reference supports the use of clearer colour contrast and a colourblind-conscious palette in the improved visualization.</span>
+<span id="cb2-751"><a href="#cb2-751" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-752"><a href="#cb2-752" aria-hidden="true" tabindex="-1"></a><span class="fu"># 9. Appendix: Data Dictionary</span></span>
+<span id="cb2-753"><a href="#cb2-753" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-754"><a href="#cb2-754" aria-hidden="true" tabindex="-1"></a>This appendix defines the planned visualization-ready data objects. It follows the Section 5 workflow and supports the Section 6 analysis plan. The <span class="in">`ridership_metrics`</span> table stores the cleaned and derived yearly metrics. The <span class="in">`ridership_data`</span> table is created from <span class="in">`ridership_metrics`</span> if the optional metric toggle is implemented.</span>
+<span id="cb2-755"><a href="#cb2-755" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-756"><a href="#cb2-756" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.1 `ridership_metrics` — Primary Metrics Table</span></span>
+<span id="cb2-757"><a href="#cb2-757" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-758"><a href="#cb2-758" aria-hidden="true" tabindex="-1"></a><span class="in">`ridership_metrics`</span> stores the cleaned yearly ridership data and derived metrics before reshaping for the optional metric toggle.</span>
+<span id="cb2-759"><a href="#cb2-759" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-760"><a href="#cb2-760" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column                 <span class="pp">|</span> R Type    <span class="pp">|</span> Source / Derivation                                    <span class="pp">|</span> Unit / Range                     <span class="pp">|</span> Role in Chart                                      <span class="pp">|</span></span>
+<span id="cb2-761"><a href="#cb2-761" aria-hidden="true" tabindex="-1"></a><span class="pp">| ----------------------</span> <span class="pp">| ---------</span> <span class="pp">| ------------------------------------------------------</span> <span class="pp">| --------------------------------</span> <span class="pp">| --------------------------------------------------</span> <span class="pp">|</span></span>
+<span id="cb2-762"><a href="#cb2-762" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`year`</span>                 <span class="pp">|</span> integer   <span class="pp">|</span> LTA yearly dataset                                     <span class="pp">|</span> 2019-2025                        <span class="pp">|</span> X-axis and time ordering                           <span class="pp">|</span></span>
+<span id="cb2-763"><a href="#cb2-763" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`mode`</span>                 <span class="pp">|</span> factor    <span class="pp">|</span> Cleaned from LTA <span class="in">`mode`</span> field                          <span class="pp">|</span> Bus, MRT, LRT, optional Total    <span class="pp">|</span> Line colour and grouping                           <span class="pp">|</span></span>
+<span id="cb2-764"><a href="#cb2-764" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`ridership`</span>            <span class="pp">|</span> numeric   <span class="pp">|</span> LTA DataMall CSV                                       <span class="pp">|</span> Full average daily rides         <span class="pp">|</span> Raw value retained for traceability                <span class="pp">|</span></span>
+<span id="cb2-765"><a href="#cb2-765" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`daily_rides_k`</span>        <span class="pp">|</span> numeric   <span class="pp">|</span> <span class="in">`ridership / 1000`</span>                                     <span class="pp">|</span> Thousands of average daily rides <span class="pp">|</span> Absolute ridership values and tooltip label source <span class="pp">|</span></span>
+<span id="cb2-766"><a href="#cb2-766" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`total_rides_k`</span>        <span class="pp">|</span> numeric   <span class="pp">|</span> Sum of Bus, MRT and LRT per year                       <span class="pp">|</span> Thousands of average daily rides <span class="pp">|</span> Denominator for mode share and total context       <span class="pp">|</span></span>
+<span id="cb2-767"><a href="#cb2-767" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`mode_share`</span>           <span class="pp">|</span> numeric   <span class="pp">|</span> <span class="in">`daily_rides_k / total_rides_k`</span>                        <span class="pp">|</span> 0-1 proportion                   <span class="pp">|</span> Ridership share metric and tooltip value           <span class="pp">|</span></span>
+<span id="cb2-768"><a href="#cb2-768" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`baseline_2019_k`</span>      <span class="pp">|</span> numeric   <span class="pp">|</span> 2019 <span class="in">`daily_rides_k`</span> by mode                           <span class="pp">|</span> Thousands of average daily rides <span class="pp">|</span> Baseline for recovery comparison                   <span class="pp">|</span></span>
+<span id="cb2-769"><a href="#cb2-769" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`recovery_index`</span>       <span class="pp">|</span> numeric   <span class="pp">|</span> <span class="in">`daily_rides_k / baseline_2019_k * 100`</span>                <span class="pp">|</span> 2019 = 100                       <span class="pp">|</span> Default y-axis metric                              <span class="pp">|</span></span>
+<span id="cb2-770"><a href="#cb2-770" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`gap_from_2019_k`</span>      <span class="pp">|</span> numeric   <span class="pp">|</span> <span class="in">`daily_rides_k - baseline_2019_k`</span>                      <span class="pp">|</span> Thousands of average daily rides <span class="pp">|</span> Shows above/below 2019 level                       <span class="pp">|</span></span>
+<span id="cb2-771"><a href="#cb2-771" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`pct_change_from_2019`</span> <span class="pp">|</span> numeric   <span class="pp">|</span> <span class="in">`daily_rides_k / baseline_2019_k - 1`</span>                  <span class="pp">|</span> Percentage change                <span class="pp">|</span> Tooltip and summary analysis                       <span class="pp">|</span></span>
+<span id="cb2-772"><a href="#cb2-772" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`yoy_change_k`</span>         <span class="pp">|</span> numeric   <span class="pp">|</span> Current year minus previous year, by mode              <span class="pp">|</span> Thousands of average daily rides <span class="pp">|</span> Year-on-year recovery momentum                     <span class="pp">|</span></span>
+<span id="cb2-773"><a href="#cb2-773" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`yoy_pct_change`</span>       <span class="pp">|</span> numeric   <span class="pp">|</span> Current year divided by previous year minus 1, by mode <span class="pp">|</span> Percentage change                <span class="pp">|</span> Optional tooltip/context metric                    <span class="pp">|</span></span>
+<span id="cb2-774"><a href="#cb2-774" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`is_total`</span>             <span class="pp">|</span> logical   <span class="pp">|</span> Derived from <span class="in">`mode == &quot;Total&quot;`</span>                         <span class="pp">|</span> <span class="in">`TRUE`</span> or <span class="in">`FALSE`</span>                <span class="pp">|</span> Supports optional total-line toggle                <span class="pp">|</span></span>
+<span id="cb2-775"><a href="#cb2-775" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`label_rides_m`</span>        <span class="pp">|</span> character <span class="pp">|</span> Formatted from <span class="in">`daily_rides_k / 1000`</span>                  <span class="pp">|</span> e.g. <span class="in">`3.490M`</span>                    <span class="pp">|</span> Readable display label                             <span class="pp">|</span></span>
+<span id="cb2-776"><a href="#cb2-776" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-777"><a href="#cb2-777" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.2 `ridership_data` — Interactive Chart Table</span></span>
+<span id="cb2-778"><a href="#cb2-778" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-779"><a href="#cb2-779" aria-hidden="true" tabindex="-1"></a><span class="in">`ridership_data`</span> is created by reshaping selected metrics from <span class="in">`ridership_metrics`</span> into a long format. This allows the same chart object to switch between recovery index, absolute ridership and ridership share if the metric toggle is implemented.</span>
+<span id="cb2-780"><a href="#cb2-780" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-781"><a href="#cb2-781" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column                 <span class="pp">|</span> R Type    <span class="pp">|</span> Source / Derivation                   <span class="pp">|</span> Unit / Range                                        <span class="pp">|</span> Role in Chart                       <span class="pp">|</span></span>
+<span id="cb2-782"><a href="#cb2-782" aria-hidden="true" tabindex="-1"></a><span class="pp">| ----------------------</span> <span class="pp">| ---------</span> <span class="pp">| -------------------------------------</span> <span class="pp">| ---------------------------------------------------</span> <span class="pp">| -----------------------------------</span> <span class="pp">|</span></span>
+<span id="cb2-783"><a href="#cb2-783" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`year`</span>                 <span class="pp">|</span> integer   <span class="pp">|</span> From <span class="in">`ridership_metrics`</span>              <span class="pp">|</span> 2019-2025                                           <span class="pp">|</span> X-axis and time ordering            <span class="pp">|</span></span>
+<span id="cb2-784"><a href="#cb2-784" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`mode`</span>                 <span class="pp">|</span> factor    <span class="pp">|</span> From <span class="in">`ridership_metrics`</span>              <span class="pp">|</span> Bus, MRT, LRT, optional Total                       <span class="pp">|</span> Line colour and grouping            <span class="pp">|</span></span>
+<span id="cb2-785"><a href="#cb2-785" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`is_total`</span>             <span class="pp">|</span> logical   <span class="pp">|</span> From <span class="in">`ridership_metrics`</span>              <span class="pp">|</span> <span class="in">`TRUE`</span> or <span class="in">`FALSE`</span>                                   <span class="pp">|</span> Supports optional total-line toggle <span class="pp">|</span></span>
+<span id="cb2-786"><a href="#cb2-786" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`metric_type`</span>          <span class="pp">|</span> factor    <span class="pp">|</span> Derived by reshaping selected metrics <span class="pp">|</span> Recovery Index, Absolute Ridership, Ridership Share <span class="pp">|</span> Metric toggle option                <span class="pp">|</span></span>
+<span id="cb2-787"><a href="#cb2-787" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`metric_value`</span>         <span class="pp">|</span> numeric   <span class="pp">|</span> Value associated with <span class="in">`metric_type`</span>   <span class="pp">|</span> Depends on selected metric                          <span class="pp">|</span> Y-axis value for selected metric    <span class="pp">|</span></span>
+<span id="cb2-788"><a href="#cb2-788" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`label_rides_m`</span>        <span class="pp">|</span> character <span class="pp">|</span> From <span class="in">`ridership_metrics`</span>              <span class="pp">|</span> e.g. <span class="in">`3.490M`</span>                                       <span class="pp">|</span> Exact ridership label in tooltip    <span class="pp">|</span></span>
+<span id="cb2-789"><a href="#cb2-789" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`gap_from_2019_k`</span>      <span class="pp">|</span> numeric   <span class="pp">|</span> From <span class="in">`ridership_metrics`</span>              <span class="pp">|</span> Thousands of average daily rides                    <span class="pp">|</span> Tooltip and annotation context      <span class="pp">|</span></span>
+<span id="cb2-790"><a href="#cb2-790" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`pct_change_from_2019`</span> <span class="pp">|</span> numeric   <span class="pp">|</span> From <span class="in">`ridership_metrics`</span>              <span class="pp">|</span> Percentage change                                   <span class="pp">|</span> Tooltip and analysis context        <span class="pp">|</span></span>
+<span id="cb2-791"><a href="#cb2-791" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`yoy_change_k`</span>         <span class="pp">|</span> numeric   <span class="pp">|</span> From <span class="in">`ridership_metrics`</span>              <span class="pp">|</span> Thousands of average daily rides                    <span class="pp">|</span> Tooltip showing year-on-year change <span class="pp">|</span></span>
+<span id="cb2-792"><a href="#cb2-792" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`yoy_pct_change`</span>       <span class="pp">|</span> numeric   <span class="pp">|</span> From <span class="in">`ridership_metrics`</span>              <span class="pp">|</span> Percentage change                                   <span class="pp">|</span> Optional tooltip/context metric     <span class="pp">|</span></span>
+<span id="cb2-793"><a href="#cb2-793" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-794"><a href="#cb2-794" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.3 `mode_labels` — Annotation Table</span></span>
+<span id="cb2-795"><a href="#cb2-795" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-796"><a href="#cb2-796" aria-hidden="true" tabindex="-1"></a><span class="in">`mode_labels`</span> stores endpoint labels and label-position decisions separately from the main data table. This keeps annotation logic out of the main plotting code.</span>
+<span id="cb2-797"><a href="#cb2-797" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-798"><a href="#cb2-798" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column            <span class="pp">|</span> R Type    <span class="pp">|</span> Source / Derivation                    <span class="pp">|</span> Unit / Range                     <span class="pp">|</span> Role in Chart                               <span class="pp">|</span></span>
+<span id="cb2-799"><a href="#cb2-799" aria-hidden="true" tabindex="-1"></a><span class="pp">| -----------------</span> <span class="pp">| ---------</span> <span class="pp">| --------------------------------------</span> <span class="pp">| --------------------------------</span> <span class="pp">| -------------------------------------------</span> <span class="pp">|</span></span>
+<span id="cb2-800"><a href="#cb2-800" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`year`</span>            <span class="pp">|</span> integer   <span class="pp">|</span> Filtered from <span class="in">`ridership_metrics`</span>      <span class="pp">|</span> Usually 2025                     <span class="pp">|</span> Places labels at the end of each line       <span class="pp">|</span></span>
+<span id="cb2-801"><a href="#cb2-801" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`mode`</span>            <span class="pp">|</span> factor    <span class="pp">|</span> Filtered from <span class="in">`ridership_metrics`</span>      <span class="pp">|</span> Bus, MRT, LRT                    <span class="pp">|</span> Matches label to the correct line           <span class="pp">|</span></span>
+<span id="cb2-802"><a href="#cb2-802" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`recovery_index`</span>  <span class="pp">|</span> numeric   <span class="pp">|</span> From <span class="in">`ridership_metrics`</span>               <span class="pp">|</span> 2019 = 100                       <span class="pp">|</span> Y-position for default recovery-index view  <span class="pp">|</span></span>
+<span id="cb2-803"><a href="#cb2-803" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`daily_rides_k`</span>   <span class="pp">|</span> numeric   <span class="pp">|</span> From <span class="in">`ridership_metrics`</span>               <span class="pp">|</span> Thousands of average daily rides <span class="pp">|</span> Used in label text and tooltip              <span class="pp">|</span></span>
+<span id="cb2-804"><a href="#cb2-804" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`gap_from_2019_k`</span> <span class="pp">|</span> numeric   <span class="pp">|</span> From <span class="in">`ridership_metrics`</span>               <span class="pp">|</span> Thousands of average daily rides <span class="pp">|</span> Supports above/below-baseline label wording <span class="pp">|</span></span>
+<span id="cb2-805"><a href="#cb2-805" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`label_text`</span>      <span class="pp">|</span> character <span class="pp">|</span> Formatted from mode and recovery index <span class="pp">|</span> e.g. <span class="in">`MRT: 103.1 (2019=100)`</span>     <span class="pp">|</span> Text displayed beside line endpoints        <span class="pp">|</span></span>
+<span id="cb2-806"><a href="#cb2-806" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`label_position`</span>  <span class="pp">|</span> character <span class="pp">|</span> Manual or derived adjustment           <span class="pp">|</span> right/left/above/below           <span class="pp">|</span> Reduces label overlap                       <span class="pp">|</span></span>
+<span id="cb2-807"><a href="#cb2-807" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-808"><a href="#cb2-808" aria-hidden="true" tabindex="-1"></a><span class="fu">## A.4 Key Validation Checks</span></span>
+<span id="cb2-809"><a href="#cb2-809" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-810"><a href="#cb2-810" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Check                    <span class="pp">|</span> Expected Result                                                             <span class="pp">|</span> Why It Matters                                                           <span class="pp">|</span></span>
+<span id="cb2-811"><a href="#cb2-811" aria-hidden="true" tabindex="-1"></a><span class="pp">| ------------------------</span> <span class="pp">| ---------------------------------------------------------------------------</span> <span class="pp">| ------------------------------------------------------------------------</span> <span class="pp">|</span></span>
+<span id="cb2-812"><a href="#cb2-812" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mode-only row count      <span class="pp">|</span> 21 rows: 7 years x 3 modes                                                  <span class="pp">|</span> Confirms the 2019-2025 Bus/MRT/LRT subset is complete                    <span class="pp">|</span></span>
+<span id="cb2-813"><a href="#cb2-813" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Optional total row count <span class="pp">|</span> 28 rows if Total is included                                                <span class="pp">|</span> Confirms the optional total series has one row per year                  <span class="pp">|</span></span>
+<span id="cb2-814"><a href="#cb2-814" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Missing values           <span class="pp">|</span> No missing <span class="in">`year`</span>, <span class="in">`mode`</span>, <span class="in">`ridership`</span>, <span class="in">`daily_rides_k`</span> or <span class="in">`recovery_index`</span> <span class="pp">|</span> Prevents broken lines, labels or tooltips                                <span class="pp">|</span></span>
+<span id="cb2-815"><a href="#cb2-815" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2019 recovery index      <span class="pp">|</span> 100 for every mode                                                          <span class="pp">|</span> Confirms the baseline calculation is correct                             <span class="pp">|</span></span>
+<span id="cb2-816"><a href="#cb2-816" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2025 total               <span class="pp">|</span> 7,540 thousand average daily rides                                          <span class="pp">|</span> Confirms the plotted 2025 values match the LTA and Straits Times figures <span class="pp">|</span></span>
+<span id="cb2-817"><a href="#cb2-817" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mode share totals        <span class="pp">|</span> Bus + MRT + LRT shares sum to 1 for each year                               <span class="pp">|</span> Confirms mode-share calculations use the correct denominator             <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

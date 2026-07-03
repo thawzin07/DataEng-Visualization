@@ -58,7 +58,7 @@ Singapore's public transport ridership has recovered strongly since the disrupti
 
 Our project aims to use this original visualization as the starting point for a clearer data story about public transport recovery in Singapore. The key issue is not only whether total ridership has returned to its pre-pandemic level, but also how the recovery differs by transport mode. In the chart, MRT ridership in 2025 is above its 2019 level, bus ridership remains below its 2019 level, and LRT remains much smaller in scale while slipping slightly from 2024 to 2025.
 
-The improved visualization will therefore focus on four connected dimensions: **year**, **transport mode**, **average daily ridership**, and **recovery relative to 2019**. This allows the project to move beyond a simple total-ridership comparison and examine how Singapore's public transport mode mix has changed over time.
+The improved visualization will therefore focus on four connected dimensions: **year**, **transport mode**, **average daily ridership**, and **recovery relative to 2019**. This allows the project to move beyond a simple total-ridership comparison and examine how Singapore's ridership share by transport mode has changed over time.
 
 ::: {.question-grid}
 ::: {.question-card}
@@ -73,7 +73,7 @@ How did bus, MRT and LRT ridership recover differently relative to the 2019 base
 
 ::: {.question-card}
 <span class="question-index">Q3</span>
-Has the overall public transport mode mix changed even though total ridership has nearly recovered?
+Has the overall ridership share by transport mode changed even though total ridership has nearly recovered?
 :::
 :::
 
@@ -99,14 +99,14 @@ Average daily rides by year and transport mode, measured in thousands.
 :::
 
 ::: {.data-source-card}
-<span class="card-kicker">Optional enrichment</span>
-**Transport network context**  
-Relevant rail-network or service-context information, if needed to explain mode shifts.
+<span class="card-kicker">Supporting data direction</span>
+**LTA monthly public transport ridership**  
+Monthly average daily rides by transport mode, used only for optional context and checking.
 :::
 
 ::: {.data-source-card}
 <span class="card-kicker">Analytical focus</span>
-**Recovery and mode mix**  
+**Recovery and ridership share**  
 Mode share, year-on-year change and recovery index against 2019.
 :::
 :::
@@ -429,7 +429,7 @@ The Straits Times article and local `ChosenVisualization.png` image will be used
 |---|---|---|
 | The primary yearly data is available as a machine-readable CSV, while the LTA PDF is used as an official reference table. The two sources must be interpreted consistently because the CSV stores full ride counts while the PDF/chart display values in thousands. | <span class="severity-medium">Medium</span> | Use the yearly CSV as the main data pipeline source. Keep the yearly PDF as a reference copy and derive `daily_rides_k = ridership / 1000` for comparison with the original chart. |
 | Units are published in thousands of average daily rides. It is easy to mix up thousands, millions and raw ride counts. | <span class="severity-high">High</span> | Store ridership values in a clearly named `*_rides_k` format, and create formatted labels such as "3.490M" only at the visualization stage. |
-| The LTA source labels bus ridership as "Public Bus", while the Straits Times chart labels it as "Bus". | <span class="severity-low">Low</span> | Standardise the mode label to `Bus` in the final chart, while documenting that it comes from LTA's `Public Bus` column. |
+| The LTA source labels bus ridership as "Public Bus", while the Straits Times chart labels it as "Bus". | <span class="severity-low">Low</span> | Standardise the mode label to `Bus` in the final chart, while documenting that it comes from LTA's `Public Bus` mode value. |
 | Annual values are average daily ridership, not total annual passenger trips. | <span class="severity-high">High</span> | Do not interpret the figures as yearly totals. Titles, subtitles, tooltips and captions will state "average daily rides" clearly. |
 | Monthly values should not be averaged naively to recreate annual values because months have different numbers of days. | <span class="severity-medium">Medium</span> | Use the official annual dataset as the authoritative source for the final chart. If monthly data is used for validation, treat it as contextual rather than as a replacement for annual figures. |
 | LRT values are small relative to bus and MRT, so rounding can make small differences look more precise than they are. | <span class="severity-medium">Medium</span> | Label LRT values clearly, but interpret small changes such as 210,000 to 209,000 rides cautiously. Use the recovery-index view to make the trend readable without overstating the magnitude. |
@@ -455,10 +455,10 @@ The Straits Times article and `ChosenVisualization.png` will be used as document
 |---|---|---|---|
 | 1. Ingest yearly CSV | LTA DataMall yearly ridership CSV | Read the CSV file containing `year`, `mode` and `ridership`; keep the raw file unchanged for traceability | `raw_yearly_ridership` |
 | 2. Filter and standardise data | `raw_yearly_ridership` | Filter years 2019 to 2025; keep only Public Bus, MRT and LRT; rename `Public Bus` to `Bus`; convert `year` and `ridership` to numeric fields if needed | `clean_yearly_long` |
-| 3. Standardise units and validate values | `clean_yearly_long` | Keep the raw `ridership` value as full average daily rides; create `daily_rides_k = ridership / 1000` to match the original chart's thousands unit; check row counts and known 2025 values | `validated_yearly_long` |
-| 4. Derive analytical metrics | `validated_yearly_long` | Calculate yearly total ridership, ridership share by transport mode, 2019 baseline by mode, recovery index, gap from 2019, percentage change from 2019 and year-on-year change | `ridership_metrics` |
+| 3. Standardise units and validate values | `clean_yearly_long` | Keep the raw `ridership` value as full average daily rides; create `daily_rides_k = ridership / 1000` to match the original chart's thousands unit; check row counts and known 2025 values | `clean_yearly_long` validated |
+| 4. Derive analytical metrics | `clean_yearly_long` | Calculate yearly total ridership, ridership share by transport mode, 2019 baseline by mode, recovery index, gap from 2019, percentage change from 2019 and year-on-year change | `ridership_metrics` |
 | 5. Prepare chart objects | `ridership_metrics` | Create tooltip fields, endpoint labels, optional total-ridership series and metric-toggle data if implemented | `ridership_data`, `mode_labels` |
-| 6. Validate and export | `ridership_data`, `mode_labels` | Check missing values, row counts, 2019 baseline values, mode-share sums and known 2025 totals before exporting processed data | `validation_checks`, processed CSV/RDS files |
+| 6. Validate and export | `ridership_metrics`, `ridership_data`, `mode_labels` | Check missing values, row counts, 2019 baseline values, mode-share sums and known 2025 totals before exporting processed data | `validation_checks`, processed CSV/RDS files |
 
 ## 5.2 Planned Cleaning and Transformation Decisions
 
@@ -468,7 +468,7 @@ Every cleaning decision below is tied to a known data issue from Section 4 or a 
 |---|---|---|---|
 | D1 | The main yearly data is available as a DataMall CSV, while the LTA PDF remains the official reference table | Use the CSV for the data pipeline and keep the PDF as a reference for checking values | This avoids manual transcription from the PDF while still allowing the team to verify that the CSV values match the official published table |
 | D2 | The CSV stores ridership as full average daily ride counts, while the original chart displays values in thousands | Keep the raw `ridership` column unchanged and create `daily_rides_k = ridership / 1000` for chart comparison | This prevents confusion between full ride counts, thousands and millions |
-| D3 | Source labels and chart labels differ slightly | Map LTA's `Public Bus` column to the final chart label `Bus`; keep MRT and LRT unchanged | The shorter label is clearer in the chart while the data dictionary preserves the source meaning |
+| D3 | Source labels and chart labels differ slightly | Map LTA's `Public Bus` mode value to the final chart label `Bus`; keep MRT and LRT unchanged | The shorter label is clearer in the chart while the data dictionary preserves the source meaning |
 | D4 | The DataMall yearly CSV is already in long format | Keep the long structure with `year`, `mode` and `daily_rides_k` instead of pivoting from wide format | The existing long format already supports one line per mode in the recovery-index chart |
 | D5 | The recovery story depends on a pre-Covid baseline | Use each mode's own 2019 value as its baseline | This ensures Bus, MRT and LRT are compared against their own pre-Covid ridership levels rather than against the total |
 | D6 | Total recovery and ridership share by transport mode are both important | Calculate `total_rides_k` and `mode_share` after filtering and standardising the mode data | This preserves the original chart's total-ridership context while revealing changes in Bus, MRT and LRT share |
@@ -478,11 +478,11 @@ Every cleaning decision below is tied to a known data issue from Section 4 or a 
 
 ## 5.3 Target Output Schema
 
-Two final objects will be passed from the data engineering workflow to the visualization stage. `ridership_data` will drive the main chart, while `mode_labels` will hold endpoint labels and annotation positions so that the plotting code stays clean.
+Three planned objects will support the visualization stage. `ridership_metrics` will store the cleaned and derived yearly metrics, `ridership_data` will support the optional metric-toggle chart, and `mode_labels` will hold endpoint labels and annotation positions so that the plotting code stays clean.
 
-`ridership_data` - Primary Visualization Table
+`ridership_metrics` - Primary Metrics Table
 
-One row per year × transport mode × metric type. The default metric type will be Recovery Index, but the same chart object may support a metric toggle for Absolute Ridership and Ridership Share if technically feasible.
+`ridership_metrics` stores the cleaned yearly ridership data and derived metrics before reshaping for the optional metric toggle.
 
 | Column | R Type | Source | Unit / Range | Role in Chart |
 |---|---|---|---|---|
@@ -497,21 +497,22 @@ One row per year × transport mode × metric type. The default metric type will 
 | `gap_from_2019_k` | numeric | `daily_rides_k - baseline_2019_k` | Thousands of average daily rides | Shows whether each mode is above or below pre-Covid level |
 | `pct_change_from_2019` | numeric | `daily_rides_k / baseline_2019_k - 1` | Percentage change | Tooltip and summary analysis |
 | `yoy_change_k` | numeric | Current year minus previous year by mode | Thousands of average daily rides | Recovery momentum tooltip and analysis |
+| `yoy_pct_change` | numeric | Current year divided by previous year minus 1, by mode | Percentage change | Optional tooltip/context metric |
 | `is_total` | logical | Derived | `TRUE` or `FALSE` | Allows the optional total line to be toggled without creating a separate chart |
-| `label_rides_m` | character | Formatted from `daily_rides_k` | e.g. `"3.490M"` | Human-readable tooltip/display label |
-| `metric_type` | factor | Derived | Recovery Index / Absolute Ridership / Ridership Share | Allows the same chart object to switch between different metrics |
-| `metric_value` | numeric | Derived | Depends on selected metric | Y-axis value for the selected metric |
+| `label_rides_m` | character | Formatted from `daily_rides_k / 1000` | e.g. `"3.490M"` | Human-readable tooltip/display label |
+
+The final `ridership_data` object will be created from `ridership_metrics` by reshaping selected metrics, such as `recovery_index`, `daily_rides_k` and `mode_share`, into `metric_type` and `metric_value` for the optional metric toggle.
 
 `mode_labels` - Annotation Table
 
 | Column | R Type | Source | Unit / Range | Role in Chart |
 |---|---|---|---|---|
-| `year` | integer | Filtered from `ridership_data` | Usually 2025 | Places endpoint labels on the final year |
-| `mode` | factor | `ridership_data` | Bus, MRT, LRT, optional Total | Matches label to line colour/group |
-| `recovery_index` | numeric | `ridership_data` | 2019 = 100 | Y-position for endpoint labels |
-| `daily_rides_k` | numeric | `ridership_data` | Thousands of average daily rides | Used in label text |
-| `gap_from_2019_k` | numeric | `ridership_data` | Thousands of average daily rides | Supports above/below-baseline endpoint text |
-| `label_text` | character | Formatted from metrics | e.g. `"MRT: 103.1"` | Text displayed beside line endpoints |
+| `year` | integer | Filtered from `ridership_metrics` | Usually 2025 | Places endpoint labels on the final year |
+| `mode` | factor | `ridership_metrics` | Bus, MRT, LRT | Matches label to line colour/group |
+| `recovery_index` | numeric | `ridership_metrics` | 2019 = 100 | Y-position for endpoint labels |
+| `daily_rides_k` | numeric | `ridership_metrics` | Thousands of average daily rides | Used in label text |
+| `gap_from_2019_k` | numeric | `ridership_metrics` | Thousands of average daily rides | Supports above/below-baseline endpoint text |
+| `label_text` | character | Formatted from mode and recovery index | e.g. `"MRT: 103.1"` | Text displayed beside line endpoints |
 | `label_position` | character | Derived/manual adjustment | left/right/above/below | Prevents label overlap in the final chart |
 
 ## 5.4 Illustrative Code Structure
@@ -642,14 +643,14 @@ The workflow will be designed so that another team member can render the documen
 | Package use | Load all required packages in one setup block, including `readr`, `dplyr`, `tidyr`, `ggplot2`, `scales` and the selected interactive chart package. If time allows, package versions can be captured with `renv`. |
 | Validation checks | Include row-count, missing-value, baseline, mode-share and known-value checks before plotting. The expected mode-only table size is 21 rows, or 28 rows if the optional total series is included. |
 | Units and labels | Keep the raw CSV ridership values unchanged, create `daily_rides_k = ridership / 1000` for analysis, and create display labels separately. This prevents accidental mixing of analytical values and presentation formatting. |
-| Traceability | Keep a data dictionary for `ridership_data` and `mode_labels`, including formulas for recovery index, mode share and gaps from 2019. |
+| Traceability | Keep a data dictionary for `ridership_metrics`, `ridership_data` and `mode_labels`, including formulas for recovery index, mode share and gaps from 2019. |
 | Determinism | The workflow uses fixed official values and deterministic transformations, so no random seed is required. Any manual label-position adjustments will be stored in `mode_labels`. |
 
 # 6. Data Analysis Plan
 
 ## 6.1 What This Analysis Is For
 
-The analysis plan supports the redesigned visualization by producing the exact metrics needed to explain the public transport recovery story. The goal is descriptive rather than predictive: we want to quantify what changed from 2019 to 2025, which transport mode recovered most strongly, and how the mode mix shifted over time.
+The analysis plan supports the redesigned visualization by producing the exact metrics needed to explain the public transport recovery story. The goal is descriptive rather than predictive: we want to quantify what changed from 2019 to 2025, which transport mode recovered most strongly, and how ridership share by transport mode changed over time.
 
 The analysis will answer three practical questions:
 
@@ -693,7 +694,7 @@ The planned analyses map directly to the proposed interactive recovery-index cha
 
 **Expected output:** A mode-share comparison table and tooltip values in the chart. The expected pattern is that Bus share decreases, MRT share increases and LRT remains a small share of the total.
 
-**Insight supported:** This explains why total ridership alone is not enough. Similar total ridership can still hide a changed transport mode mix.
+**Insight supported:** This explains why total ridership alone is not enough. Similar total ridership can still hide changes in ridership share by transport mode.
 
 ### A3 — Year-on-Year Ridership Recovery Momentum
 
@@ -705,69 +706,112 @@ The planned analyses map directly to the proposed interactive recovery-index cha
 
 **Insight supported:** This adds time-path context to the final 2025 comparison. It helps readers see not only where ridership ended up, but how the recovery progressed across 2020 to 2025.
 
-## 6.4 Summary: What We Produce (2025)
+## 6.4 Summary: What We Produce (2019 to 2025)
 
-| ID | Question Answered (2025) | Output | Supports Which Insight | Data Needed |
+| ID | Question Answered | Output | Supports Which Insight | Data Needed |
 |---|---|---|---|---|
 | A1 | Which modes are above or below their 2019 ridership level? | Recovery-gap table, recovery-index values and 2025 endpoint labels | MRT exceeded 2019, Bus remained below 2019 and LRT was nearly unchanged | Yearly LTA ridership by mode, 2019-2025 |
-| A2 | How did each mode's share of total ridership change? | 2019 vs 2025 mode-share comparison table and tooltip values | The total nearly recovered, but the mode mix shifted toward MRT | Yearly LTA ridership by mode and yearly totals |
+| A2 | How did each mode's share of total ridership change? | 2019 vs 2025 mode-share comparison table and tooltip values | The total nearly recovered, but ridership share shifted toward MRT | Yearly LTA ridership by mode and yearly totals |
 | A3 | Which years had the strongest recovery momentum after 2020? | Year-on-year change table and tooltip values | Recovery was gradual, with different speeds across Bus, MRT and LRT | Yearly LTA ridership by mode, ordered by year |
 
 # 7. Planned Work Distribution
 
-::: {.placeholder-panel}
-To be completed with final task ownership.
-:::
-
-| Team Member | Primary Tasks | Est. Hours |
+| Team Member | Tasks Done | Est. Hours |
 |---|---|---|
-| Thaw Zin |  |  |
-| Siyona |  |  |
-| Wilson |  |  |
-| Troy |  |  |
-| Zayar |  |  |
-| All Members |  |  |
+| Thaw Zin Htun | To be confirmed by team |  |
+| Siyona Shailesh Naik | To be confirmed by team |  |
+| Wilson Teng Hao Feng | Refined proposal Sections 1 to 6; shaped the 2019 recovery story; revised chart critique, weakness IDs and redesign plan; checked LTA PDF/CSV sources; aligned Section 4 and 5 with the actual DataMall CSV structure; planned the data workflow, output schema, validation checks and analysis measures; supported Quarto formatting and render checks. | ~20 hrs |
+| Troy | To be confirmed by team |  |
+| Zayar | To be confirmed by team |  |
+| All Members | Final content review and consistency checking | ~4 hrs each |
 
 # 8. References
 
 ## 8.1 Article Source
 
-::: {.placeholder-panel}
-The Straits Times article URL and citation details will be finalized here.
-:::
+- Chelvan, V. P. (2026, January 30). *More rides on MRT in 2025 as LRT use fell; bus ride numbers still below pre-Covid-19 levels*. The Straits Times. <https://www.straitstimes.com/singapore/transport/more-people-used-mrt-in-2025-as-lrt-ridership-falls-bus-numbers-still-below-pre-covid-levels>
+
+This article is the source of the original news-media visualization and project story. It is used for critique and context, while the final plotted values will be sourced from LTA.
 
 ## 8.2 Data Sources
 
-::: {.placeholder-panel}
-LTA and supporting data source citations will be finalized here.
-:::
+- Land Transport Authority. (n.d.). *Average public transport ridership by year (2015 to 2025)*. <https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/PT_Ridership_Yearly_2015-2025.pdf>
+
+- Land Transport Authority. (n.d.). *Average public transport ridership by month (2019 to 2025)*. <https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/PT_Ridership_Monthly_2019-2025.pdf>
+
+- Land Transport Authority. (n.d.). *LTA DataMall static datasets*. <https://datamall.lta.gov.sg/content/datamall/en/static-data.html>
+
+The yearly DataMall ridership dataset is the main data source for the proposed chart. The yearly PDF is retained as the official reference table for value checking, and the monthly source may be used only for supporting context or validation.
 
 ## 8.3 Design Reference
 
-::: {.placeholder-panel}
-Design and accessibility references will be finalized here if used.
-:::
+- Wong, B. (2011). Points of view: Color blindness. *Nature Methods, 8*(6), 441–441. <https://doi.org/10.1038/nmeth.1618>
+
+This reference supports the use of clearer colour contrast and a colourblind-conscious palette in the improved visualization.
 
 # 9. Appendix: Data Dictionary
 
-::: {.placeholder-panel}
-To be completed after the target output schema is confirmed.
-:::
+This appendix defines the planned visualization-ready data objects. It follows the Section 5 workflow and supports the Section 6 analysis plan. The `ridership_metrics` table stores the cleaned and derived yearly metrics. The `ridership_data` table is created from `ridership_metrics` if the optional metric toggle is implemented.
 
-## A.1 ridership_data — Primary Visualization Table
+## A.1 `ridership_metrics` — Primary Metrics Table
 
-| Column | R Type | Source | Unit / Range | Role in Chart |
-|---|---|---|---|---|
-| year |  |  |  |  |
-| mode |  |  |  |  |
-| daily_rides_k |  |  |  |  |
-| recovery_index |  |  |  |  |
+`ridership_metrics` stores the cleaned yearly ridership data and derived metrics before reshaping for the optional metric toggle.
 
-## A.2 mode_labels — Annotation Table
+| Column                 | R Type    | Source / Derivation                                    | Unit / Range                     | Role in Chart                                      |
+| ---------------------- | --------- | ------------------------------------------------------ | -------------------------------- | -------------------------------------------------- |
+| `year`                 | integer   | LTA yearly dataset                                     | 2019-2025                        | X-axis and time ordering                           |
+| `mode`                 | factor    | Cleaned from LTA `mode` field                          | Bus, MRT, LRT, optional Total    | Line colour and grouping                           |
+| `ridership`            | numeric   | LTA DataMall CSV                                       | Full average daily rides         | Raw value retained for traceability                |
+| `daily_rides_k`        | numeric   | `ridership / 1000`                                     | Thousands of average daily rides | Absolute ridership values and tooltip label source |
+| `total_rides_k`        | numeric   | Sum of Bus, MRT and LRT per year                       | Thousands of average daily rides | Denominator for mode share and total context       |
+| `mode_share`           | numeric   | `daily_rides_k / total_rides_k`                        | 0-1 proportion                   | Ridership share metric and tooltip value           |
+| `baseline_2019_k`      | numeric   | 2019 `daily_rides_k` by mode                           | Thousands of average daily rides | Baseline for recovery comparison                   |
+| `recovery_index`       | numeric   | `daily_rides_k / baseline_2019_k * 100`                | 2019 = 100                       | Default y-axis metric                              |
+| `gap_from_2019_k`      | numeric   | `daily_rides_k - baseline_2019_k`                      | Thousands of average daily rides | Shows above/below 2019 level                       |
+| `pct_change_from_2019` | numeric   | `daily_rides_k / baseline_2019_k - 1`                  | Percentage change                | Tooltip and summary analysis                       |
+| `yoy_change_k`         | numeric   | Current year minus previous year, by mode              | Thousands of average daily rides | Year-on-year recovery momentum                     |
+| `yoy_pct_change`       | numeric   | Current year divided by previous year minus 1, by mode | Percentage change                | Optional tooltip/context metric                    |
+| `is_total`             | logical   | Derived from `mode == "Total"`                         | `TRUE` or `FALSE`                | Supports optional total-line toggle                |
+| `label_rides_m`        | character | Formatted from `daily_rides_k / 1000`                  | e.g. `3.490M`                    | Readable display label                             |
 
-| Column | R Type | Source | Unit / Range | Role in Chart |
-|---|---|---|---|---|
-| year |  |  |  |  |
-| mode |  |  |  |  |
-| label_value |  |  |  |  |
-| label_position |  |  |  |  |
+## A.2 `ridership_data` — Interactive Chart Table
+
+`ridership_data` is created by reshaping selected metrics from `ridership_metrics` into a long format. This allows the same chart object to switch between recovery index, absolute ridership and ridership share if the metric toggle is implemented.
+
+| Column                 | R Type    | Source / Derivation                   | Unit / Range                                        | Role in Chart                       |
+| ---------------------- | --------- | ------------------------------------- | --------------------------------------------------- | ----------------------------------- |
+| `year`                 | integer   | From `ridership_metrics`              | 2019-2025                                           | X-axis and time ordering            |
+| `mode`                 | factor    | From `ridership_metrics`              | Bus, MRT, LRT, optional Total                       | Line colour and grouping            |
+| `is_total`             | logical   | From `ridership_metrics`              | `TRUE` or `FALSE`                                   | Supports optional total-line toggle |
+| `metric_type`          | factor    | Derived by reshaping selected metrics | Recovery Index, Absolute Ridership, Ridership Share | Metric toggle option                |
+| `metric_value`         | numeric   | Value associated with `metric_type`   | Depends on selected metric                          | Y-axis value for selected metric    |
+| `label_rides_m`        | character | From `ridership_metrics`              | e.g. `3.490M`                                       | Exact ridership label in tooltip    |
+| `gap_from_2019_k`      | numeric   | From `ridership_metrics`              | Thousands of average daily rides                    | Tooltip and annotation context      |
+| `pct_change_from_2019` | numeric   | From `ridership_metrics`              | Percentage change                                   | Tooltip and analysis context        |
+| `yoy_change_k`         | numeric   | From `ridership_metrics`              | Thousands of average daily rides                    | Tooltip showing year-on-year change |
+| `yoy_pct_change`       | numeric   | From `ridership_metrics`              | Percentage change                                   | Optional tooltip/context metric     |
+
+## A.3 `mode_labels` — Annotation Table
+
+`mode_labels` stores endpoint labels and label-position decisions separately from the main data table. This keeps annotation logic out of the main plotting code.
+
+| Column            | R Type    | Source / Derivation                    | Unit / Range                     | Role in Chart                               |
+| ----------------- | --------- | -------------------------------------- | -------------------------------- | ------------------------------------------- |
+| `year`            | integer   | Filtered from `ridership_metrics`      | Usually 2025                     | Places labels at the end of each line       |
+| `mode`            | factor    | Filtered from `ridership_metrics`      | Bus, MRT, LRT                    | Matches label to the correct line           |
+| `recovery_index`  | numeric   | From `ridership_metrics`               | 2019 = 100                       | Y-position for default recovery-index view  |
+| `daily_rides_k`   | numeric   | From `ridership_metrics`               | Thousands of average daily rides | Used in label text and tooltip              |
+| `gap_from_2019_k` | numeric   | From `ridership_metrics`               | Thousands of average daily rides | Supports above/below-baseline label wording |
+| `label_text`      | character | Formatted from mode and recovery index | e.g. `MRT: 103.1 (2019=100)`     | Text displayed beside line endpoints        |
+| `label_position`  | character | Manual or derived adjustment           | right/left/above/below           | Reduces label overlap                       |
+
+## A.4 Key Validation Checks
+
+| Check                    | Expected Result                                                             | Why It Matters                                                           |
+| ------------------------ | --------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Mode-only row count      | 21 rows: 7 years x 3 modes                                                  | Confirms the 2019-2025 Bus/MRT/LRT subset is complete                    |
+| Optional total row count | 28 rows if Total is included                                                | Confirms the optional total series has one row per year                  |
+| Missing values           | No missing `year`, `mode`, `ridership`, `daily_rides_k` or `recovery_index` | Prevents broken lines, labels or tooltips                                |
+| 2019 recovery index      | 100 for every mode                                                          | Confirms the baseline calculation is correct                             |
+| 2025 total               | 7,540 thousand average daily rides                                          | Confirms the plotted 2025 values match the LTA and Straits Times figures |
+| Mode share totals        | Bus + MRT + LRT shares sum to 1 for each year                               | Confirms mode-share calculations use the correct denominator             |
