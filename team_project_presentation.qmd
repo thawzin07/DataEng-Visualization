@@ -1,0 +1,597 @@
+---
+title: "Singapore's Ridership Recovered - But Not in the Same Shape"
+subtitle: "Bus, MRT and LRT recovery relative to 2019"
+author: "Team 12"
+date: 2026-07-28
+date-format: "D MMMM YYYY"
+format:
+  revealjs:
+    self-contained: true
+    embed-resources: true
+    theme: [default, presentation.scss]
+    width: 1600
+    height: 900
+    margin: 0.055
+    min-scale: 0.2
+    max-scale: 2.0
+    slide-number: true
+    preview-links: false
+    incremental: false
+    transition: fade
+    footer: "AAI1001 - Data Engineering and Visualization | Team 12"
+    html-table-processing: none
+execute:
+  echo: false
+  warning: false
+---
+
+## Team 12 {.unnumbered .balanced}
+
+| Team member | Student ID |
+|---|---:|
+| Thaw Zin Htun | 2502712 |
+| Siyona Shailesh Naik | 2502714 |
+| Wilson Teng Hao Feng | 2503002 |
+| Troy Ang | 2503451 |
+| Zayar | 2502688 |
+
+::: {.callout}
+All five members will contribute to the oral presentation and audience Q&A.
+:::
+
+::: {.notes}
+Suggested speaker: Thaw Zin Htun. Cover slides 1-5 in about 2 minutes 30 seconds, ending with the original chart.
+:::
+
+## The total returned; the mix changed {.unnumbered .balanced}
+
+::: {.callout}
+By 2025, average daily public transport ridership had recovered to **98.0% of 2019**, but MRT was above its pre-pandemic level while bus remained below it.
+:::
+
+::: {.metric-row}
+::: {.metric}
+**103.1**
+MRT recovery index  
+2019 = 100
+:::
+::: {.metric}
+**93.7**
+Bus recovery index  
+2019 = 100
+:::
+::: {.metric}
+**100.5**
+LRT recovery index  
+2019 = 100
+:::
+:::
+
+Our question: **How did recovery differ by mode, and what changed beneath the near-recovered total?**
+
+<p class="source-note">Source: Land Transport Authority, Average Public Transport Ridership By Year (2015-2025). Values are average daily rides.</p>
+
+## The project moves from critique to evidence {.balanced}
+
+| Project task | What this presentation demonstrates |
+|---|---|
+| Original visualization | A quantitative Straits Times chart and its public-transport recovery story |
+| Critical analysis | Specific strengths and four evidence-based weaknesses |
+| Improvement plan | One implemented response for each weakness |
+| Data engineering | Traceable raw data, cleaning, transformations, validation and processed output |
+| Visualization | One interactive chart with three metric views and complete labelling |
+| Data analysis | Recovery gaps, mode-share shifts and year-on-year momentum |
+
+::: {.callout}
+The central question remains consistent across every stage: **did all transport modes recover in the same way?**
+:::
+
+## The original chart tells the broad recovery story {.balanced}
+
+:::: {.columns}
+::: {.column width="58%"}
+![Original Straits Times visualization of average daily public transport rides, 2019-2025.](ChosenVisualization.png){width="100%"}
+:::
+::: {.column width="42%"}
+
+- One row per year
+- Stacked segments for bus, MRT and LRT
+- Direct totals and bus/MRT values
+- Stronger colour for the latest year
+
+**Useful:** total and composition appear together.  
+**Limitation:** the recovery comparison is present, but not directly encoded.
+:::
+::::
+
+<p class="source-note">Sources: <a href="https://www.straitstimes.com/singapore/transport/more-people-used-mrt-in-2025-as-lrt-ridership-falls-bus-numbers-still-below-pre-covid-levels" target="_blank">The Straits Times article and graphic</a>; underlying values verified against the <a href="https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/PT_Ridership_Yearly_2015-2025.pdf" target="_blank">LTA yearly ridership table</a>.</p>
+
+## Four strengths are worth preserving {.balanced}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+### S1. Total and mode split
+Readers can see overall recovery and each mode's contribution in one view.
+
+### S2. Chronological rows
+The 2020 fall and subsequent recovery are easy to follow.
+
+:::
+::: {.column width="50%"}
+
+### S3. Stable mode colours
+Bus, MRT and LRT remain recognisable across years.
+
+### S4. Direct context
+The title, unit, legend, totals and source establish what is measured.
+
+:::
+::::
+
+::: {.callout}
+The redesign should improve comparison without losing the original chart's compact overview and clear mode identity.
+:::
+
+::: {.notes}
+Suggested speaker: Siyona Shailesh Naik. Cover slides 6-10 in about 2 minutes 45 seconds, ending with the raw-data structure.
+:::
+
+## Four weaknesses explain the redesign {.balanced}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+### W1. Baseline is under-emphasised
+2019 is not marked as the baseline; faded older rows and the apparent default selection weaken the central comparison.
+
+### W2. Modes lack a common start
+Only bus starts at a common baseline; the thin, unlabelled LRT segment is especially difficult to compare.
+
+:::
+::: {.column width="50%"}
+
+### W3. Key changes are not calculated
+Recovery gaps and year-on-year changes require readers to perform the arithmetic themselves.
+
+### W4. Mode-share shift is hidden
+Stacked totals conceal the shift from bus toward MRT.
+
+:::
+::::
+
+<p class="source-note">Marker feedback applied: former W1/W6 and W2/W3 were merged; the list was reduced from six weaknesses to four.</p>
+
+## Each weakness has one justified response {.balanced .compact}
+
+| Weakness | Implemented change | Why it improves the story |
+|---|---|---|
+| **W1** | Recovery index with a visible **2019 = 100** reference and equal emphasis on load | Makes above/below-baseline recovery immediate and removes a misleading default selection |
+| **W2** | Separate mode lines, direct endpoint labels and exact LRT tooltip values | Gives every mode a common baseline and keeps small LRT changes readable |
+| **W3** | Tooltips show rides, recovery, gap and year-on-year change | Removes manual arithmetic and connects each point to interpretable evidence |
+| **W4** | The same chart switches among recovery, absolute rides and mode share | Answers three related questions without creating a dashboard |
+
+::: {.callout}
+The redesign remains **one interactive chart**, consistent with the project brief. We retained the planned recovery-index view and metric control, but omitted the optional total line because it reduced mode-level readability; the total remains available in the surrounding evidence.
+:::
+
+## We use one official yearly dataset {.balanced}
+
+:::: {.columns}
+::: {.column width="55%"}
+
+**Primary sources**  
+[LTA DataMall yearly CSV](https://datamall.lta.gov.sg/content/dam/datamall/datasets/Facts_Figures/Public%20Transport/yearly_ave_daily_pt_ridership.csv){target="_blank"} and the [LTA yearly ridership table](https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/PT_Ridership_Yearly_2015-2025.pdf){target="_blank"}.
+
+**Selected scope**  
+2019-2025; Public Bus, MRT and LRT; average rides per day.
+
+**Why it fits**  
+The values reproduce the news graphic's scope and provide all years and modes needed for the comparison.
+
+:::
+::: {.column width="45%"}
+
+| Check | Result |
+|---|---:|
+| Expected records | 21 |
+| Missing year-mode pairs | 0 |
+| Duplicate year-mode pairs | 0 |
+| Negative ridership values | 0 |
+| 2025 total | 7.540M |
+
+:::
+::::
+
+<p class="source-note">DataMall last update: April 2026; retrieved 16 July 2026. Local raw file: <code>data/raw/yearly_ave_daily_pt_ridership.csv</code>.</p>
+
+## The raw data is already in a useful long format {.balanced}
+
+:::: {.columns}
+::: {.column width="48%"}
+
+| Raw field | Meaning |
+|---|---|
+| `year` | Calendar year |
+| `mode` | Public Bus, MRT or LRT |
+| `ridership` | Full average daily ride count |
+
+One row represents one **year-mode observation**.
+
+:::
+::: {.column width="52%"}
+
+| year | mode | ridership |
+|---:|---|---:|
+| 2019 | Public Bus | 4,099,000 |
+| 2019 | MRT | 3,384,000 |
+| 2019 | LRT | 208,000 |
+| 2025 | Public Bus | 3,841,000 |
+| 2025 | MRT | 3,490,000 |
+| 2025 | LRT | 209,000 |
+
+:::
+::::
+
+<p class="source-note">The official yearly dataset is used for calculations; values are not digitised from the news image.</p>
+
+## Data quality is mainly an interpretation problem {.balanced .compact}
+
+| Risk | Why it matters | Treatment |
+|---|---|---|
+| Unit mismatch | CSV stores full counts; article and PDF show thousands | Preserve full counts; derive thousands and millions only for display |
+| Mode naming | LTA uses “Public Bus”; the news chart uses “Bus” | Standardise to `Bus` after retaining the source label |
+| Measure meaning | Values are average daily rides, not annual totals | State the measure in titles, labels and tooltips |
+| LRT scale | Small absolute values make tiny changes easy to overstate | Show exact values and interpret the 1,000-ride decline cautiously |
+| Annual authority | A naive monthly average may not reproduce the yearly figure | Use the official yearly dataset as the plotted source |
+
+::: {.callout}
+No values are missing; the main quality safeguard is preserving units, meaning and traceability.
+:::
+
+::: {.notes}
+Suggested speaker: Wilson Teng Hao Feng. Cover slides 11-15 in about 3 minutes, ending with the reproducibility chain.
+:::
+
+## The pipeline is implemented from raw to chart-ready {.balanced}
+
+::: {.pipeline}
+<div><strong>1. Ingest</strong><br>Read the LTA yearly CSV with explicit year, mode and ridership fields.</div>
+<div><strong>2. Filter</strong><br>Keep 2019-2025 and the three public transport modes.</div>
+<div><strong>3. Standardise</strong><br>Rename Public Bus to Bus and parse integer ridership values.</div>
+<div><strong>4. Derive</strong><br>Calculate totals, recovery index, gaps, YoY change and mode share.</div>
+<div><strong>5. Validate</strong><br>Assert complete year-mode coverage before writing 21 chart-ready rows.</div>
+:::
+
+```text
+recovery_index = ridership / ridership_2019 x 100
+mode_share_pct = mode_ridership / yearly_total x 100
+year_on_year_pct = (ridership / prior_year_ridership - 1) x 100
+```
+
+<p class="source-note">Implemented in <code>scripts/build_ridership_metrics.R</code>; output: <code>data/processed/ridership_metrics_2019_2025.csv</code>.</p>
+
+## Derived measures connect engineering to the story {.balanced .compact}
+
+| Measure | Calculation | Question answered |
+|---|---|---|
+| Yearly total | Sum Bus, MRT and LRT within each year | How close is the overall system to 2019? |
+| Recovery index | `ridership / 2019 ridership x 100` | Which modes exceeded the baseline? |
+| Gap from 2019 | `ridership - 2019 ridership` | How many daily rides remain above or below 2019? |
+| Mode share | `mode ridership / yearly total x 100` | Did the transport mix change? |
+| Year-on-year change | `(current / previous - 1) x 100` | When was recovery fastest? |
+
+::: {.callout}
+The final chart-ready dataset has **nine fields**: year, mode, ridership, display units, recovery index, gap, change from 2019, year-on-year change and mode share. Every displayed insight is derived from these fields.
+:::
+
+## Validation checks run before chart creation {.balanced}
+
+::: {.metric-row}
+::: {.metric}
+**21 / 21**
+Expected year-mode records present
+:::
+::: {.metric}
+**0**
+Missing or duplicate pairs
+:::
+::: {.metric}
+**0**
+Negative ridership values
+:::
+:::
+
+Additional checks confirm the published 2025 values:
+
+- Bus: **3,841,000** average daily rides
+- MRT: **3,490,000** average daily rides
+- LRT: **209,000** average daily rides
+- Combined total: **7,540,000**
+
+<p class="source-note">The script stops with an error if the expected 2019-2025 year-mode coverage is incomplete.</p>
+
+## The implementation is reproducible and portable {.balanced}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**Inputs**
+
+- Unchanged raw yearly CSV
+- Documented LTA source links
+- Original chart image for critique only
+
+**Transformation**
+
+- `scripts/build_ridership_metrics.R`
+- Base R; runnable through RStudio or `Rscript`
+- No hidden notebook state or manual calculations
+
+:::
+::: {.column width="50%"}
+
+**Outputs**
+
+- 21-row processed metrics CSV
+- Generated JavaScript chart-data resource
+- Self-contained RevealJS HTML
+- Resource ZIP containing source, data, styling and script
+
+**Rerun path**
+
+`raw CSV -> R script -> processed CSV -> Quarto render`
+
+:::
+::::
+
+## The improved chart makes recovery directly comparable {.balanced}
+
+::: {.chart-shell}
+<div class="chart-controls" aria-label="Chart metric">
+  <button type="button" data-metric="recovery" class="active">Recovery index</button>
+  <button type="button" data-metric="absolute">Absolute rides</button>
+  <button type="button" data-metric="share">Mode share</button>
+</div>
+<svg id="ridership-chart" viewBox="0 0 1450 500" role="img" aria-label="Interactive chart of public transport ridership by mode from 2019 to 2025"></svg>
+<div class="chart-note">Direct labels identify each mode. Hover or focus a point for exact values. Source: <a href="https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/PT_Ridership_Yearly_2015-2025.pdf" target="_blank">Land Transport Authority</a>.</div>
+:::
+<div id="chart-tooltip" class="chart-tooltip"></div>
+
+```{=html}
+<script src="data/processed/ridership_chart_data.js"></script>
+<script>
+(() => {
+  const rows = (window.RIDERSHIP_CHART_DATA || []).map(d => ({
+    year: Number(d.year),
+    mode: d.mode,
+    ridership: Number(d.ridership),
+    recovery: Number(d.recovery_index),
+    absolute: Number(d.ridership) / 1000000,
+    share: Number(d.mode_share_pct),
+    gap: Number(d.gap_from_2019),
+    yoy: d.year_on_year_pct === null ? null : Number(d.year_on_year_pct)
+  }));
+  const years = [...new Set(rows.map(d => d.year))];
+  const modes = ['Bus','MRT','LRT'];
+  const colors = {Bus:'#0072B2', MRT:'#D55E00', LRT:'#009E73'};
+  const labels = {
+    recovery: ['Recovery index (2019 = 100)', d => d.recovery, v => v.toFixed(1)],
+    absolute: ['Average daily rides (millions)', d => d.absolute, v => v.toFixed(1)+'M'],
+    share: ['Share of yearly total (%)', d => d.share, v => v.toFixed(1)+'%']
+  };
+  const domains = {
+    recovery: [50, 110],
+    absolute: [0, 4.5],
+    share: [0, 60]
+  };
+  const tickValues = {
+    recovery: [50, 60, 70, 80, 90, 100, 110],
+    absolute: [0, 1, 2, 3, 4],
+    share: [0, 10, 20, 30, 40, 50, 60]
+  };
+  const tickFormat = {
+    recovery: v => String(v),
+    absolute: v => v === 0 ? '0' : v + 'M',
+    share: v => v + '%'
+  };
+  let metric = 'recovery';
+  const svg = document.getElementById('ridership-chart');
+  const tip = document.getElementById('chart-tooltip');
+  if (!svg || !tip) return;
+  if (!rows.length) {
+    svg.setAttribute('aria-label', 'Chart data failed to load');
+    svg.textContent = 'Chart data failed to load. Re-run the R build script and render the presentation.';
+    return;
+  }
+  const NS='http://www.w3.org/2000/svg', W=1450, H=500, m={l:105,r:135,t:70,b:58};
+  const node=(name,attrs={},text='')=>{ const n=document.createElementNS(NS,name); Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v)); if(text)n.textContent=text; return n; };
+  function render(){
+    svg.replaceChildren();
+    const get=labels[metric][1];
+    const [min,max]=domains[metric];
+    const x=y=>m.l+(y-2019)/(2025-2019)*(W-m.l-m.r);
+    const yy=v=>H-m.b-(v-min)/(max-min)*(H-m.t-m.b);
+    tickValues[metric].forEach(val=>{
+      const py=yy(val);
+      svg.append(node('line',{x1:m.l,x2:W-m.r,y1:py,y2:py,stroke:'#dfe8e6','stroke-width':1}));
+      svg.append(node('text',{x:m.l-14,y:py+6,'text-anchor':'end','font-size':20},tickFormat[metric](val)));
+    });
+    if(metric==='recovery'){
+      const py=yy(100); svg.append(node('line',{x1:m.l,x2:W-m.r,y1:py,y2:py,stroke:'#516b70','stroke-width':2,'stroke-dasharray':'8 7'}));
+      svg.append(node('text',{x:m.l+18,y:py-13,'text-anchor':'start','font-size':20,'font-weight':700},'2019 baseline = 100'));
+    }
+    years.forEach(y=>{ const px=x(y); svg.append(node('text',{x:px,y:H-30,'text-anchor':'middle','font-size':20},String(y))); });
+    svg.append(node('text',{x:(m.l+W-m.r)/2,y:H-5,'text-anchor':'middle','font-size':20,'font-weight':700},'Year'));
+    svg.append(node('text',{x:m.l,y:30,'font-size':24,'font-weight':700},labels[metric][0]));
+    modes.forEach(mode=>{
+      const series=rows.filter(d=>d.mode===mode), points=series.map(d=>`${x(d.year)},${yy(get(d))}`).join(' ');
+      svg.append(node('polyline',{points,fill:'none',stroke:colors[mode],'stroke-width':5,'stroke-linejoin':'round','stroke-linecap':'round'}));
+      series.forEach(d=>{
+        const c=node('circle',{cx:x(d.year),cy:yy(get(d)),r:7,fill:colors[mode],stroke:'white','stroke-width':3,tabindex:0,'aria-label':`${d.mode} ${d.year}`});
+        const show=e=>{
+          const gapText=(d.gap>=0?'+':'')+(d.gap/1000).toFixed(0)+'k';
+          const gapClass=d.gap>0?'positive':d.gap<0?'negative':'';
+          const yoyText=d.yoy===null?'baseline':(d.yoy>=0?'+':'')+d.yoy.toFixed(1)+'%';
+          const yoyClass=d.yoy===null?'':d.yoy>=0?'positive':'negative';
+          tip.innerHTML=`<strong>${d.mode}, ${d.year}</strong><br>${(d.ridership/1000000).toFixed(3)}M rides/day<br>Recovery: ${d.recovery.toFixed(1)}<br>Gap from 2019: <span class="${gapClass}">${gapText}</span><br>YoY: <span class="${yoyClass}">${yoyText}</span><br>Mode share: ${d.share.toFixed(1)}%`;
+          tip.style.opacity=1; const p=e.touches?e.touches[0]:e; tip.style.left=((p.clientX||700)+15)+'px'; tip.style.top=((p.clientY||300)+15)+'px';
+        };
+        c.addEventListener('mousemove',show); c.addEventListener('focus',()=>show({clientX:700,clientY:300})); c.addEventListener('mouseleave',()=>tip.style.opacity=0); c.addEventListener('blur',()=>tip.style.opacity=0); svg.append(c);
+      });
+      const end=series.at(-1);
+      const labelNudge=metric==='recovery'?(mode==='MRT'?-8:mode==='LRT'?8:0):0;
+      svg.append(node('text',{x:x(2025)+16,y:yy(get(end))+7+labelNudge,'font-size':21,'font-weight':700,fill:colors[mode]},`${mode} ${labels[metric][2](get(end))}`));
+    });
+  }
+  document.querySelectorAll('.chart-controls button').forEach(btn=>btn.addEventListener('click',()=>{ metric=btn.dataset.metric; document.querySelectorAll('.chart-controls button').forEach(b=>b.classList.toggle('active',b===btn)); render(); }));
+  render();
+})();
+</script>
+```
+
+::: {.notes}
+Suggested speaker: Troy Ang. Cover slides 16-20 in about 3 minutes 15 seconds. Demonstrate all three metric buttons, then return to Recovery index before continuing.
+:::
+
+## Every redesign choice resolves a critique {.balanced .design-choices}
+
+```{=html}
+<div class="resolution-list">
+  <div class="resolution-item">
+    <div class="resolution-code">W1</div>
+    <div><h3>Common 2019 baseline</h3><p>All modes begin at 100, with no mode pre-highlighted. Above- and below-baseline recovery is immediately comparable.</p></div>
+  </div>
+  <div class="resolution-item">
+    <div class="resolution-code">W2</div>
+    <div><h3>Equal visibility by mode</h3><p>Separate indexed lines keep MRT and LRT readable instead of compressing them within stacked totals.</p></div>
+  </div>
+  <div class="resolution-item">
+    <div class="resolution-code">W3</div>
+    <div><h3>Exact values on demand</h3><p>Keyboard-accessible tooltips provide rides, recovery, the 2019 gap, year-on-year change and mode share.</p></div>
+  </div>
+  <div class="resolution-item">
+    <div class="resolution-code">W4</div>
+    <div><h3>One chart, three views</h3><p>The control reveals recovery, absolute scale and composition without turning the result into a dashboard.</p></div>
+  </div>
+</div>
+```
+
+## Three analyses answer three distinct questions {.balanced}
+
+| Analysis | Method | Evidence produced |
+|---|---|---|
+| **A1. Recovery gap** | Compare each mode's 2025 value with its fixed 2019 baseline | Index, absolute gap and percentage change |
+| **A2. Mode-share shift** | Divide each mode by the yearly three-mode total | 2019 versus 2025 percentage-point change |
+| **A3. Recovery momentum** | Compare each year with the preceding year by mode | Largest increases and any later setbacks |
+
+::: {.callout}
+These are descriptive methods suited to seven yearly observations per mode; no causal model is claimed.
+:::
+
+## MRT exceeded 2019 while bus remained below {.balanced}
+
+::: {.metric-row}
+::: {.metric}
+<strong class="positive">+106k</strong>
+MRT daily rides versus 2019  
+<strong class="positive">+3.1%</strong>
+:::
+::: {.metric}
+<strong class="negative">-258k</strong>
+Bus daily rides versus 2019  
+<strong class="negative">-6.3%</strong>
+:::
+::: {.metric}
+<strong class="positive">+1k</strong>
+LRT daily rides versus 2019  
+<strong class="positive">+0.5%</strong>
+:::
+:::
+
+The modes therefore did not recover uniformly. The 2025 total masks a **shift in where journeys occurred**.
+
+<p class="source-note">Calculated from LTA yearly values: MRT 3.384M to 3.490M; Bus 4.099M to 3.841M; LRT 0.208M to 0.209M.</p>
+
+## The ridership mix shifted from bus toward MRT {.balanced}
+
+| Mode | 2019 share | 2025 share | Change |
+|---|---:|---:|---:|
+| Bus | 53.3% | 50.9% | <span class="negative">-2.4 pp</span> |
+| MRT | 44.0% | 46.3% | <span class="positive">+2.3 pp</span> |
+| LRT | 2.7% | 2.8% | <span class="positive">+0.1 pp</span> |
+
+In 2025, MRT added **78,000** average daily rides year on year (<span class="positive">+2.3%</span>), while bus added only **4,000** (<span class="positive">+0.1%</span>). LRT declined by **1,000** (<span class="negative">-0.5%</span>).
+
+::: {.callout}
+The near-recovered total is therefore not a return to the 2019 transport mix.
+:::
+
+<p class="source-note">Source: LTA yearly ridership data; percentage-point changes are calculated from unrounded mode shares.</p>
+
+## Recovery momentum peaked in 2022 {.balanced}
+
+| Mode | Largest post-2020 increase | Change |
+|---|---:|---:|
+| Bus | 2021 to 2022 | <span class="positive">+15.1%</span> |
+| MRT | 2021 to 2022 | <span class="positive">+30.7%</span> |
+| LRT | 2021 to 2022 | <span class="positive">+21.9%</span> |
+
+By 2025, growth had slowed to <span class="positive">+0.1% for Bus</span>, <span class="positive">+2.3% for MRT</span>, and <span class="negative">-0.5% for LRT</span>.
+
+::: {.callout}
+The system recovered most rapidly in 2022, then shifted from broad rebound toward slower, mode-specific change.
+:::
+
+<p class="source-note">Source: LTA yearly ridership data; year-on-year percentages are calculated within each transport mode.</p>
+
+::: {.notes}
+Suggested speaker: Zayar. Cover slides 21-25 in about 2 minutes 30 seconds, state the conclusion clearly, then invite questions.
+:::
+
+## What the data can - and cannot - establish {.balanced}
+
+**Supported by the dataset**
+
+- Recovery relative to 2019 differs by mode.
+- MRT's share increased while bus share decreased.
+- The 2025 total remained 151,000 rides per day below 2019.
+
+**Not established by this dataset alone**
+
+- Why travellers changed modes.
+- Whether remote work, network expansion or service changes caused the shift.
+- Individual trip purpose, route, distance or passenger characteristics.
+
+The analysis is descriptive; causal explanations require additional evidence.
+
+## Conclusion: recovery was strong, but uneven {.balanced}
+
+::: {.callout}
+Singapore's average daily public transport ridership reached **7.540 million in 2025**, or **98.0% of 2019**. Yet MRT exceeded its 2019 level, bus remained below it, and MRT gained about **2.3 percentage points** of mode share.
+:::
+
+The improved visualization makes that conclusion visible immediately by:
+
+1. anchoring every mode to the same 2019 baseline,
+2. giving LRT an equally readable series,
+3. showing calculated gaps and changes, and
+4. revealing mode share in the same chart.
+
+## References {.unnumbered .balanced}
+
+- Land Transport Authority. [**Average Public Transport Ridership By Year (2015 to 2025)**](https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/PT_Ridership_Yearly_2015-2025.pdf){target="_blank"}. Dataset used in the local raw CSV.
+- Land Transport Authority. [**Public Transport Utilisation - Average Public Transport Ridership by Year (CSV)**](https://datamall.lta.gov.sg/content/dam/datamall/datasets/Facts_Figures/Public%20Transport/yearly_ave_daily_pt_ridership.csv){target="_blank"}. Retrieved 16 July 2026.
+- Chelvan, V. P. (2026, January 30). [**More rides on MRT in 2025 as LRT use fell; bus ride numbers still below pre-Covid-19 levels.**](https://www.straitstimes.com/singapore/transport/more-people-used-mrt-in-2025-as-lrt-ridership-falls-bus-numbers-still-below-pre-covid-levels){target="_blank"} *The Straits Times*.
+- Wong, B. (2011). [**Points of view: Color blindness.**](https://doi.org/10.1038/nmeth.1618){target="_blank"} *Nature Methods, 8*(6), 441.
+- Munzner, T. (2014). *Visualization Analysis and Design*. CRC Press.
+
+## Thank you {.unnumbered .balanced .closing}
+
+<div class="qa-title">Questions &amp; discussion</div>
+
+::: {.callout}
+**Final takeaway:** Singapore's total ridership nearly recovered by 2025, but the balance shifted toward MRT while Bus remained below its 2019 level.
+:::
+
+<p class="source-note">Team 12: Thaw Zin Htun · Siyona Shailesh Naik · Wilson Teng Hao Feng · Troy Ang · Zayar</p>

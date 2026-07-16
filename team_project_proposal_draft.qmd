@@ -1,7 +1,7 @@
 ---
 title: "Singapore Public Transport Ridership Recovery Across Bus, MRT & LRT"
 subtitle: "AAI1001 Team Project Proposal"
-author: "LAB-P1 Team 12"
+author: "Team 12"
 date: "23 June 2026"
 format:
   html:
@@ -32,11 +32,11 @@ AAI1001 Team Project Proposal
 # Singapore Public Transport Ridership Recovery Across Bus, MRT & LRT
 
 ::: {.hero-author-label}
-Author
+Group Name
 :::
 
 ::: {.hero-author}
-LAB-P1 Team 12
+Team 12
 :::
 :::
 
@@ -222,44 +222,32 @@ What limits deeper interpretation
 
 ::: {.critique-grid}
 ::: {.critique-card .risk}
-#### <span class="critique-id risk-id">W1.</span> The 2019 baseline is not visually marked
+#### <span class="critique-id risk-id">W1.</span> The visual emphasis obscures the 2019 comparison baseline
 
-The article's story depends on whether ridership has returned to pre-Covid-19 levels, but the 2019 row is not marked as a baseline. Readers must manually compare 2020-2025 values against 2019 to judge recovery.
+The article's story depends on whether ridership has returned to pre-Covid-19 levels, but the 2019 row is not marked as the comparison baseline. At the same time, the strong 2025 row and faded earlier rows direct attention to the latest year while reducing the contrast needed for cross-year comparison. In the interactive version, the default first-row emphasis can also appear to encode a selected state before the reader hovers, even though it is only a display behaviour. These choices make the central 2019-to-2025 recovery comparison less clear than it should be.
 :::
 
 ::: {.critique-card .risk}
-#### <span class="critique-id risk-id">W2.</span> Stacked bars make MRT and LRT comparisons less direct
+#### <span class="critique-id risk-id">W2.</span> The stacked layout makes MRT and especially LRT difficult to compare
 
-In a stacked bar chart, only the first segment starts from a common baseline. Bus is easier to compare across years because it begins at the same left edge, while MRT and LRT begin after the preceding segments. This makes year-to-year comparison for MRT and LRT less precise.
+Only the first segment of a stacked bar begins from a common baseline, so bus is easier to compare across years than MRT or LRT. LRT is further disadvantaged because its values are much smaller: its segment is a thin end strip and has no direct value label. Consequently, even the 2024-to-2025 change from 210,000 to 209,000 rides is effectively unreadable from the plot alone.
 :::
 
 ::: {.critique-card .risk}
-#### <span class="critique-id risk-id">W3.</span> LRT is visually compressed and not directly labelled
-
-LRT ridership is much smaller than bus and MRT ridership, so its grey segment appears as a thin end strip. The chart also does not label LRT values directly, making the 2024 to 2025 change from 210,000 to 209,000 rides almost impossible to detect visually.
-:::
-
-::: {.critique-card .risk}
-#### <span class="critique-id risk-id">W4.</span> Recovery gaps and year-to-year changes are not calculated for the reader
+#### <span class="critique-id risk-id">W3.</span> Recovery gaps and year-to-year changes are not calculated for the reader
 
 The chart shows raw ridership values but does not show how far each mode is from its 2019 level or how values changed from year to year. Important comparisons, such as MRT being about 106,000 rides above 2019 while bus remains about 258,000 rides below 2019, have to be calculated separately by the reader.
 :::
 
 ::: {.critique-card .risk}
-#### <span class="critique-id risk-id">W5.</span> Changes in ridership share are hidden inside totals
+#### <span class="critique-id risk-id">W4.</span> Changes in ridership share are hidden inside totals
 
 The chart gives total ridership and mode values, but it does not directly show each mode's percentage share of total ridership. As a result, the shift from bus toward MRT is present in the data but not immediately visible.
-:::
-
-::: {.critique-card .risk}
-#### <span class="critique-id risk-id">W6.</span> Faded older rows and low contrast reduce precise comparison
-
-The stronger colour in the 2025 row successfully draws attention to the latest year, but the faded older rows make exact cross-year comparison harder. This also creates a readability and accessibility concern, especially for the small grey LRT segment, which is both small and low contrast.
 :::
 :::
 
 ::: {.recommendation-callout}
-**Redesign direction.** The improved visualization should retain strengths S1 to S4 while addressing weaknesses W1 to W6 through a clearer 2019 baseline comparison, easier mode-level reading, direct LRT labelling, recovery-gap metrics and visible changes in ridership share by transport mode. This will help readers see what has recovered, what remains below the pre-pandemic level, and how the balance between transport modes has changed.
+**Redesign direction.** The improved visualization should retain strengths S1 to S4 while addressing weaknesses W1 to W4 through a clear 2019 baseline, equal default emphasis across modes, common-baseline mode comparison, direct values, recovery metrics and visible changes in ridership share. This will help readers see what has recovered, what remains below the pre-pandemic level, and how the balance between transport modes has changed.
 :::
 
 # 3. Proposed Improvements
@@ -280,12 +268,10 @@ Interactivity will support the main chart without turning it into a dashboard. H
 
 | Weakness Addressed | Proposed Improvement | Method / Technique |
 |---|---|---|
-| <span class="critique-id risk-id">**W1, W4**</span> | Make the 2019 baseline explicit. The original chart includes 2019, but it does not clearly mark it as the reference year for judging recovery. The redesigned chart will make 2019 the starting baseline for all modes. | Use a recovery index where **2019 = 100**; add a horizontal reference line at 100; use endpoint labels to show whether 2025 is above or below the baseline. |
-| <span class="critique-id risk-id">**W2**</span> | Replace stacked segment comparison with common-baseline mode comparison. In the original stacked bar chart, bus is easier to compare than MRT and LRT because only bus starts from the same left edge. The improved chart will give each mode the same recovery-index baseline. | Use a line-and-point chart with year on the x-axis and recovery index on the y-axis; show bus, MRT and LRT as separate coloured lines. |
-| <span class="critique-id risk-id">**W3**</span> | Make LRT readable despite its small absolute size. In the original chart, LRT appears as a thin grey segment because its ridership is much smaller than bus and MRT. The redesigned chart will allow LRT to be read as its own trend instead of being visually compressed. | Show LRT as its own line on the indexed scale; add hover tooltip values and selected endpoint labels for exact LRT ridership. |
-| <span class="critique-id risk-id">**W4**</span> | Add computed recovery metrics instead of requiring manual calculation. The original chart shows raw ridership values, but it does not calculate how far each mode is from its 2019 level. | Derive recovery index, absolute gap from 2019 and percentage change from 2019; show these values in tooltips and selected annotations. |
-| <span class="critique-id risk-id">**W5**</span> | Show changes in ridership share by transport mode. The original chart contains the data needed to see that MRT's share increased while bus share decreased, but this pattern is hidden inside the stacked totals. | Calculate each mode's percentage share of total ridership; show share values in tooltips; optionally allow a same-chart metric toggle to display ridership share. |
-| <span class="critique-id risk-id">**W6**</span> | Improve readability and accessibility while preserving mode identity. The original chart uses strong colour for 2025 and faded colours for older years, which draws attention to the latest year but makes comparison harder. | Use consistent colour mapping for transport modes, stronger contrast, clearer labels and a colourblind-conscious palette. |
+| <span class="critique-id risk-id">**W1**</span> | Make the 2019 comparison explicit and remove the misleading default emphasis. | Use a recovery index where **2019 = 100**, add a reference line at 100, keep all three modes at equal opacity on load, and reserve highlighting for deliberate hover or focus. |
+| <span class="critique-id risk-id">**W2**</span> | Replace stacked segments with a common-baseline comparison that gives LRT equal visual status. | Use separate line-and-point series on the indexed scale; directly label the 2025 endpoints and show exact LRT values in the tooltip. |
+| <span class="critique-id risk-id">**W3**</span> | Calculate the recovery evidence instead of leaving arithmetic to the reader. | Derive recovery index, absolute gap from 2019, percentage change from 2019 and year-on-year change; expose these values in tooltips and annotations. |
+| <span class="critique-id risk-id">**W4**</span> | Make the shift in mode share inspectable without creating a dashboard. | Add a metric control to the same chart object so readers can switch between recovery index, absolute ridership and mode share. |
 
 ## 3.3 How the Single Chart Will Work
 
@@ -718,7 +704,7 @@ The planned analyses map directly to the proposed interactive recovery-index cha
 
 | Team Member | Tasks Done | Est. Hours |
 |---|---|---|
-| Thaw Zin Htun | To be confirmed by team |  |
+| Thaw Zin Htun | Created the initial Quarto proposal draft and repository scaffold; set up README, `.gitignore`, source QMD and rendered HTML files; built the custom CSS and View/theme-control JavaScript used in the HTML preview; prepared the first proposal structure for Sections 1 and 2; updated own team information; proofread the full proposal; checked source links, LTA reference values, local CSV calculations, task-distribution wording and rendered HTML consistency. | ~22 hrs |
 | Siyona Shailesh Naik | To be confirmed by team |  |
 | Wilson Teng Hao Feng | Refined proposal Sections 1 to 6; shaped the 2019 recovery story; revised chart critique, weakness IDs and redesign plan; checked LTA PDF/CSV sources; aligned Section 4 and 5 with the actual DataMall CSV structure; planned the data workflow, output schema, validation checks and analysis measures; supported Quarto formatting and render checks. | ~40 hrs |
 | Troy Ang | To be confirmed by team |  |

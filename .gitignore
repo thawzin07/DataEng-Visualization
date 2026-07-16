@@ -9,12 +9,6 @@ _freeze/
 .RData
 .Rproj.user/
 
-# Python local environment files
-.venv/
-venv/
-__pycache__/
-*.py[cod]
-
 # OS and editor noise
 .DS_Store
 Thumbs.db
