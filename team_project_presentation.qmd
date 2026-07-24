@@ -40,7 +40,7 @@ All five members will contribute to the oral presentation and audience Q&A.
 :::
 
 ::: {.notes}
-Suggested speaker: Thaw Zin Htun. Cover slides 1-5 in about 2 minutes 30 seconds, ending with the original chart.
+Suggested speaker: Thaw Zin Htun. Cover slides 1-4 in about 2 minutes. Introduce the team, hook the audience with the main finding, and introduce the original visual/story.
 :::
 
 ## The total returned; the mix changed {.unnumbered .balanced}
@@ -86,6 +86,8 @@ Our question: **How did recovery differ by mode, and what changed beneath the ne
 The central question remains consistent across every stage: **did all transport modes recover in the same way?**
 :::
 
+# Original Data Visualization and Story
+
 ## The original chart tells the broad recovery story {.balanced}
 
 :::: {.columns}
@@ -105,6 +107,12 @@ The central question remains consistent across every stage: **did all transport 
 ::::
 
 <p class="source-note">Sources: <a href="https://www.straitstimes.com/singapore/transport/more-people-used-mrt-in-2025-as-lrt-ridership-falls-bus-numbers-still-below-pre-covid-levels" target="_blank">The Straits Times article and graphic</a>; underlying values verified against the <a href="https://www.lta.gov.sg/content/dam/ltagov/who_we_are/statistics_and_publications/statistics/pdf/PT_Ridership_Yearly_2015-2025.pdf" target="_blank">LTA yearly ridership table</a>.</p>
+
+# Critiques and Proposed Improvements
+
+::: {.notes}
+Suggested speaker: Siyona Shailesh Naik. Cover slides 6-9 in about 2 minutes 15 seconds. Discuss the strengths, weaknesses, and how we plan to resolve them.
+:::
 
 ## Four strengths are worth preserving {.balanced}
 
@@ -131,10 +139,6 @@ The title, unit, legend, totals and source establish what is measured.
 
 ::: {.callout}
 The redesign should improve comparison without losing the original chart's compact overview and clear mode identity.
-:::
-
-::: {.notes}
-Suggested speaker: Siyona Shailesh Naik. Cover slides 6-10 in about 2 minutes 45 seconds, ending with the raw-data structure.
 :::
 
 ## Four weaknesses explain the redesign {.balanced}
@@ -173,6 +177,12 @@ Stacked totals conceal the shift from bus toward MRT.
 
 ::: {.callout}
 The redesign remains **one interactive chart**, consistent with the project brief. We retained the planned recovery-index view and metric control, but omitted the optional total line because it reduced mode-level readability; the total remains available in the surrounding evidence.
+:::
+
+# Data Curation and Sources
+
+::: {.notes}
+Suggested speaker: Wilson Teng Hao Feng. Cover slides 11-17 in about 3 minutes. Move briskly through the data curation and engineering pipeline steps.
 :::
 
 ## We use one official yearly dataset {.balanced}
@@ -249,9 +259,7 @@ One row represents one **year-mode observation**.
 No values are missing; the main quality safeguard is preserving units, meaning and traceability.
 :::
 
-::: {.notes}
-Suggested speaker: Wilson Teng Hao Feng. Cover slides 11-15 in about 3 minutes, ending with the reproducibility chain.
-:::
+# Data Engineering Workflow
 
 ## The pipeline is implemented from raw to chart-ready {.balanced}
 
@@ -344,6 +352,12 @@ Additional checks confirm the published 2025 values:
 
 :::
 ::::
+
+# Improved Visualization
+
+::: {.notes}
+Suggested speaker: Troy Ang. Cover slides 19-20 in about 1 minute 45 seconds. Present the final chart output and briefly explain how the design choices resolve the critiques.
+:::
 
 ## The improved chart makes recovery directly comparable {.balanced}
 
@@ -450,10 +464,6 @@ Additional checks confirm the published 2025 values:
 </script>
 ```
 
-::: {.notes}
-Suggested speaker: Troy Ang. Cover slides 16-20 in about 3 minutes 15 seconds. Demonstrate all three metric buttons, then return to Recovery index before continuing.
-:::
-
 ## Every redesign choice resolves a critique {.balanced .design-choices}
 
 ```{=html}
@@ -476,6 +486,12 @@ Suggested speaker: Troy Ang. Cover slides 16-20 in about 3 minutes 15 seconds. D
   </div>
 </div>
 ```
+
+# Data Analysis and Insights
+
+::: {.notes}
+Suggested speaker: Zayar. Cover slides 22-26 in about 2 minutes 45 seconds. Reveal the key insights we extracted and deliver the conclusion.
+:::
 
 ## Three analyses answer three distinct questions {.balanced}
 
@@ -545,10 +561,6 @@ The system recovered most rapidly in 2022, then shifted from broad rebound towar
 
 <p class="source-note">Source: LTA yearly ridership data; year-on-year percentages are calculated within each transport mode.</p>
 
-::: {.notes}
-Suggested speaker: Zayar. Cover slides 21-25 in about 2 minutes 30 seconds, state the conclusion clearly, then invite questions.
-:::
-
 ## What the data can - and cannot - establish {.balanced}
 
 **Supported by the dataset**
@@ -564,6 +576,8 @@ Suggested speaker: Zayar. Cover slides 21-25 in about 2 minutes 30 seconds, stat
 - Individual trip purpose, route, distance or passenger characteristics.
 
 The analysis is descriptive; causal explanations require additional evidence.
+
+# Conclusion
 
 ## Conclusion: recovery was strong, but uneven {.balanced}
 
