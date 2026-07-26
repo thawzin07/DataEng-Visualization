@@ -5,7 +5,7 @@ Team 12's project examines how Singapore's public transport ridership recovered 
 ## Final presentation
 
 - `team_project_presentation.html` - self-contained RevealJS presentation
-- `team_project_presentation_resources.zip` - forum-ready package containing the presentation, source code and data
+- `team12_final_presentation.zip` - forum-ready package containing the presentation, source code and data
 
 ## Repository structure
 
