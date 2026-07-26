@@ -2,7 +2,7 @@
 
 AAI1001 Data Engineering and Visualization - LAB-P1 Team 12
 
-This repository contains the Quarto proposal draft for the team project on Singapore public transport ridership recovery across bus, MRT, and LRT services.
+This folder archives the Quarto proposal and supporting files for the team project on Singapore public transport ridership recovery across bus, MRT and LRT services.
 
 ## Team
 
@@ -10,21 +10,23 @@ This repository contains the Quarto proposal draft for the team project on Singa
 - Siyona
 - Wilson
 - Troy
-- Zayar
+- Zayar Hpoun Myint
 
 ## Main Files
 
 - `team_project_proposal_draft.qmd` - editable Quarto source
 - `team_project_proposal_draft.html` - rendered browser version
 - `styles.css` - publication styling and responsive layout
-- `theme-controls.html` - Quarto include for document controls
-- `theme-controls.js` - light/dark mode and table-of-contents controls
+- `ChosenVisualization.png` - original visualization used in the proposal
+- `data/raw/` - archived yearly and monthly source data
+- `legacy-theme-controls/` - unused earlier theme-control files retained for history
 
 ## Render
 
 Install Quarto, then run:
 
 ```powershell
+cd proposal
 quarto render team_project_proposal_draft.qmd
 ```
 

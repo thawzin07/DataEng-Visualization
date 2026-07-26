@@ -1,5 +1,7 @@
 # Reproducing the RevealJS Presentation
 
+In this repository, the reproducibility bundle is stored under `submission_source/`. In the submitted ZIP, the contents of that folder appear directly at the archive root.
+
 ## Requirements
 
 - R 4.x
@@ -40,3 +42,5 @@ R performs the ingestion, validation and metric calculations. The small JavaScri
 ## Presenting
 
 Open `team_project_presentation.html` in Chrome or Edge. Use the arrow keys to navigate and press `F` for full screen. No local server or internet connection is required for the slides or interactive chart; internet access is only needed to open external source links.
+
+Before each of the five presentation rounds, return the interactive chart to **Recovery index** so every audience sees the intended default view.
